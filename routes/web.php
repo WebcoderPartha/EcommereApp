@@ -27,3 +27,17 @@ Route::get('/admin', 'Admin\LoginController@ShowLoginForm')->name('admin.login')
 Route::post('/admin', 'Admin\LoginController@login');
 Route::get('/admin/change/password', 'Admin\AdminController@ChangePassword')->name('admin.change.password');
 Route::put('/admin/change/password', 'Admin\AdminController@UpdatePassword')->name('admin.update.password');
+
+Route::middleware('auth:admin')->namespace('Admin\Category')->group(function (){
+    //Category
+    Route::get('/admin/categories', 'CategoryController@index')->name('admin.categories');
+    Route::post('/admin/categories', 'CategoryController@store')->name('admin.category.store');
+    Route::get('/admin/delete/category/{id}', 'CategoryController@destroy')->name('admin.delete.category');
+    Route::get('/admin/edit/category/{id}', 'CategoryController@edit')->name('admin.edit.category');
+    Route::put('/admin/edit/category/{id}', 'CategoryController@update')->name('admin.category.update');
+
+    // Brands
+    Route::get('/admin/brands', 'BrandController@index')->name('brands');
+    Route::post('/admin/brands', 'BrandController@store')->name('brands.store');
+    Route::get('/admin/delete/brand/{id}', 'BrandController@destroy')->name('delete.brand');
+});

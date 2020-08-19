@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Admin\Category;
 
-use App\Category;
+use App\Brand;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Yoeunes\Toastr\Facades\Toastr;
 
-
-class CategoryController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('admin.category.categories', compact('categories'));
+        $brands = Brand::all();
+        return view('admin.category.brands',compact('brands'));
     }
 
     /**
@@ -39,16 +39,29 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-           'category_name' => ['required', 'unique:categories']
+        $data = $request->validate([
+           'brand_name' => 'required|unique:brands',
+           'brand_logo' => 'required'
         ]);
+        $file = $request->file('brand_logo');
+        if ($file){
+            $brand_name = Str::of(Str::lower($request->brand_name))->slug('-');
+            $imgExtention = strtolower($file->getClientOriginalExtension());
+            $imgFullname = date('d-m-y').'-'.$brand_name.'.'.$imgExtention;
+            $upload_path = 'media/brand/';
+            $image_url = $upload_path.$imgFullname;
+            $file->move($upload_path, $imgFullname);
 
-        $category = new Category;
-        $category->category_name = $request->category_name;
-        $category->save();
-        Toastr::success($request->category_name. ' category added successfully.');
-        return redirect()->back();
+            $data['brand_logo'] = $image_url;
 
+            $brand = new Brand;
+            $brand->brand_name = $data['brand_name'];
+            $brand->brand_logo = $data['brand_logo'];
+            $brand->save();
+            Toastr::success($request->brand_name. ' brand added successfully.');
+            return redirect()->back();
+        }
+//        dd($request->all());
     }
 
     /**
@@ -70,8 +83,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::findOrFail($id);
-        return view('admin.category.edit-category', compact('category'));
+        //
     }
 
     /**
@@ -83,19 +95,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category = Category::findOrFail($id);
-        $this->validate($request,[
-           'category_name' => 'required|unique:categories,category_name,'.$category->id.',id'
-        ]);
-        $category->category_name = $request->category_name;
-        if ($category->isDirty('category_name')){
-            $category->save();
-            Toastr::success($request->category_name. ' category added successfully.');
-            return redirect()->route('admin.categories');
-        }else{
-            Toastr::warning('Nothing to update');
-            return redirect()->route('admin.categories');
-        }
+        //
     }
 
     /**
@@ -106,8 +106,14 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::findOrFail($id);
-        $category->delete();
-        return redirect()->back();
+        $brand = Brand::findOrFail($id);
+        $img_path = $brand->brand_logo;
+        if (file_exists($img_path)){
+            unlink($img_path);
+            $brand->delete();
+            Toastr::success($brand->brand_name. ' brand deleted successfully.');
+            return redirect()->back();
+        }
+
     }
 }
