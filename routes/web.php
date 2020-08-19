@@ -13,15 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
+
+//Frontend
+Route::get('/', 'PublicController@index')->name('frontent.home');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Admin Routes
 Route::get('/admin/dashboard', 'Admin\AdminController@index')->name('admin.dashboard');
 Route::get('/admin/dashboard/logout', 'Admin\AdminController@adminLogOut')->name('admin.logout');
 Route::get('/admin', 'Admin\LoginController@ShowLoginForm')->name('admin.login');
 Route::post('/admin', 'Admin\LoginController@login');
+Route::get('/admin/change/password', 'Admin\AdminController@ChangePassword')->name('admin.change.password');
+Route::put('/admin/change/password', 'Admin\AdminController@UpdatePassword')->name('admin.update.password');

@@ -38,6 +38,7 @@
 
     <!-- Starlight CSS -->
     <link rel="stylesheet" href="{{ asset('backend/css/starlight.css') }}">
+    @toastr_css
 </head>
 
 <body>
@@ -72,6 +73,7 @@
 <script src="{{ asset('backend/lib/jquery/jquery.js') }}"></script>
 <script src="{{ asset('backend/lib/popper.js/popper.js') }}"></script>
 <script src="{{ asset('backend/lib/bootstrap/bootstrap.js') }}"></script>
-
+@toastr_js
+@toastr_render
 </body>
 </html>
