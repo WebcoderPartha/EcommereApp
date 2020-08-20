@@ -4,8 +4,8 @@
     <div class="sl-mainpanel">
         <nav class="breadcrumb sl-breadcrumb">
             <a class="breadcrumb-item" href="{{ route('admin.dashboard') }}">Dashboard</a>
-            <a class="breadcrumb-item" href="{{ route('admin.categories') }}">Category</a>
-            <span class="breadcrumb-item active">Categories</span>
+            <a class="breadcrumb-item" href="{{ route('brands') }}">Brands</a>
+            <span class="breadcrumb-item active">Edit Brand</span>
         </nav>
 
         <div class="sl-pagebody">
@@ -17,14 +17,22 @@
                                 <h5 class="text-white">Edit Category</h5>
                             </div><!-- card-header -->
                             <div class="card-body bd bd-t-0 rounded-bottom">
-                                <form method="POST" action="{{ route('admin.category.update', $category->id) }}">
+                                <form method="POST" action="{{ route('update.brand', $brand->id) }}" enctype="multipart/form-data">
                                     @csrf @method('PUT')
                                     <div class="form-group">
-                                        <label for="category_name">Category Name</label>
-                                        <input type="text" value="{{ $category->category_name }}" class="form-control @error('category_name') is-invalid @enderror" id="category_name" name="category_name" placeholder="Category name">
-                                        @error('category_name')
+                                        <label for="brand_name">Brand Name</label>
+                                        <input type="text" value="{{ $brand->brand_name }}" class="form-control @error('brand_name') is-invalid @enderror" id="brand_name" name="brand_name" placeholder="Brand name">
+                                        @error('brand_name')
                                         <span class="invalid-feedback">{{ $message }}</span>
                                         @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="brand_logo">Brand Logo</label>
+                                        <input type="file" class="form-control-file mb-4 @error('brand_logo') is-invalid @enderror" id="brand_logo" name="brand_logo">
+                                        @error('brand_logo')
+                                        <span class="invalid-feedback">{{ $message }}</span>
+                                        @enderror
+                                        <img src="{{ asset($brand->brand_logo) }}" alt="" height="100">
                                     </div>
                                     <!-- modal-body -->
                                     <button type="submit" class="btn btn-primary">Save</button>

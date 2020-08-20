@@ -28,16 +28,59 @@ Route::post('/admin', 'Admin\LoginController@login');
 Route::get('/admin/change/password', 'Admin\AdminController@ChangePassword')->name('admin.change.password');
 Route::put('/admin/change/password', 'Admin\AdminController@UpdatePassword')->name('admin.update.password');
 
+
+// Backend Routes
 Route::middleware('auth:admin')->namespace('Admin\Category')->group(function (){
-    //Category
+    // Category
     Route::get('/admin/categories', 'CategoryController@index')->name('admin.categories');
     Route::post('/admin/categories', 'CategoryController@store')->name('admin.category.store');
     Route::get('/admin/delete/category/{id}', 'CategoryController@destroy')->name('admin.delete.category');
     Route::get('/admin/edit/category/{id}', 'CategoryController@edit')->name('admin.edit.category');
     Route::put('/admin/edit/category/{id}', 'CategoryController@update')->name('admin.category.update');
 
+    // Sub Category
+    Route::get('/admin/category/sub-category', 'SubCategoryController@index')->name('subcategory.list');
+    Route::post('/admin/category/sub-category', 'SubCategoryController@store')->name('subcategory.store');
+    Route::get('/admin/category/edit/sub-category/{id}', 'SubCategoryController@edit')->name('subcategory.edit');
+    Route::put('/admin/category/update/sub-category/{id}', 'SubCategoryController@update')->name('subcategory.update');
+    Route::get('/admin/category/delete/sub-category/{id}', 'SubCategoryController@destroy')->name('subcategory.delete');
+
+
     // Brands
     Route::get('/admin/brands', 'BrandController@index')->name('brands');
     Route::post('/admin/brands', 'BrandController@store')->name('brands.store');
     Route::get('/admin/delete/brand/{id}', 'BrandController@destroy')->name('delete.brand');
+    Route::get('/admin/edit/brand/{id}', 'BrandController@edit')->name('edit.brand');
+    Route::put('/admin/edit/brand/{id}', 'BrandController@update')->name('update.brand');
+
+    // Coupons
+    Route::get('/admin/coupons', 'CouponController@index')->name('coupons.list');
+    Route::post('/admin/coupons', 'CouponController@store')->name('coupons.store');
+    Route::get('/admin/coupons/edit/{id}', 'CouponController@edit')->name('coupons.edit');
+    Route::put('/admin/coupons/edit/{id}', 'CouponController@update')->name('coupons.update');
+    Route::get('/admin/delete/coupon/{id}', 'CouponController@destroy')->name('coupons.destroy');
+
+});
+
+Route::middleware('auth:admin')->namespace('Admin')->group(function (){
+
+    // Newsletters
+    Route::get('/admin/newsletters/', 'NewletterController@index')->name('admin.newsletter');
+    Route::get('/admin/newsletters/{id}', 'NewletterController@destroy')->name('admin.newsletter.delete');
+
+});
+
+// Backend All Products Routes
+Route::middleware('auth:admin')->namespace('Admin\Product')->group(function (){
+    Route::get('/admin/product/all', 'ProductController@index')->name('admin.product.all');
+    Route::get('/admin/product/new', 'ProductController@create')->name('admin.create.product');
+
+});
+
+
+// ALL FRONTEND ROUTES
+Route::namespace('Frontend')->group(function (){
+
+    Route::post('/subcriber', 'NewsletterController@Store')->name('subscriber.store');
+
 });

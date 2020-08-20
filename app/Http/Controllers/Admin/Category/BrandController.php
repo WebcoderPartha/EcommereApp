@@ -47,7 +47,7 @@ class BrandController extends Controller
         if ($file){
             $brand_name = Str::of(Str::lower($request->brand_name))->slug('-');
             $imgExtention = strtolower($file->getClientOriginalExtension());
-            $imgFullname = date('d-m-y').'-'.$brand_name.'.'.$imgExtention;
+            $imgFullname = date('d-m-Y').'-'.$brand_name.'.'.$imgExtention;
             $upload_path = 'media/brand/';
             $image_url = $upload_path.$imgFullname;
             $file->move($upload_path, $imgFullname);
@@ -83,7 +83,8 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        //
+        $brand = Brand::findOrFail($id);
+        return view('admin.category.edit-brand', compact('brand'));
     }
 
     /**
@@ -95,7 +96,37 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $brand_id = Brand::findOrFail($id);
+        $data = $request->validate([
+            'brand_name' => 'required|unique:brands,brand_name,'.$brand_id->id.',id'
+        ]);
+
+            $file = $request->file('brand_logo');
+            if ($file){
+                $brand = Brand::findOrFail($id);
+                unlink($brand->brand_logo);
+                $brand_name = Str::of(Str::lower($request->brand_name))->slug('-');
+                $imgExtention = strtolower($file->getClientOriginalExtension());
+                $imgFullname = date('d-m-Y').'-'.$brand_name.'.'.$imgExtention;
+                $upload_path = 'media/brand/';
+                $image_url = $upload_path.$imgFullname;
+                $file->move($upload_path, $imgFullname);
+
+                $data['brand_logo'] = $image_url;
+                $brand->brand_name = $data['brand_name'];
+                $brand->brand_logo = $data['brand_logo'];
+                $brand->save();
+                Toastr::success($request->brand_name. ' brand updated with logo successfully.');
+                return redirect()->route('brands');
+            }else{
+                $brand = Brand::findOrFail($id);
+                $brand->brand_name = $data['brand_name'];
+                $brand->save();
+                Toastr::success($request->brand_name. ' brand updated without logo successfully.');
+                return redirect()->route('brands');
+            }
+
+
     }
 
     /**

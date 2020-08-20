@@ -23,50 +23,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2141fe9-b887-4321-b185-bf0f7b896b40" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/backend/app/accordion.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/alerts.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/blank.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/buttons.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/cards.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/chart-chartjs.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/chart-flot.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/chart-morris.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/chart-rickshaw.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/chart-sparkline.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/form-editor-text.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/form-elements.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/form-layouts.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/form-validation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/form-wizards.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/icons.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/mailbox.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/map-google.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/map-vector.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/modal.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/navigation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/page-notfound.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/page-signin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/page-signup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/pagination.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/popups.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/progress.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/spinners.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/table-basic.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/table-datatable.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/typography.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/backend/app/widgets.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/brand/19-08-20-asus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/category/brands.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/category/categories.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/category/edit-category.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/main-nav.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Coupon.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Category/CouponController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/NewletterController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Product/ProductController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/NewsletterController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Newsletter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_20_174238_create_coupons_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_20_192430_create_newsletters_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_20_214105_create_products_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/brand/20-08-20-dell.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/category/edit-brand.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/category/edit-subcategory.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/category/sub-category.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/coupon/coupon.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/coupon/edit-coupon.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/newsletters/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/product/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Category/Brand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Category/BrandController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Category/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Category/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Category/BrandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Category/BrandController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Category/SubCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Category/SubCategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/SubCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/SubCategory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/admin-master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/admin-master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/category/brands.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category/brands.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/category/categories.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category/categories.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/category/edit-category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category/edit-category.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -215,6 +199,8 @@
       <workItem from="1597689578179" duration="9138000" />
       <workItem from="1597780359650" duration="24542000" />
       <workItem from="1597859995835" duration="16709000" />
+      <workItem from="1597917463148" duration="1308000" />
+      <workItem from="1597919432932" duration="27969000" />
     </task>
     <servers />
   </component>
@@ -249,9 +235,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="553" y="115" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1597837855513" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1597879348954">
+    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup" timestamp="1597962167117">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1597879348954" />
+    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1597962167117" />
   </component>
 </project>

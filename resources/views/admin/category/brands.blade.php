@@ -3,7 +3,7 @@
     <!-- ########## START: MAIN PANEL ########## -->
     <div class="sl-mainpanel">
         <nav class="breadcrumb sl-breadcrumb">
-            <a class="breadcrumb-item" href="{{ route('admin.dashboard') }}">Admin</a>
+            <a class="breadcrumb-item" href="{{ route('admin.dashboard') }}">Dashboard</a>
             <a class="breadcrumb-item" href="{{ route('brands') }}">Brands</a>
             <span class="breadcrumb-item active">Brands</span>
         </nav>
@@ -32,7 +32,7 @@
                                 <td>{{ $brand->brand_name }}</td>
                                 <td><img src="{{ asset($brand->brand_logo) }}" height="60" alt=""></td>
                                 <td>
-                                    <a href="" class="btn btn-info">Edit</a>
+                                    <a href="{{ route('edit.brand', $brand->id) }}" class="btn btn-info">Edit</a>
                                     <a href="{{ route('delete.brand', $brand->id) }}" class="btn btn-danger" id="delete">Delete</a>
                                 </td>
                             </tr>

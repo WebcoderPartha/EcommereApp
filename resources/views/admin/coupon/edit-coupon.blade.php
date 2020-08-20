@@ -4,8 +4,8 @@
     <div class="sl-mainpanel">
         <nav class="breadcrumb sl-breadcrumb">
             <a class="breadcrumb-item" href="{{ route('admin.dashboard') }}">Dashboard</a>
-            <a class="breadcrumb-item" href="{{ route('admin.categories') }}">Category</a>
-            <span class="breadcrumb-item active">Categories</span>
+            <a class="breadcrumb-item" href="{{ route('coupons.list') }}">Coupons</a>
+            <span class="breadcrumb-item active">Edit Coupon</span>
         </nav>
 
         <div class="sl-pagebody">
@@ -17,17 +17,24 @@
                                 <h5 class="text-white">Edit Category</h5>
                             </div><!-- card-header -->
                             <div class="card-body bd bd-t-0 rounded-bottom">
-                                <form method="POST" action="{{ route('admin.category.update', $category->id) }}">
+                                <form method="POST" action="{{ route('coupons.update', $coupon->id) }}">
                                     @csrf @method('PUT')
                                     <div class="form-group">
-                                        <label for="category_name">Category Name</label>
-                                        <input type="text" value="{{ $category->category_name }}" class="form-control @error('category_name') is-invalid @enderror" id="category_name" name="category_name" placeholder="Category name">
-                                        @error('category_name')
+                                        <label for="coupon">Coupon Code</label>
+                                        <input type="text" value="{{ $coupon->coupon }}" class="form-control @error('coupon') is-invalid @enderror" id="coupon" name="coupon" placeholder="Coupon code">
+                                        @error('coupon')
+                                        <span class="invalid-feedback">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="discount">Discount (%)</label>
+                                        <input type="text" value="{{ $coupon->discount }}" class="form-control @error('discount') is-invalid @enderror" id="discount" name="discount" placeholder="Discount percentage">
+                                        @error('discount')
                                         <span class="invalid-feedback">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <!-- modal-body -->
-                                    <button type="submit" class="btn btn-primary">Save</button>
+                                    <button type="submit" class="btn btn-primary">Update</button>
                                     <a href="{{ route('admin.dashboard') }}" class="btn btn-warning pull-right">Cancel</a>
                                 </form>
                             </div><!-- card-body -->

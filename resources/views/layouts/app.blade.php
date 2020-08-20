@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/plugins/slick-1.8.0/slick.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/main_styles.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/responsive.css') }}">
+    @toastr_css
 
 </head>
 
@@ -87,9 +88,10 @@
                             <div class="newsletter_text"><p>...and receive %20 coupon for first shopping.</p></div>
                         </div>
                         <div class="newsletter_content clearfix">
-                            <form action="#" class="newsletter_form">
-                                <input type="email" class="newsletter_input" required="required" placeholder="Enter your email address">
-                                <button class="newsletter_button">Subscribe</button>
+                            <form action="{{ route('subscriber.store') }}" method="POST" class="newsletter_form">
+                                @csrf
+                                <input type="email" name="email" class="newsletter_input" required placeholder="Enter your email address" >
+                                <button class="newsletter_button" type="submit">Subscribe</button>
                             </form>
                             <div class="newsletter_unsubscribe_link"><a href="#">unsubscribe</a></div>
                         </div>
@@ -215,6 +217,8 @@
 <script src="{{ asset('frontend/plugins/slick-1.8.0/slick.js') }}"></script>
 <script src="{{ asset('frontend/plugins/easing/easing.js') }}"></script>
 <script src="{{ asset('frontend/js/custom.js') }}"></script>
+@toastr_js
+@toastr_render
 </body>
 
 </html>
