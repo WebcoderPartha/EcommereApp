@@ -35,11 +35,14 @@
     <link href="{{ asset('backend/lib/Ionicons/css/ionicons.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/lib/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/lib/highlightjs/github.css') }}" rel="stylesheet">
+    <link href="{{ asset('backend/lib/medium-editor/medium-editor.css') }}" rel="stylesheet">
+    <link href="{{ asset('backend/lib/medium-editor/default.css') }}" rel="stylesheet">
+    <link href="{{ asset('backend/lib/summernote/summernote-bs4.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/lib/datatables/jquery.dataTables.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/lib/select2/css/select2.min.css') }}" rel="stylesheet"{{ asset('backend') }}
     <link href="{{ asset('backend/lib/rickshaw/rickshaw.min.css') }}" rel="stylesheet">
+    @yield('css_link')
     @toastr_css
-
     <!-- Starlight CSS -->
     <link rel="stylesheet" href="{{ asset('backend/css/starlight.css') }}">
 
@@ -311,6 +314,23 @@
 <script src="{{ asset('backend/lib/jquery-ui/jquery-ui.js') }}"></script>
 <script src="{{ asset('backend/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js') }}"></script>
 <script src="{{ asset('backend/lib/highlightjs/highlight.pack.js') }}"></script>
+<script src="{{ asset('backend/lib/medium-editor/medium-editor.js') }}"></script>
+<script src="{{ asset('backend/lib/summernote/summernote-bs4.min.js') }}"></script>
+<script>
+    $(function(){
+        'use strict';
+
+        // Inline editor
+        var editor = new MediumEditor('.editable');
+
+        // Summernote editor
+        $('#summernote').summernote({
+            height: 150,
+            tooltip: false
+        })
+    });
+</script>
+
 <script src="{{ asset('backend/lib/datatables/jquery.dataTables.js') }}"></script>
 <script src="{{ asset('backend/lib/datatables-responsive/dataTables.responsive.js') }}"></script>
 <script src="{{ asset('backend/lib/select2/js/select2.min.js') }}"></script>
@@ -338,6 +358,7 @@
 
     });
 </script>
+@yield('custom_scripts')
 
 <script src="{{ asset('backend/lib/jquery.sparkline.bower/jquery.sparkline.min.js') }}"></script>
 <script src="{{ asset('backend/lib/d3/d3.js') }}"></script>
@@ -351,6 +372,7 @@
 <script src="{{ asset('backend/js/ResizeSensor.js') }}"></script>
 <script src="{{ asset('backend/js/dashboard.js') }}"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+@yield('scripts_link')
 <script>
     $(document).on('click', '#delete', function (e){
         e.preventDefault();
@@ -374,6 +396,7 @@
             });
     });
 </script>
+@yield('scripts')
 @toastr_js
 @toastr_render
 </body>
