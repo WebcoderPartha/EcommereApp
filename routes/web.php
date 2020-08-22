@@ -75,6 +75,10 @@ Route::middleware('auth:admin')->namespace('Admin\Product')->group(function (){
     Route::get('/admin/product/all', 'ProductController@index')->name('admin.product.all');
     Route::get('/admin/product/new', 'ProductController@create')->name('admin.create.product');
     Route::post('/admin/product/store', 'ProductController@store')->name('admin.product.store');
+    Route::get('/admin/product/edit/{id}', 'ProductController@edit')->name('admin.product.edit');
+    Route::post('/admin/product/edit/{id}', 'ProductController@update')->name('admin.product.update');
+    Route::get('/admin/product/delete/{id}', 'ProductController@destory')->name('admin.product.destroy');
+
     // Get Subcategory AJAX
     Route::get('/admin/get/subcategory/{category_id}', 'ProductController@getSubcategory')->name('get.subcategories');
 

@@ -30,7 +30,7 @@
                             <tr>
                                 <td>{{ $key + 1 }}</td>
                                 <td>{{ $sub_category->subcategory_name }}</td>
-                                <td>{{ $sub_category->category->category_name }}</td>
+                                <td>{{ $sub_category->category ? $sub_category->category->category_name : 'Uncategorized' }}</td>
                                 <td>
                                     <a href="{{ route('subcategory.edit', $sub_category->id) }}" class="btn btn-info">Edit</a>
                                     <a href="{{ route('subcategory.delete', $sub_category->id) }}" class="btn btn-danger" id="delete">Delete</a>

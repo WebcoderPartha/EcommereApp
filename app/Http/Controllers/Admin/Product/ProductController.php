@@ -22,8 +22,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = Product::all();
-        return view('admin.product.index', compact('product'));
+        $products = Product::with(['category', 'brand', 'subcategory'])->get();
+//        return response()->json($products);
+
+        return view('admin.product.index', compact('products'));
+
     }
     // SubCategory AJAX
     public function getSubcategory($category_id){
@@ -118,8 +121,6 @@ class ProductController extends Controller
 
 
        }
-
-
 
 
     }

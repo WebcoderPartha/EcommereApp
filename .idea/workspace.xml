@@ -23,18 +23,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2141fe9-b887-4321-b185-bf0f7b896b40" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/image.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/product/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ecommerce.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ecommerce.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675684825951387-hp-paviliondf.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675684826058751-hp-paviliondf.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675684826092342-hp-paviliondf.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Brand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Brand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Product/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Product/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/admin-master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/admin-master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/SubCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/SubCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/category/sub-category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category/sub-category.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -188,7 +186,7 @@
       <workItem from="1597919432932" duration="34684000" />
       <workItem from="1597970428040" duration="11000" />
       <workItem from="1597970486977" duration="10000" />
-      <workItem from="1598008432819" duration="17424000" />
+      <workItem from="1598008432819" duration="22935000" />
     </task>
     <servers />
   </component>
@@ -223,13 +221,13 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="553" y="115" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1597837855513" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1598035772095">
+    <state x="425" y="187" key="run.anything.popup" timestamp="1598060676650">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1598035772095" />
-    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup" timestamp="1598040391268">
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1598060676650" />
+    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup" timestamp="1598058500161">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598040391268" />
+    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598058500161" />
   </component>
 </project>
