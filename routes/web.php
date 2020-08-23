@@ -72,6 +72,7 @@ Route::middleware('auth:admin')->namespace('Admin')->group(function (){
 
 // Backend All Products Routes
 Route::middleware('auth:admin')->namespace('Admin\Product')->group(function (){
+
     Route::get('/admin/product/all', 'ProductController@index')->name('admin.product.all');
     Route::get('/admin/product/new', 'ProductController@create')->name('admin.create.product');
     Route::post('/admin/product/store', 'ProductController@store')->name('admin.product.store');
@@ -80,13 +81,32 @@ Route::middleware('auth:admin')->namespace('Admin\Product')->group(function (){
     Route::put('/admin/product/edit/{id}', 'ProductController@update')->name('admin.product.update');
     Route::get('/admin/product/delete/{id}', 'ProductController@destroy')->name('admin.product.destroy');
 
-
     // Product Active Button
     Route::get('/admin/product/active/{id}', 'ProductController@active_product')->name('product.active');
     // Product Inactive Button
     Route::get('/admin/product/inactive/{id}', 'ProductController@inactive_product')->name('product.inactive');
     // Get Subcategory AJAX
     Route::get('/admin/get/subcategory/{category_id}', 'ProductController@getSubcategory')->name('get.subcategories');
+
+});
+
+// Backend Post & Post Category
+Route::middleware('auth:admin')->namespace('Admin')->group(function (){
+
+    // Post
+    Route::get('/admin/blog/all', 'PostController@index')->name('admin.blog.list');
+    Route::get('/admin/blog/post/add', 'PostController@create')->name('admin.post.create');
+    Route::post('/admin/blog/post/store', 'PostController@store')->name('admin.post.store');
+    Route::get('/admin/blog/post/edit/{id}', 'PostController@edit')->name('admin.post.edit');
+    Route::put('/admin/blog/post/edit/{id}', 'PostController@update')->name('admin.post.update');
+    Route::get('/admin/blog/post/delete/{id}', 'PostController@destroy')->name('admin.post.destroy');
+
+    // Category
+    Route::get('/admin/blog/category/all', 'PostCategoryController@index')->name('admin.blog.category.list');
+    Route::post('/admin/blog/category/store', 'PostCategoryController@store')->name('admin.blog.category.store');
+    Route::get('/admin/blog/category/edit/{id}', 'PostCategoryController@edit')->name('admin.blog.category.edit');
+    Route::put('/admin/blog/category/edit/{id}', 'PostCategoryController@update')->name('admin.blog.category.update');
+    Route::get('/admin/blog/category/delete/{id}', 'PostCategoryController@destroy')->name('admin.blog.category.destroy');
 
 });
 

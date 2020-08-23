@@ -96,6 +96,18 @@
         <a href="#" class="sl-menu-link">
             <div class="sl-menu-item">
                 <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
+                <span class="menu-item-label">Blog</span>
+                <i class="menu-item-arrow fa fa-angle-down"></i>
+            </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <ul class="sl-menu-sub nav flex-column">
+            <li class="nav-item"><a href="{{ route('admin.post.create') }}" class="nav-link">Add Post</a></li>
+            <li class="nav-item"><a href="{{ route('admin.blog.list') }}" class="nav-link">Post List</a></li>
+            <li class="nav-item"><a href="{{ route('admin.blog.category.list') }}" class="nav-link">Category List</a></li>
+        </ul>
+        <a href="#" class="sl-menu-link">
+            <div class="sl-menu-item">
+                <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
                 <span class="menu-item-label">Others</span>
                 <i class="menu-item-arrow fa fa-angle-down"></i>
             </div><!-- menu-item -->
@@ -103,6 +115,7 @@
         <ul class="sl-menu-sub nav flex-column">
             <li class="nav-item"><a href="{{ route('admin.newsletter') }}" class="nav-link">Newsletters</a></li>
         </ul>
+
 
     </div><!-- sl-sideleft-menu -->
 
@@ -339,19 +352,9 @@
         'use strict';
 
         $('#datatable1').DataTable({
-            responsive: true,
-            language: {
-                searchPlaceholder: 'Search...',
-                sSearch: '',
-                lengthMenu: '_MENU_ items/page',
-            }
+            bLengthChange: true
         });
-
-        $('#datatable2').DataTable({
-            bLengthChange: false,
-            searching: false,
-            responsive: true
-        });
+        $('#post_table').DataTable();
 
         // Select2
         $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });

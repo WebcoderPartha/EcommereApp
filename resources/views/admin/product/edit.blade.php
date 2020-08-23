@@ -92,7 +92,7 @@
                                     </select>
                                 </div>
                             </div><!-- col-4 -->
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="form-group">
                                     <label for="product_size" class="form-control-label">Product Size: <span class="tx-danger">*</span></label>
                                     <input class="form-control @error('product_size') is-invalid @enderror" type="text" value="{{ $product->product_size }}" name="product_size" id="product_size" placeholder="Enter product size" data-role="tagsinput">
@@ -100,8 +100,8 @@
                                     <span class="invalid-feedback">{{ $message }}</span>
                                     @enderror
                                 </div>
-                            </div><!-- col-4 -->
-                            <div class="col-lg-4">
+                            </div><!-- col-3 -->
+                            <div class="col-lg-3">
                                 <div class="form-group">
                                     <label for="product_color" class="form-control-label">Product Color: <span class="tx-danger">*</span></label>
                                     <input class="form-control @error('product_color') is-invalid @enderror" type="text" name="product_color" id="product_color" placeholder="Enter product color" value="{{ $product->product_color }}" data-role="tagsinput">
@@ -109,8 +109,8 @@
                                     <span class="invalid-feedback">{{ $message }}</span>
                                     @enderror
                                 </div>
-                            </div><!-- col-4 -->
-                            <div class="col-lg-4">
+                            </div><!-- col-3 -->
+                            <div class="col-lg-3">
                                 <div class="form-group">
                                     <label for="selling_prize" class="form-control-label">Selling Price: <span class="tx-danger">*</span></label>
                                     <input class="form-control @error('selling_prize') is-invalid @enderror" type="text" name="selling_prize" id="selling_prize"  value="{{ $product->selling_prize }}" placeholder="Enter selling price">
@@ -118,7 +118,16 @@
                                     <span class="invalid-feedback">{{ $message }}</span>
                                     @enderror
                                 </div>
-                            </div><!-- col-4 -->
+                            </div><!-- col-3 -->
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="discount_price" class="form-control-label">Discount Price: <span class="tx-danger">*</span></label>
+                                    <input class="form-control @error('discount_price') is-invalid @enderror" type="text" name="discount_price" id="discount_price"  value="{{ $product->discount_price }}" placeholder="Enter discount price">
+                                    @error('discount_price')
+                                    <span class="invalid-feedback">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div><!-- col-3 -->
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="summernote" class="form-control-label">Product Details: <span class="tx-danger">*</span></label>

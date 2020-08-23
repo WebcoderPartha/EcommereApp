@@ -52,6 +52,7 @@ class ProductController extends Controller
            'product_details' => 'required',
            'product_color' => 'required',
            'selling_prize' => 'required',
+           'discount_price' => 'required',
            'image_one' => 'required',
            'image_two' => 'required',
            'image_three' => 'required',
@@ -68,6 +69,7 @@ class ProductController extends Controller
        $data['product_color'] = $request->product_color;
        $data['product_size'] = $request->product_size;
        $data['selling_prize'] = $request->selling_prize;
+       $data['discount_price'] = $request->discount_price;
        $data['video_link'] = $request->video_link;
        $data['main_slider'] = $request->main_slider;
        $data['hot_deal'] = $request->hot_deal;
@@ -103,7 +105,7 @@ class ProductController extends Controller
            Product::create($data);
 
            Toastr::success('Product added successfully');
-           return redirect()->back();
+           return redirect()->route('admin.product.all');
 
 
        }
@@ -143,6 +145,7 @@ class ProductController extends Controller
             'product_details' => 'required',
             'product_color' => 'required',
             'selling_prize' => 'required',
+            'discount_price' => 'required',
             'status' => 'required',
         ]);
 
@@ -157,6 +160,7 @@ class ProductController extends Controller
         $product['product_color'] = $request->product_color;
         $product['product_size'] = $request->product_size;
         $product['selling_prize'] = $request->selling_prize;
+        $product['discount_price'] = $request->discount_price;
         $product['video_link'] = $request->video_link;
         $product['main_slider'] = $request->main_slider;
         $product['hot_deal'] = $request->hot_deal;
@@ -224,10 +228,19 @@ class ProductController extends Controller
 
         }
 
-        $product->save();
+        if ($product->isDirty('category_id') || $product->isDirty('subcategory_id') || $product->isDirty('brand_id') || $product->isDirty('product_name') || $product->isDirty('product_code') || $product->isDirty('product_quantity') || $product->isDirty('product_details') || $product->isDirty('product_color') || $product->isDirty('product_size') || $product->isDirty('selling_prize') || $product->isDirty('discount_price') || $product->isDirty('main_slider') || $product->isDirty('hot_deal') || $product->isDirty('best_rated') || $product->isDirty('mid_slider') || $product->isDirty('hot_new') || $product->isDirty('trend') || $product->isDirty('status') || $product->isDirty('image_one') || $product->isDirty('image_two') || $product->isDirty('image_three') || $product->isDirty('name')){
 
-        Toastr::success('Product updated successfully');
-        return redirect()->back();
+            $product->save();
+
+            Toastr::success('Product updated successfully');
+            return redirect()->route('admin.product.all');
+
+        }else{
+
+            Toastr::warning('Product not updated');
+            return redirect()->route('admin.product.all');
+
+        }
 
     }
 
@@ -238,7 +251,7 @@ class ProductController extends Controller
         $product->save();
 
         Toastr::success('Product active successfully');
-        Return redirect()->back();
+        return redirect()->back();
 
     }
 
@@ -249,7 +262,7 @@ class ProductController extends Controller
         $product->save();
 
         Toastr::success('Product inactive successfully');
-        Return redirect()->back();
+        return redirect()->back();
 
     }
 

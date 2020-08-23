@@ -19,7 +19,7 @@
                     <table id="datatable1" class="table display responsive nowrap">
                         <thead>
                         <tr>
-                            <th class="wd-15p">Code</th>
+                            <th class="wd-15p">Product Code</th>
                             <th class="wd-15p">Product Name</th>
                             <th class="wd-15p">Image</th>
                             <th class="wd-15p">Category</th>
@@ -47,7 +47,7 @@
                                     <span class="badge badge-danger">Inactive</span>
                                 @endif
                                 </td>
-                                <td>
+                                <th class="action">
                                     <a href="{{ route('admin.product.edit', $product->id) }}" class="btn btn-info" title="Edit"><i class="fa fa-edit"></i></a>
                                     <a href="{{ route('admin.product.destroy', $product->id) }}" class="btn btn-danger" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
                                     <a href="{{ route('admin.product.show', $product->id) }}" class="btn btn-warning" title="Show" title="Show"><i class="fa fa-eye"></i></a>
@@ -56,7 +56,7 @@
                                 @else
                                     <a href="{{ route('product.active', $product->id) }}" class="btn btn-info" title="Active"><i class="fa fa-thumbs-up"></i></a>
                                 @endif
-                                </td>
+                                </th>
                             </tr>
                         @endforeach
                         </tbody>
