@@ -390,9 +390,9 @@
             .then((willDelete) => {
                 if (willDelete) {
                     window.location.href = link;
-                    swal("Deleted successfully.", {
-                        icon: "success",
-                    });
+                    // swal("Deleted successfully.", {
+                    //     icon: "success",
+                    // });
                 } else {
                     swal("Data safe!");
                 }

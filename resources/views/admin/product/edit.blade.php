@@ -242,7 +242,7 @@
                     </div><!-- form layout -->
                     <div class="form-layout-footer mt-2">
                         <button class="btn btn-info mg-r-5">Update Product</button>
-                        <button class="btn btn-secondary">Cancel</button>
+                        <a href="{{ route('admin.product.all') }}" class="btn btn-secondary">Cancel</a>
                     </div><!-- form-layout-footer -->
                 </form>
             </div><!-- card -->

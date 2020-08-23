@@ -10,11 +10,11 @@
 
         <div class="sl-pagebody">
             <div class="sl-page-title">
-                <h5>Category Table</h5>
+                <h5>Subcategory Table</h5>
             </div><!-- sl-page-title -->
 
             <div class="card pd-20 pd-sm-40">
-                <h5>Category List <a href="#" class="btn btn-sm btn-warning pull-right" data-toggle="modal" data-target="#modaldemo3">Add New</a></h5>
+                <h5>SubCategory List <a href="#" class="btn btn-sm btn-warning pull-right" data-toggle="modal" data-target="#modaldemo3">Add New</a></h5>
                 <div class="table-wrapper">
                     <table id="datatable1" class="table display responsive nowrap">
                         <thead>

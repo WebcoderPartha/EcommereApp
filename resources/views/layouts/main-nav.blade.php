@@ -1,3 +1,9 @@
+@php
+    use App\Category;
+    use App\SubCategory;
+    $categories = Category::all();
+@endphp
+
 <div class="header_main">
     <div class="container">
         <div class="row">
@@ -21,12 +27,9 @@
                                         <span class="custom_dropdown_placeholder clc">All Categories</span>
                                         <i class="fas fa-chevron-down"></i>
                                         <ul class="custom_list clc">
-                                            <li><a class="clc" href="#">All Categories</a></li>
-                                            <li><a class="clc" href="#">Computers</a></li>
-                                            <li><a class="clc" href="#">Laptops</a></li>
-                                            <li><a class="clc" href="#">Cameras</a></li>
-                                            <li><a class="clc" href="#">Hardware</a></li>
-                                            <li><a class="clc" href="#">Smartphones</a></li>
+                                            @foreach($categories as $category)
+                                            <li><a class="clc" href="#">{{ $category->category_name }}</a></li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>
@@ -85,31 +88,23 @@
                         </div>
 
                         <ul class="cat_menu">
-                            <li><a href="#">Computers & Laptops <i class="fas fa-chevron-right ml-auto"></i></a></li>
-                            <li><a href="#">Cameras & Photos<i class="fas fa-chevron-right"></i></a></li>
+                            @foreach($categories as $category)
                             <li class="hassubs">
-                                <a href="#">Hardware<i class="fas fa-chevron-right"></i></a>
+                                <a href="#">{{$category->category_name}}
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
                                 <ul>
-                                    <li class="hassubs">
-                                        <a href="#">Menu Item<i class="fas fa-chevron-right"></i></a>
-                                        <ul>
-                                            <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-                                            <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-                                            <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-                                            <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-                                    <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-                                    <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
+                                @php
+                                    $subcategories = SubCategory::where('category_id',$category->id)->get();
+                                @endphp
+                                @if($category->id)
+                                    @endif
+                                @foreach($subcategories as $subcategory)
+                                    <li><a href="#">{{ $subcategory->subcategory_name }}</a></li>
+                                @endforeach
                                 </ul>
                             </li>
-                            <li><a href="#">Smartphones & Tablets<i class="fas fa-chevron-right"></i></a></li>
-                            <li><a href="#">TV & Audio<i class="fas fa-chevron-right"></i></a></li>
-                            <li><a href="#">Gadgets<i class="fas fa-chevron-right"></i></a></li>
-                            <li><a href="#">Car Electronics<i class="fas fa-chevron-right"></i></a></li>
-                            <li><a href="#">Video Games & Consoles<i class="fas fa-chevron-right"></i></a></li>
-                            <li><a href="#">Accessories<i class="fas fa-chevron-right"></i></a></li>
+                            @endforeach
                         </ul>
                     </div>
 

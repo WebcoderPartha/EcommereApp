@@ -23,32 +23,59 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2141fe9-b887-4321-b185-bf0f7b896b40" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostCategoryController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Post.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/PostCategory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_22_183551_create_posts_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_22_183635_create_post_categories_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/post/where-can-i-get-some.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675745820408023-shari-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675750871958991-discount-price.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675750872032479-discount-price.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675750872098506-discount-price.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/post/category/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/post/category/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/post/category/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/post/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/post/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/post/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/post/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/brand/23-08-2020-adidas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/brand/23-08-2020-asus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/brand/23-08-2020-cannon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/brand/23-08-2020-dell.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/brand/23-08-2020-gucci.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/brand/23-08-2020-lenovo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/brand/23-08-2020-levis.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/brand/23-08-2020-nike.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/brand/23-08-2020-rado.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/brand/23-08-2020-sony.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675829366126725-mens-stylish-polo-half-sleeve-t-shirt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675829366222877-mens-stylish-polo-half-sleeve-t-shirt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675829366289171-mens-stylish-polo-half-sleeve-t-shirt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675829465058040-export-quality-cotton-short-sleeve-mens-t-shirt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675829465141188-export-quality-cotton-short-sleeve-mens-t-shirt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675829465217024-export-quality-cotton-short-sleeve-mens-t-shirt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675829582632227-women-blue-printed-round-neck-t-shirt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675829582721109-women-blue-printed-round-neck-t-shirt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675829582798294-women-blue-printed-round-neck-t-shirt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675829705717535-women-shirt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675829705816413-women-shirt.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675829705872869-women-shirt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675829770374574-child-new.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675829770482437-child-new.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675829770558722-child-new.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675829848732156-new-watch.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675829848840696-new-watch.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675829848891011-new-watch.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675829927507068-watch-man.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675829927651137-watch-man.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675829927743107-watch-man.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675830025189892-shoe-new.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675830025253670-shoe-new.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/products/1675830025323381-shoe-new.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Category/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Category/CategoryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Product/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Product/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/media/products/1675742758924273-shari-23234.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PublicController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PublicController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/SubCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/SubCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/frontend/styles/main_styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/styles/main_styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/media/brand/20-08-20-dell.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/media/products/1675742796927473-shari-23234.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/media/products/1675742819035279-shari-23234.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/media/products/1675745820408023-shari-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/media/products/1675750871958991-discount-price.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/media/products/1675750872032479-discount-price.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/media/products/1675750872098506-discount-price.JPG" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/admin-master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/admin-master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/category/sub-category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category/sub-category.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/product/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main-nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main-nav.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +230,8 @@
       <workItem from="1598008432819" duration="23051000" />
       <workItem from="1598088912609" duration="10688000" />
       <workItem from="1598109181718" duration="4864000" />
-      <workItem from="1598115152220" duration="18107000" />
+      <workItem from="1598115152220" duration="27740000" />
+      <workItem from="1598205815984" duration="6556000" />
     </task>
     <servers />
   </component>
@@ -242,9 +270,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1598125416711" />
-    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup" timestamp="1598143751189">
+    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup" timestamp="1598208610145">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598143751189" />
+    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598208610145" />
   </component>
 </project>

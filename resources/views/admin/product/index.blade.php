@@ -13,21 +13,21 @@
                 <h5>Products Table</h5>
             </div><!-- sl-page-title -->
 
-            <div class="card pd-20 pd-sm-40">
+            <div class="card pd-5 pd-sm-5">
                 <h5>Product List <a href="{{ route('admin.create.product') }}" class="btn btn-sm btn-warning pull-right">Add Product</a></h5>
                 <div class="table-wrapper">
                     <table id="datatable1" class="table display responsive nowrap">
                         <thead>
                         <tr>
-                            <th class="wd-15p">Product Code</th>
-                            <th class="wd-15p">Product Name</th>
-                            <th class="wd-15p">Image</th>
-                            <th class="wd-15p">Category</th>
+                            <th>Product Code</th>
+                            <th>Product Name</th>
+                            <th>Image</th>
+                            <th>Category</th>
                             <th class="wd-15p">Subcategory</th>
                             <th class="wd-15p">Brand</th>
-                            <th class="wd-20p">Quantity</th>
-                            <th class="wd-20p">Status</th>
-                            <th class="wd-20p">Action</th>
+                            <th>Quantity</th>
+                            <th>Status</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>

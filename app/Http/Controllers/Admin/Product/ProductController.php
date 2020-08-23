@@ -52,7 +52,6 @@ class ProductController extends Controller
            'product_details' => 'required',
            'product_color' => 'required',
            'selling_prize' => 'required',
-           'discount_price' => 'required',
            'image_one' => 'required',
            'image_two' => 'required',
            'image_three' => 'required',
@@ -145,7 +144,6 @@ class ProductController extends Controller
             'product_details' => 'required',
             'product_color' => 'required',
             'selling_prize' => 'required',
-            'discount_price' => 'required',
             'status' => 'required',
         ]);
 

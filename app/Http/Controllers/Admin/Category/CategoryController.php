@@ -108,6 +108,8 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
         $category->delete();
+
+        Toastr::success('Category deleted successfully');
         return redirect()->back();
     }
 }
