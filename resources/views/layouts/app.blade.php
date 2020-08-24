@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/plugins/slick-1.8.0/slick.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/main_styles.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/responsive.css') }}">
+    @yield('css_link')
     @toastr_css
 
 </head>
@@ -58,19 +59,20 @@
                             </div>
                             <div class="top_bar_user">
                                 <div class="user_icon"><img src="{{ asset('frontend/images/user.svg') }}" alt=""></div>
-                                <div><a href="#">Register</a></div>
-                                <div><a href="#">Sign in</a></div>
+                                @guest
+                                    <div><a href="{{ route('register') }}">Sign Up</a></div>
+                                    <div><a href="{{ route('login') }}">Sign in</a></div>
+                                @else
+                                    <div><a href="{{ route('logout.user') }}">Sign Out</a></div>
+                                @endguest
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Header Main -->
-
-       @include('layouts.main-nav')
-
+        @include('layouts.main-nav')
     </header>
 
     @yield('content')

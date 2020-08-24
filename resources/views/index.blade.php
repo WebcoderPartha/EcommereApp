@@ -1,5 +1,9 @@
 @extends('layouts.app')
 @section('content')
+    <!-- Header Main -->
+
+
+
     <!-- Banner -->
     <div class="banner">
         <div class="banner_background" style="background-image:url({{asset('frontend/images/banner_background.jpg')}})"></div>
@@ -369,7 +373,7 @@
             <!-- Banner 2 Slider -->
 
             <div class="owl-carousel owl-theme banner_2_slider">
-
+            @foreach($midSliders as $mid_slider)
                 <!-- Banner 2 Slider Item -->
                 <div class="owl-item">
                     <div class="banner_2_item">
@@ -377,9 +381,11 @@
                             <div class="row fill_height">
                                 <div class="col-lg-4 col-md-6 fill_height">
                                     <div class="banner_2_content">
-                                        <div class="banner_2_category">Laptops</div>
-                                        <div class="banner_2_title">MacBook Air 13</div>
-                                        <div class="banner_2_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet.</div>
+                                        <div class="banner_2_category"><h4>{{ $mid_slider->category->category_name }}</h4></div>
+                                        <div class="banner_2_title"><h3>{{ $mid_slider->product_name }}</h3></div>
+                                        <div class="banner_2_text"><h4>{{ $mid_slider->brand->brand_name }}</h4> <br>
+                                           <h2>${{ $mid_slider->selling_prize }}</h2>
+                                        </div>
                                         <div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
                                         <div class="button banner_2_button"><a href="#">Explore</a></div>
                                     </div>
@@ -387,7 +393,7 @@
                                 </div>
                                 <div class="col-lg-8 col-md-6 fill_height">
                                     <div class="banner_2_image_container">
-                                        <div class="banner_2_image"><img src="{{ asset('frontend/images/banner_2_product.png') }}" alt=""></div>
+                                        <div class="banner_2_image"><img src="{{ asset($mid_slider->image_one) }}" style="width: 416px !important; height: 416px !important;" alt=""></div>
                                     </div>
                                 </div>
                             </div>
@@ -395,55 +401,7 @@
                     </div>
                 </div>
 
-                <!-- Banner 2 Slider Item -->
-                <div class="owl-item">
-                    <div class="banner_2_item">
-                        <div class="container fill_height">
-                            <div class="row fill_height">
-                                <div class="col-lg-4 col-md-6 fill_height">
-                                    <div class="banner_2_content">
-                                        <div class="banner_2_category">Laptops</div>
-                                        <div class="banner_2_title">MacBook Air 13</div>
-                                        <div class="banner_2_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet.</div>
-                                        <div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                        <div class="button banner_2_button"><a href="#">Explore</a></div>
-                                    </div>
-
-                                </div>
-                                <div class="col-lg-8 col-md-6 fill_height">
-                                    <div class="banner_2_image_container">
-                                        <div class="banner_2_image"><img src="{{ asset('frontend/images/banner_2_product.png') }}" alt=""></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Banner 2 Slider Item -->
-                <div class="owl-item">
-                    <div class="banner_2_item">
-                        <div class="container fill_height">
-                            <div class="row fill_height">
-                                <div class="col-lg-4 col-md-6 fill_height">
-                                    <div class="banner_2_content">
-                                        <div class="banner_2_category">Laptops</div>
-                                        <div class="banner_2_title">MacBook Air 13</div>
-                                        <div class="banner_2_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet.</div>
-                                        <div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                        <div class="button banner_2_button"><a href="#">Explore</a></div>
-                                    </div>
-
-                                </div>
-                                <div class="col-lg-8 col-md-6 fill_height">
-                                    <div class="banner_2_image_container">
-                                        <div class="banner_2_image"><img src="{{ asset('frontend/images/banner_2_product.png') }}" alt=""></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            @endforeach
 
             </div>
         </div>
@@ -2753,95 +2711,34 @@
 
                         <div class="owl-carousel owl-theme viewed_slider">
 
+                        @foreach($recently as $recent)
                             <!-- Recently Viewed Item -->
                             <div class="owl-item">
                                 <div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                                    <div class="viewed_image"><img src="{{ asset('frontend/images/view_1.jpg') }}" alt=""></div>
+                                    <div class="viewed_image"><img src="{{ asset($recent->image_one) }}" width="115" height="115" alt=""></div>
                                     <div class="viewed_content text-center">
-                                        <div class="viewed_price">$225<span>$300</span></div>
+                                        @if($recent->discount_price == NULL)
+                                            <div class="viewed_price">${{ $recent->selling_prize }}</div>
+                                        @else
+                                            <div class="viewed_price">${{ $recent->discount_price }}<span>${{ $recent->selling_prize }}</span></div>
+                                        @endif
                                         <div class="viewed_name"><a href="#">Beoplay H7</a></div>
                                     </div>
                                     <ul class="item_marks">
-                                        <li class="item_mark item_discount">-25%</li>
-                                        <li class="item_mark item_new">new</li>
+                                        @if($recent->discount_price == NULL)
+                                            <li class="item_mark item_discount" style="background: blue">New</li>
+                                        @else
+                                            @php
+                                                $amount = $recent->selling_prize - $recent->discount_price;
+                                                $discount = $amount / $recent->selling_prize * 100;
+                                            @endphp
+                                            <li class="item_mark item_discount">{{ intval($discount) }}%</li>
+                                        @endif
                                     </ul>
                                 </div>
                             </div>
+                        @endforeach
 
-                            <!-- Recently Viewed Item -->
-                            <div class="owl-item">
-                                <div class="viewed_item d-flex flex-column align-items-center justify-content-center text-center">
-                                    <div class="viewed_image"><img src="{{ asset('frontend/images/view_6.jpg') }}" alt=""></div>
-                                    <div class="viewed_content text-center">
-                                        <div class="viewed_price">$379</div>
-                                        <div class="viewed_name"><a href="#">LUNA Smartphone</a></div>
-                                    </div>
-                                    <ul class="item_marks">
-                                        <li class="item_mark item_discount">-25%</li>
-                                        <li class="item_mark item_new">new</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Recently Viewed Item -->
-                            <div class="owl-item">
-                                <div class="viewed_item d-flex flex-column align-items-center justify-content-center text-center">
-                                    <div class="viewed_image"><img src="{{ asset('frontend/images/view_2.jpg') }}" alt=""></div>
-                                    <div class="viewed_content text-center">
-                                        <div class="viewed_price">$225</div>
-                                        <div class="viewed_name"><a href="#">Samsung J730F...</a></div>
-                                    </div>
-                                    <ul class="item_marks">
-                                        <li class="item_mark item_discount">-25%</li>
-                                        <li class="item_mark item_new">new</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Recently Viewed Item -->
-                            <div class="owl-item">
-                                <div class="viewed_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                    <div class="viewed_image"><img src="{{ asset('frontend/images/view_6.jpg') }}" alt=""></div>
-                                    <div class="viewed_content text-center">
-                                        <div class="viewed_price">$379</div>
-                                        <div class="viewed_name"><a href="#">Huawei MediaPad...</a></div>
-                                    </div>
-                                    <ul class="item_marks">
-                                        <li class="item_mark item_discount">-25%</li>
-                                        <li class="item_mark item_new">new</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Recently Viewed Item -->
-                            <div class="owl-item">
-                                <div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                                    <div class="viewed_image"><img src="{{ asset('frontend/images/view_6.jpg') }}" alt=""></div>
-                                    <div class="viewed_content text-center">
-                                        <div class="viewed_price">$225<span>$300</span></div>
-                                        <div class="viewed_name"><a href="#">Sony PS4 Slim</a></div>
-                                    </div>
-                                    <ul class="item_marks">
-                                        <li class="item_mark item_discount">-25%</li>
-                                        <li class="item_mark item_new">new</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Recently Viewed Item -->
-                            <div class="owl-item">
-                                <div class="viewed_item d-flex flex-column align-items-center justify-content-center text-center">
-                                    <div class="viewed_image"><img src="{{ asset('frontend/images/view_6.jpg') }}" alt=""></div>
-                                    <div class="viewed_content text-center">
-                                        <div class="viewed_price">$375</div>
-                                        <div class="viewed_name"><a href="#">Speedlink...</a></div>
-                                    </div>
-                                    <ul class="item_marks">
-                                        <li class="item_mark item_discount">-25%</li>
-                                        <li class="item_mark item_new">new</li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -2860,16 +2757,9 @@
                         <!-- Brands Slider -->
 
                         <div class="owl-carousel owl-theme brands_slider">
-
-                            <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{{ asset('frontend/images/brands_1.jpg') }}" alt=""></div></div>
-                            <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{{ asset('frontend/images/brands_2.jpg') }}" alt=""></div></div>
-                            <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{{ asset('frontend/images/brands_3.jpg') }}" alt=""></div></div>
-                            <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{{ asset('frontend/images/brands_4.jpg') }}" alt=""></div></div>
-                            <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{{ asset('frontend/images/brands_5.jpg') }}" alt=""></div></div>
-                            <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{{ asset('frontend/images/brands_6.jpg') }}" alt=""></div></div>
-                            <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{{ asset('frontend/images/brands_7.jpg') }}" alt=""></div></div>
-                            <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{{ asset('frontend/images/brands_8.jpg') }}" alt=""></div></div>
-
+                        @foreach($brands as $brand)
+                            <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{{ asset($brand->brand_logo) }}" style="width: 113px; height: 70px" alt=""></div></div>
+                            @endforeach
                         </div>
 
                         <!-- Brands Slider Navigation -->

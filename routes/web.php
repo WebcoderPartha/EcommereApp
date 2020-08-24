@@ -13,7 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+Auth::routes(['verify' => true]);
+
+// User Auth
+Route::get('/logout','HomeController@LogOut')->name('logout.user');
+Route::post('/userLogin', 'Auth\LoginController@login')->name('user.login');
 
 //Frontend
 Route::get('/', 'PublicController@index')->name('frontent.home');

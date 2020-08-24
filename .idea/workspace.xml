@@ -23,9 +23,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2141fe9-b887-4321-b185-bf0f7b896b40" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_24_125201_add_phone_field_to_users_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/main-nav-withoutcategory.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PublicController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PublicController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/SubCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/SubCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/session.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +193,9 @@
       <workItem from="1598088912609" duration="10688000" />
       <workItem from="1598109181718" duration="4864000" />
       <workItem from="1598115152220" duration="27740000" />
-      <workItem from="1598205815984" duration="12156000" />
+      <workItem from="1598205815984" duration="17402000" />
+      <workItem from="1598227187690" duration="610000" />
+      <workItem from="1598267539985" duration="11288000" />
     </task>
     <servers />
   </component>
@@ -204,10 +218,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1597844666314">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1598227068065">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1597844666314" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1598227068065" />
     <state x="483" y="135" key="NewPhpClassDialog" timestamp="1597831058543">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -216,13 +230,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="553" y="115" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1597837855513" />
+    <state width="529" height="446" key="SwitcherDM" timestamp="1598271664690">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="529" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1598271664690" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1598125416711">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1598125416711" />
-    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup" timestamp="1598208610145">
+    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup" timestamp="1598277678070">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598208610145" />
+    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598277678070" />
   </component>
 </project>
