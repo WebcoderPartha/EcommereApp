@@ -36,6 +36,8 @@
                                 <button type="submit" class="btn btn-info">Log In</button>
                              </div>
                         </form>
+                        <br>
+                        <a href="{{ route('password.request') }}">I forgot my password</a>
                         <button type="submit" class="btn btn-primary btn-block mt-3"><i class="fab fa-facebook-square"></i> Login with Facebook</button>
                         <button type="submit" class="btn btn-danger btn-block"><i class="fab fa-google"></i> Login with Google</button>
                     </div>
