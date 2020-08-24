@@ -25,6 +25,7 @@ class Product extends Model
         'mid_slider',
         'hot_new',
         'trend',
+        'buyone_getone',
         'image_one',
         'image_two',
         'image_three',
@@ -40,6 +41,10 @@ class Product extends Model
     }
     public function subcategory(){
         return $this->belongsTo(SubCategory::class, 'subcategory_id');
+    }
+
+    public function wishlist(){
+        return $this->belongsTo(Wishlist::class);
     }
 
 }

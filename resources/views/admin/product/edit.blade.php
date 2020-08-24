@@ -234,6 +234,12 @@
                             </div><!-- col-4 -->
                             <div class="col-lg-4">
                                 <label class="ckbox">
+                                    <input type="checkbox" name="buyone_getone" value="1" @if($product->buyone_getone == 1) checked @endif>
+                                    <span>Buyone Getone</span>
+                                </label>
+                            </div><!-- col-4 -->
+                            <div class="col-lg-4">
+                                <label class="ckbox">
                                     <input type="checkbox" name="trend" value="1" @if($product->trend == 1) checked @endif>
                                     <span>Trend Product</span>
                                 </label>

@@ -221,6 +221,12 @@
                             </div><!-- col-4 -->
                             <div class="col-lg-4">
                                 <label class="ckbox">
+                                    <input type="checkbox" name="buyone_getone" value="1">
+                                    <span>Buyone Getone</span>
+                                </label>
+                            </div><!-- col-4 -->
+                            <div class="col-lg-4">
+                                <label class="ckbox">
                                     <input type="checkbox" name="trend" value="1">
                                     <span>Trend Product</span>
                                 </label>

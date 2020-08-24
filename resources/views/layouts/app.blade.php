@@ -58,12 +58,24 @@
                                 </ul>
                             </div>
                             <div class="top_bar_user">
-                                <div class="user_icon"><img src="{{ asset('frontend/images/user.svg') }}" alt=""></div>
+
                                 @guest
-                                    <div><a href="{{ route('register') }}">Sign Up</a></div>
-                                    <div><a href="{{ route('login') }}">Sign in</a></div>
+                                    <div class="user_icon"><img src="{{ asset('frontend/images/user.svg') }}" alt=""></div>
+                                    <div>
+                                        <a href="{{ route('login') }}">Sign In</a> / <a href="{{ route('register') }}">Sign Up</a>
+                                    </div>
                                 @else
-                                    <div><a href="{{ route('logout.user') }}">Sign Out</a></div>
+                                    <ul class="standard_dropdown top_bar_dropdown">
+                                        <li>
+                                            <a href="{{ route('myaccount') }}"><div class="user_icon"><img src="{{ asset('frontend/images/user.svg') }}" alt=""></div> My Account<i class="fas fa-chevron-down"></i></a>
+                                            <ul>
+                                                <li><a href="#">Wishlist</a></li>
+                                                <li><a href="#">Checkout</a></li>
+                                                <li><a href="#">Others</a></li>
+                                                <li><a href="{{ route('logout.user') }}">Sign Out</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
                                 @endguest
 
                             </div>
@@ -112,7 +124,7 @@
                 <div class="col-lg-3 footer_col">
                     <div class="footer_column footer_contact">
                         <div class="logo_container">
-                            <div class="logo"><a href="#">OneTech</a></div>
+                            <div class="logo"><a href="#">Web Shop</a></div>
                         </div>
                         <div class="footer_title">Got Question? Call Us 24/7</div>
                         <div class="footer_phone">+38 068 005 3570</div>

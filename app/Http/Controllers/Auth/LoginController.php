@@ -40,7 +40,7 @@ class LoginController extends Controller
     }
 
 
-    public function login(Request $request)
+    public function user_login(Request $request)
     {
 
         $input['phone'] = $request->phone;

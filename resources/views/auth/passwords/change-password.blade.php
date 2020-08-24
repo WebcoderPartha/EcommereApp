@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-7">
                 <div class="card">
-                    <div class="card-header">{{ __('Change Password') }}</div>
+                    <div class="card-header text-center">{{ __('Change Password') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('update.password') }}">

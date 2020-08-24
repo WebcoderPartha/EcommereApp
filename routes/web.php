@@ -17,19 +17,19 @@ Auth::routes(['verify' => true]);
 
 // User Auth
 Route::get('/logout','UserController@LogOut')->name('logout.user');
-Route::post('/userLogin', 'Auth\LoginController@login')->name('user.login');
+Route::post('/userLogin', 'Auth\LoginController@user_login')->name('user.login');
 Route::get('/mya-account/change/password', 'UserController@changePassword')->name('user.change.password');
 Route::post('/mya-account/update/password', 'UserController@updatePassword')->name('update.password');
 
 //Frontend
 Route::get('/', 'PublicController@index')->name('frontent.home');
 
-Route::get('/my-account', 'HomeController@index')->name('home');
+Route::get('/my-account', 'HomeController@index')->name('myaccount');
 
 // Admin Routes
 Route::get('/admin/dashboard', 'Admin\AdminController@index')->name('admin.dashboard');
 Route::get('/admin/dashboard/logout', 'Admin\AdminController@adminLogOut')->name('admin.logout');
-Route::get('/admin', 'Admin\LoginController@ShowLoginForm')->name('admin.login');
+Route::get('/admin', 'Admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('/admin', 'Admin\LoginController@login');
 Route::get('/admin/change/password', 'Admin\AdminController@ChangePassword')->name('admin.change.password');
 Route::put('/admin/change/password', 'Admin\AdminController@UpdatePassword')->name('admin.update.password');
@@ -123,3 +123,6 @@ Route::namespace('Frontend')->group(function (){
     Route::post('/subcriber', 'NewsletterController@Store')->name('subscriber.store');
 
 });
+
+// Add Wishlist
+Route::get('/add/wishlist/{id}', 'WishlistController@addWishlist')->name('add.wishlist');

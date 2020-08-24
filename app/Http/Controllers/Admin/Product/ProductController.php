@@ -75,6 +75,7 @@ class ProductController extends Controller
        $data['best_rated'] = $request->best_rated;
        $data['mid_slider'] = $request->mid_slider;
        $data['hot_new'] = $request->hot_new;
+       $data['buyone_getone'] = $request->buyone_getone;
        $data['trend'] = $request->trend;
        $data['status'] = $request->status;
 
@@ -165,6 +166,7 @@ class ProductController extends Controller
         $product['best_rated'] = $request->best_rated;
         $product['mid_slider'] = $request->mid_slider;
         $product['hot_new'] = $request->hot_new;
+        $product['buyone_getone'] = $request->buyone_getone;
         $product['trend'] = $request->trend;
         $product['status'] = $request->status;
 
@@ -226,7 +228,7 @@ class ProductController extends Controller
 
         }
 
-        if ($product->isDirty('category_id') || $product->isDirty('subcategory_id') || $product->isDirty('brand_id') || $product->isDirty('product_name') || $product->isDirty('product_code') || $product->isDirty('product_quantity') || $product->isDirty('product_details') || $product->isDirty('product_color') || $product->isDirty('product_size') || $product->isDirty('selling_prize') || $product->isDirty('discount_price') || $product->isDirty('main_slider') || $product->isDirty('hot_deal') || $product->isDirty('best_rated') || $product->isDirty('mid_slider') || $product->isDirty('hot_new') || $product->isDirty('trend') || $product->isDirty('status') || $product->isDirty('image_one') || $product->isDirty('image_two') || $product->isDirty('image_three') || $product->isDirty('name')){
+        if ($product->isDirty('category_id') || $product->isDirty('buyone_getone') || $product->isDirty('subcategory_id') || $product->isDirty('brand_id') || $product->isDirty('product_name') || $product->isDirty('product_code') || $product->isDirty('product_quantity') || $product->isDirty('product_details') || $product->isDirty('product_color') || $product->isDirty('product_size') || $product->isDirty('selling_prize') || $product->isDirty('discount_price') || $product->isDirty('main_slider') || $product->isDirty('hot_deal') || $product->isDirty('best_rated') || $product->isDirty('mid_slider') || $product->isDirty('hot_new') || $product->isDirty('trend') || $product->isDirty('status') || $product->isDirty('image_one') || $product->isDirty('image_two') || $product->isDirty('image_three') || $product->isDirty('name')){
 
             $product->save();
 

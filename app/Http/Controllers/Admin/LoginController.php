@@ -40,7 +40,7 @@ class LoginController extends Controller
         $this->middleware('guest:admin')->except('logout');
     }
 
-    public function ShowLoginForm(){
+    public function showLoginForm(){
         if (Auth::id()){
             return redirect()->back();
         }else{
