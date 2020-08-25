@@ -193,7 +193,7 @@
                                                 @else
                                                     <div class="product_price discount">${{$recent->discount_price}}<span>${{$recent->selling_prize}}</span></div>
                                                 @endif
-                                                <div class="product_name"><div><a href="product.html">{{$recent->product_name}}</a></div></div>
+                                                <div class="product_name"><div><a href="#">{{$recent->product_name}}</a></div></div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
                                                         <input type="radio" checked name="product_color" style="background:#b19c83">
@@ -203,7 +203,7 @@
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
                                             </div>
-                                            <a href="{{ route('add.wishlist', $recent->id) }}"><div class="product_fav"><i class="fas fa-heart"></i></div></a>
+                                            <button class="addwishlist" style="border: 0" data-id="{{$recent->id}}"><div class="product_fav"><i class="fas fa-heart"></i></div></button>
                                             <ul class="product_marks">
                                             @if($recent->discount_price == NULL)
                                                 <li class="product_mark product_discount" style="background: blue">New</li>
@@ -1335,55 +1335,55 @@
         </div>
     </div>
 
-    <!-- Adverts -->
+{{--    <!-- Adverts -->--}}
 
-    <div class="adverts">
-        <div class="container">
-            <div class="row">
+{{--    <div class="adverts">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
 
-                <div class="col-lg-4 advert_col">
+{{--                <div class="col-lg-4 advert_col">--}}
 
-                    <!-- Advert Item -->
+{{--                    <!-- Advert Item -->--}}
 
-                    <div class="advert d-flex flex-row align-items-center justify-content-start">
-                        <div class="advert_content">
-                            <div class="advert_title"><a href="#">Trends 2018</a></div>
-                            <div class="advert_text">Lorem ipsum dolor sit amet, consectetur adipiscing Donec et.</div>
-                        </div>
-                        <div class="ml-auto"><div class="advert_image"><img src="{{ asset('frontend/images/adv_1.png') }}" alt=""></div></div>
-                    </div>
-                </div>
+{{--                    <div class="advert d-flex flex-row align-items-center justify-content-start">--}}
+{{--                        <div class="advert_content">--}}
+{{--                            <div class="advert_title"><a href="#">Trends 2018</a></div>--}}
+{{--                            <div class="advert_text">Lorem ipsum dolor sit amet, consectetur adipiscing Donec et.</div>--}}
+{{--                        </div>--}}
+{{--                        <div class="ml-auto"><div class="advert_image"><img src="" alt=""></div></div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
-                <div class="col-lg-4 advert_col">
+{{--                <div class="col-lg-4 advert_col">--}}
 
-                    <!-- Advert Item -->
+{{--                    <!-- Advert Item -->--}}
 
-                    <div class="advert d-flex flex-row align-items-center justify-content-start">
-                        <div class="advert_content">
-                            <div class="advert_subtitle">Trends 2018</div>
-                            <div class="advert_title_2"><a href="#">Sale -45%</a></div>
-                            <div class="advert_text">Lorem ipsum dolor sit amet, consectetur.</div>
-                        </div>
-                        <div class="ml-auto"><div class="advert_image"><img src="{{ asset('frontend/images/adv_2.png') }}" alt=""></div></div>
-                    </div>
-                </div>
+{{--                    <div class="advert d-flex flex-row align-items-center justify-content-start">--}}
+{{--                        <div class="advert_content">--}}
+{{--                            <div class="advert_subtitle">Trends 2018</div>--}}
+{{--                            <div class="advert_title_2"><a href="#">Sale -45%</a></div>--}}
+{{--                            <div class="advert_text">Lorem ipsum dolor sit amet, consectetur.</div>--}}
+{{--                        </div>--}}
+{{--                        <div class="ml-auto"><div class="advert_image"><img src="" alt=""></div></div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
-                <div class="col-lg-4 advert_col">
+{{--                <div class="col-lg-4 advert_col">--}}
 
-                    <!-- Advert Item -->
+{{--                    <!-- Advert Item -->--}}
 
-                    <div class="advert d-flex flex-row align-items-center justify-content-start">
-                        <div class="advert_content">
-                            <div class="advert_title"><a href="#">Trends 2018</a></div>
-                            <div class="advert_text">Lorem ipsum dolor sit amet, consectetur.</div>
-                        </div>
-                        <div class="ml-auto"><div class="advert_image"><img src="{{ asset('frontend/images/adv_3.png') }}" alt=""></div></div>
-                    </div>
-                </div>
+{{--                    <div class="advert d-flex flex-row align-items-center justify-content-start">--}}
+{{--                        <div class="advert_content">--}}
+{{--                            <div class="advert_title"><a href="#">Trends 2018</a></div>--}}
+{{--                            <div class="advert_text">Lorem ipsum dolor sit amet, consectetur.</div>--}}
+{{--                        </div>--}}
+{{--                        <div class="ml-auto"><div class="advert_image"><img src="" alt=""></div></div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
-            </div>
-        </div>
-    </div>
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
     <!-- Trends -->
 
@@ -1730,5 +1730,47 @@
             </div>
         </div>
     </div>
-
 @endsection
+@section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script type="text/javascript">
+        $(document).ready(function (){
+           $('.addwishlist').on('click', function (){
+              var id = $(this).data('id');
+              if(id){
+                  $.ajax({
+                      type    :'GET',
+                      url     : "{{ url('add/wishlist/') }}/"+id,
+                      dataType: 'json',
+                      success : function (data){
+                          const Toast = Swal.mixin({
+                              toast: true,
+                              position: 'top-end',
+                              showConfirmButton: false,
+                              timer: 3000,
+                              timerProgressBar: false,
+                              onOpen: (toast) => {
+                                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                              }
+                          });
+
+                          if($.isEmptyObject(data.error)){
+                              Toast.fire({
+                                  icon: 'success',
+                                  title: data.success
+                              })
+                          }else{
+                              Toast.fire({
+                                  icon: 'warning',
+                                  title: data.error
+                              })
+                          }
+                      }
+
+                  });
+              }
+           });
+        });
+    </script>
+@stop

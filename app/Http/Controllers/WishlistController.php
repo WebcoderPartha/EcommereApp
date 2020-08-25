@@ -24,8 +24,7 @@ class WishlistController extends Controller
             // Check Authentication user product already wishlist has or not
             if ($check){
 
-                Toastr::warning('Already has in your wishlist!');
-                return redirect()->back();
+                return response()->json(['error' => 'Already has in your wishlist!']);
 
             }else{
 
@@ -33,15 +32,14 @@ class WishlistController extends Controller
                 $wishlist->user_id = $userid;
                 $wishlist->product_id = $id;
                 $wishlist->save();
-                Toastr::success('Added in your wishlist');
-                return redirect()->back();
+
+                return response()->json(['success' => 'Added in your wishlist.']);
 
             }
 
         }else{
 
-            Toastr::warning('Sign in your account first!');
-            return redirect()->back();
+            return response()->json(['error' => 'Sign in your account first!']);
 
         }
 
