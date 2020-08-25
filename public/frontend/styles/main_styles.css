@@ -2230,6 +2230,7 @@ select option
 .arrivals_slider .slick-track
 {
 	padding-bottom: 80px;
+    margin-bottom: 24px;
 }
 .arrivals_slider_item
 {

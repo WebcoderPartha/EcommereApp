@@ -18,7 +18,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products = Product::with(['category', 'brand', 'subcategory'])->get();
+        $products = Product::with(['category', 'brand', 'subcategory'])->orderBy('id', 'DESC')->get();
 //        return response()->json($products);
 
         return view('admin.product.index', compact('products'));
@@ -50,7 +50,6 @@ class ProductController extends Controller
            'product_code' => 'required|unique:products',
            'product_quantity' => 'required',
            'product_details' => 'required',
-           'product_color' => 'required',
            'selling_prize' => 'required',
            'image_one' => 'required',
            'image_two' => 'required',
@@ -143,7 +142,6 @@ class ProductController extends Controller
             'product_code' => 'required|unique:products,product_code,'.$product->id.',id',
             'product_quantity' => 'required',
             'product_details' => 'required',
-            'product_color' => 'required',
             'selling_prize' => 'required',
             'status' => 'required',
         ]);

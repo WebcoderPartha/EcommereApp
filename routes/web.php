@@ -17,9 +17,9 @@ Auth::routes(['verify' => true]);
 
 // User Auth
 Route::get('/logout','UserController@LogOut')->name('logout.user');
-Route::post('/userLogin', 'Auth\LoginController@user_login')->name('user.login');
-Route::get('/mya-account/change/password', 'UserController@changePassword')->name('user.change.password');
-Route::post('/mya-account/update/password', 'UserController@updatePassword')->name('update.password');
+Route::post('/user/login', 'Auth\LoginController@user_login')->name('user.login');
+Route::get('/my-account/change/password', 'UserController@changePassword')->name('user.change.password');
+Route::post('/my-account/update/password', 'UserController@updatePassword')->name('update.password');
 
 //Frontend
 Route::get('/', 'PublicController@index')->name('frontent.home');
@@ -121,6 +121,7 @@ Route::middleware('auth:admin')->namespace('Admin')->group(function (){
 Route::namespace('Frontend')->group(function (){
 
     Route::post('/subcriber', 'NewsletterController@Store')->name('subscriber.store');
+//    Route::get('/category', 'NewsletterController@categories')->name('subscriber.store');
 
 });
 

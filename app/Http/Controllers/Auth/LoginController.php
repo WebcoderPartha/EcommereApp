@@ -54,7 +54,7 @@ class LoginController extends Controller
         $fieldType = filter_var($request->phone, FILTER_VALIDATE_EMAIL) ? 'email' : 'phone';
         if(auth()->attempt(array($fieldType => $input['phone'], 'password' => $input['password'])))
         {
-            return redirect()->route('home');
+            return redirect()->route('myaccount');
         }else{
             return redirect()->back();
         }

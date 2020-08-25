@@ -21,7 +21,26 @@ class PublicController extends Controller
         $product_cat= Category::all();
         $brands     = Brand::all();
 
-        return view('index', compact('slider', 'featured','recently', 'trends', 'bestRated', 'hotNew', 'product_cat','midSliders','brands'));
+        $buyone_getone = Product::where('status', 1)->where('buyone_getone', 1)->orderBy('id', 'DESC')->get();
+
+        /// Category wise produces
+
+        // Skip for Specific category select
+        $watch_category = Category::skip(3)->first();
+        $catId = $watch_category->id;
+
+        $man_category = Category::skip(0)->first();
+        $mancatID = $man_category->id;
+
+        $watch_products = Product::where('category_id', $catId)->where('status', 1)->orderBy('id', 'DESC')->take(10)->get();
+
+        $man_products = Product::where('category_id', $mancatID)->where('status', 1)->orderBy('id', 'DESC')->take(10)->get();
+
+        //Another way for Specific category select
+//        $watch_products = Product::with('category')->where('category_id', 22)->where('status', 1)->get();
+//        return response()->json($buyone_getone);
+
+        return view('index', compact('slider', 'featured','recently', 'trends', 'bestRated', 'hotNew', 'product_cat','midSliders','brands', 'watch_products', 'watch_category', 'man_category', 'man_products', 'buyone_getone'));
 
     }
 }

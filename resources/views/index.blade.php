@@ -172,8 +172,6 @@
                             <div class="tabs">
                                 <ul class="clearfix">
                                     <li class="active">Featured</li>
-                                    <li>Trends</li>
-                                    <li>Best Rated</li>
                                 </ul>
                                 <div class="tabs_line"><span></span></div>
                             </div>
@@ -203,7 +201,7 @@
                                                     <button class="product_cart_button">Add to Cart</button>
                                                 </div>
                                             </div>
-                                            <button class="addwishlist" style="border: 0" data-id="{{$recent->id}}"><div class="product_fav"><i class="fas fa-heart"></i></div></button>
+                                            <button class="addwishlist" style="border: 0; cursor: pointer" data-id="{{$recent->id}}"><div class="product_fav"><i class="fas fa-heart"></i></div></button>
                                             <ul class="product_marks">
                                             @if($recent->discount_price == NULL)
                                                 <li class="product_mark product_discount" style="background: blue">New</li>
@@ -223,99 +221,6 @@
                                 <div class="featured_slider_dots_cover"></div>
                             </div>
 
-                            <!-- Product Panel -->
-
-                            <div class="product_panel panel">
-                                <div class="featured_slider slider">
-
-                                @foreach($trends as $trend)
-                                    <!-- Slider Item -->
-                                    <div class="featured_slider_item">
-                                        <div class="border_active"></div>
-                                        <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset($trend->image_one) }}" width="115" height="115" alt=""></div>
-                                            <div class="product_content">
-                                                @if($trend->discount_price == NULL)
-                                                    <div class="product_price discount">${{$trend->selling_prize}}</div>
-                                                @else
-                                                    <div class="product_price discount">${{$trend->discount_price}}<span>${{$trend->selling_prize}}</span></div>
-                                                @endif
-                                                <div class="product_name"><div><a href="product.html">{{$trend->product_name}}</a></div></div>
-                                                <div class="product_extras">
-                                                    <div class="product_color">
-                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
-                                                        <input type="radio" name="product_color" style="background:#000000">
-                                                        <input type="radio" name="product_color" style="background:#999999">
-                                                    </div>
-                                                    <button class="product_cart_button">Add to Cart</button>
-                                                </div>
-                                            </div>
-                                            <a href="{{ route('add.wishlist', $trend->id) }}"><div class="product_fav"><i class="fas fa-heart"></i></div></a>
-                                            <ul class="product_marks">
-                                                @if($trend->discount_price == NULL)
-                                                <li class="product_mark product_discount" style="background: blue">New</li>
-                                                @else
-                                                    @php
-                                                    $discount = (($trend->selling_prize - $trend->discount_price)/$trend->selling_prize)*100;
-                                                    @endphp
-                                                <li class="product_mark product_discount">{{ intval($discount) }}%</li>
-                                                @endif
-                                            </ul>
-                                        </div>
-                                    </div>
-                                @endforeach
-
-
-                                </div>
-                                <div class="featured_slider_dots_cover"></div>
-                            </div>
-
-                            <!-- Product Panel -->
-
-                            <div class="product_panel panel">
-                                <div class="featured_slider slider">
-                                @foreach($bestRated as $bestproduct)
-                                    <!-- Slider Item -->
-                                    <div class="featured_slider_item">
-                                        <div class="border_active"></div>
-                                        <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset($bestproduct->image_one) }}" width="115" height="115" alt=""></div>
-                                            <div class="product_content">
-                                                @if($bestproduct->discount_price == NULL)
-                                                <div class="product_price discount">${{$bestproduct->selling_prize}}</div>
-                                                @else
-                                                <div class="product_price discount">${{ $bestproduct->discount_price }}<span>${{$bestproduct->selling_prize}}</span></div>
-                                                @endif
-
-                                                <div class="product_name"><div><a href="product.html">{{$bestproduct->product_name}}</a></div></div>
-                                                <div class="product_extras">
-                                                    <div class="product_color">
-                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
-                                                        <input type="radio" name="product_color" style="background:#000000">
-                                                        <input type="radio" name="product_color" style="background:#999999">
-                                                    </div>
-                                                    <button class="product_cart_button">Add to Cart</button>
-                                                </div>
-                                            </div>
-                                            <a href="{{ route('add.wishlist', $bestproduct->id) }}"><div class="product_fav"><i class="fas fa-heart"></i></div></a>
-                                            <ul class="product_marks">
-                                                @if($bestproduct->discount_price == NULL)
-                                                <li class="product_mark product_discount" style="background: blue">New</li>
-                                                @else
-                                                    @php
-                                                        $amound = $bestproduct->selling_prize - $bestproduct->discount_price;
-                                                        $discount = $bestproduct->discount_price / $bestproduct->selling_prize * 100
-                                                    @endphp
-                                                    <li class="product_mark product_discount">{{ intval($discount) }}%</li>
-                                                @endif
-                                            </ul>
-                                        </div>
-                                    </div>
-                                @endforeach
-
-                                </div>
-                                <div class="featured_slider_dots_cover"></div>
-                            </div>
 
                         </div>
                     </div>
@@ -415,7 +320,7 @@
                 <div class="col">
                     <div class="tabbed_container">
                         <div class="tabs clearfix tabs-right">
-                            <div class="new_arrivals_title">Category One</div>
+                            <div class="new_arrivals_title">{{ $watch_category->category_name }}</div>
                             <ul class="clearfix">
                                 <li class="active"></li>
                             </ul>
@@ -428,82 +333,43 @@
                                 <div class="product_panel panel active">
                                     <div class="arrivals_slider slider">
 
+                                    @foreach($watch_products as $product)
                                         <!-- Slider Item -->
-                                        <div class="arrivals_slider_item">
-                                            <div class="border_active"></div>
-                                            <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                                <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset('frontend/images/new_1.jpg') }}" alt=""></div>
-                                                <div class="product_content">
-                                                    <div class="product_price">$225</div>
-                                                    <div class="product_name"><div><a href="product.html">Astro M2 Black</a></div></div>
-                                                    <div class="product_extras">
-                                                        <div class="product_color">
-                                                            <input type="radio" checked name="product_color" style="background:#b19c83">
-                                                            <input type="radio" name="product_color" style="background:#000000">
-                                                            <input type="radio" name="product_color" style="background:#999999">
+                                            <div class="featured_slider_item">
+                                                <div class="border_active"></div>
+                                                <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset($product->image_one) }}" width="115" height="115" alt=""></div>
+                                                    <div class="product_content">
+                                                        @if($product->discount_price == NULL)
+                                                            <div class="product_price discount">${{$product->selling_prize}}</div>
+                                                        @else
+                                                            <div class="product_price discount">${{$product->discount_price}}<span>${{$product->selling_prize}}</span></div>
+                                                        @endif
+                                                        <div class="product_name"><div><a href="#">{{$product->product_name}}</a></div></div>
+                                                        <div class="product_extras">
+                                                            <div class="product_color">
+                                                                <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                                <input type="radio" name="product_color" style="background:#000000">
+                                                                <input type="radio" name="product_color" style="background:#999999">
+                                                            </div>
+                                                            <button class="product_cart_button">Add to Cart</button>
                                                         </div>
-                                                        <button class="product_cart_button">Add to Cart</button>
                                                     </div>
+                                                    <button class="addwishlist" style="border: 0; cursor: pointer" data-id="{{$product->id}}"><div class="product_fav"><i class="fas fa-heart"></i></div></button>
+                                                    <ul class="product_marks">
+                                                        @if($product->discount_price == NULL)
+                                                            <li class="product_mark product_discount" style="background: blue">New</li>
+                                                        @else
+                                                            @php
+                                                                $ammout = $product->selling_prize - $product->discount_price;
+                                                                $discount = $ammout / $product->selling_prize * 100;
+                                                            @endphp
+                                                            <li class="product_mark product_discount">{{ intval($discount) }}%</li>
+                                                        @endif
+                                                    </ul>
                                                 </div>
-                                                <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                                <ul class="product_marks">
-                                                    <li class="product_mark product_discount">-25%</li>
-                                                    <li class="product_mark product_new">new</li>
-                                                </ul>
                                             </div>
-                                        </div>
-
-                                        <!-- Slider Item -->
-                                        <div class="arrivals_slider_item">
-                                            <div class="border_active"></div>
-                                            <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                                <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset('frontend/images/new_1.jpg') }}" alt=""></div>
-                                                <div class="product_content">
-                                                    <div class="product_price">$379</div>
-                                                    <div class="product_name"><div><a href="product.html">Transcend T.Sonic</a></div></div>
-                                                    <div class="product_extras">
-                                                        <div class="product_color">
-                                                            <input type="radio" checked name="product_color" style="background:#b19c83">
-                                                            <input type="radio" name="product_color" style="background:#000000">
-                                                            <input type="radio" name="product_color" style="background:#999999">
-                                                        </div>
-                                                        <button class="product_cart_button active">Add to Cart</button>
-                                                    </div>
-                                                </div>
-                                                <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                                <ul class="product_marks">
-                                                    <li class="product_mark product_discount"></li>
-                                                    <li class="product_mark product_new">new</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        <!-- Slider Item -->
-                                        <div class="arrivals_slider_item">
-                                            <div class="border_active"></div>
-                                            <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                                <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset('frontend/images/new_1.jpg') }}" alt=""></div>
-                                                <div class="product_content">
-                                                    <div class="product_price">$379</div>
-                                                    <div class="product_name"><div><a href="product.html">Xiaomi Band 2...</a></div></div>
-                                                    <div class="product_extras">
-                                                        <div class="product_color">
-                                                            <input type="radio" checked name="product_color" style="background:#b19c83">
-                                                            <input type="radio" name="product_color" style="background:#000000">
-                                                            <input type="radio" name="product_color" style="background:#999999">
-                                                        </div>
-                                                        <button class="product_cart_button">Add to Cart</button>
-                                                    </div>
-                                                </div>
-                                                <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                                <ul class="product_marks">
-                                                    <li class="product_mark product_discount"></li>
-                                                    <li class="product_mark product_new">new</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-
+                                    @endforeach
 
                                     </div>
                                     <div class="arrivals_slider_dots_cover"></div>
@@ -530,7 +396,7 @@
                 <div class="col">
                     <div class="tabbed_container">
                         <div class="tabs clearfix tabs-right">
-                            <div class="new_arrivals_title">Category One</div>
+                            <div class="new_arrivals_title">{{ $man_category->category_name }}</div>
                             <ul class="clearfix">
                                 <li class="active"></li>
                             </ul>
@@ -540,84 +406,47 @@
                             <div class="col-lg-12" style="z-index:1;">
 
                                 <!-- Product Panel -->
-                                <div class="product_panel panel active">
+                                <div class="product_panel panel active" >
                                     <div class="arrivals_slider slider">
 
                                         <!-- Slider Item -->
-                                        <div class="arrivals_slider_item">
-                                            <div class="border_active"></div>
-                                            <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                                <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset('frontend/images/new_1.jpg') }}" alt=""></div>
-                                                <div class="product_content">
-                                                    <div class="product_price">$225</div>
-                                                    <div class="product_name"><div><a href="product.html">Astro M2 Black</a></div></div>
-                                                    <div class="product_extras">
-                                                        <div class="product_color">
-                                                            <input type="radio" checked name="product_color" style="background:#b19c83">
-                                                            <input type="radio" name="product_color" style="background:#000000">
-                                                            <input type="radio" name="product_color" style="background:#999999">
-                                                        </div>
-                                                        <button class="product_cart_button">Add to Cart</button>
-                                                    </div>
-                                                </div>
-                                                <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                                <ul class="product_marks">
-                                                    <li class="product_mark product_discount">-25%</li>
-                                                    <li class="product_mark product_new">new</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
+                                    @foreach($man_products as $product)
                                         <!-- Slider Item -->
-                                        <div class="arrivals_slider_item">
-                                            <div class="border_active"></div>
-                                            <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                                <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset('frontend/images/new_1.jpg') }}" alt=""></div>
-                                                <div class="product_content">
-                                                    <div class="product_price">$379</div>
-                                                    <div class="product_name"><div><a href="product.html">Transcend T.Sonic</a></div></div>
-                                                    <div class="product_extras">
-                                                        <div class="product_color">
-                                                            <input type="radio" checked name="product_color" style="background:#b19c83">
-                                                            <input type="radio" name="product_color" style="background:#000000">
-                                                            <input type="radio" name="product_color" style="background:#999999">
+                                            <div class="featured_slider_item">
+                                                <div class="border_active"></div>
+                                                <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset($product->image_one) }}" width="115" height="115" alt=""></div>
+                                                    <div class="product_content">
+                                                        @if($product->discount_price == NULL)
+                                                            <div class="product_price discount">${{$product->selling_prize}}</div>
+                                                        @else
+                                                            <div class="product_price discount">${{$product->discount_price}}<span>${{$product->selling_prize}}</span></div>
+                                                        @endif
+                                                        <div class="product_name"><div><a href="#">{{$product->product_name}}</a></div></div>
+                                                        <div class="product_extras">
+                                                            <div class="product_color">
+                                                                <input type="radio" checked name="product_color" style="background:#b19c83">
+                                                                <input type="radio" name="product_color" style="background:#000000">
+                                                                <input type="radio" name="product_color" style="background:#999999">
+                                                            </div>
+                                                            <button class="product_cart_button">Add to Cart</button>
                                                         </div>
-                                                        <button class="product_cart_button active">Add to Cart</button>
                                                     </div>
+                                                    <button class="addwishlist" style="border: 0; cursor: pointer" data-id="{{$product->id}}"><div class="product_fav"><i class="fas fa-heart"></i></div></button>
+                                                    <ul class="product_marks">
+                                                        @if($product->discount_price == NULL)
+                                                            <li class="product_mark product_discount" style="background: blue">New</li>
+                                                        @else
+                                                            @php
+                                                                $ammout = $product->selling_prize - $product->discount_price;
+                                                                $discount = $ammout / $product->selling_prize * 100;
+                                                            @endphp
+                                                            <li class="product_mark product_discount">{{ intval($discount) }}%</li>
+                                                        @endif
+                                                    </ul>
                                                 </div>
-                                                <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                                <ul class="product_marks">
-                                                    <li class="product_mark product_discount"></li>
-                                                    <li class="product_mark product_new">new</li>
-                                                </ul>
                                             </div>
-                                        </div>
-
-                                        <!-- Slider Item -->
-                                        <div class="arrivals_slider_item">
-                                            <div class="border_active"></div>
-                                            <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                                <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset('frontend/images/new_1.jpg') }}" alt=""></div>
-                                                <div class="product_content">
-                                                    <div class="product_price">$379</div>
-                                                    <div class="product_name"><div><a href="product.html">Xiaomi Band 2...</a></div></div>
-                                                    <div class="product_extras">
-                                                        <div class="product_color">
-                                                            <input type="radio" checked name="product_color" style="background:#b19c83">
-                                                            <input type="radio" name="product_color" style="background:#000000">
-                                                            <input type="radio" name="product_color" style="background:#999999">
-                                                        </div>
-                                                        <button class="product_cart_button">Add to Cart</button>
-                                                    </div>
-                                                </div>
-                                                <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                                <ul class="product_marks">
-                                                    <li class="product_mark product_discount"></li>
-                                                    <li class="product_mark product_new">new</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
+                                        @endforeach
 
 
                                     </div>
@@ -1412,121 +1241,37 @@
                         <!-- Trends Slider -->
 
                         <div class="owl-carousel owl-theme trends_slider">
-
+                        @foreach($buyone_getone as $buyone)
                             <!-- Trends Slider Item -->
                             <div class="owl-item">
                                 <div class="trends_item is_new">
-                                    <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset('frontend/images/trends_1.jpg') }}" alt=""></div>
+                                    <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset($buyone->image_one) }}" alt=""></div>
                                     <div class="trends_content">
-                                        <div class="trends_category"><a href="#">Smartphones</a></div>
+                                        <div class="trends_category"><a href="#">{{ $buyone->brand->brand_name }}</a></div>
                                         <div class="trends_info clearfix">
-                                            <div class="trends_name"><a href="product.html">Jump White</a></div>
-                                            <div class="trends_price">$379</div>
+                                            <div class="trends_name"><a href="product.html">{{ $buyone->product_name }}</a></div>
+                                            @if($buyone->discount_price == NULL)
+                                                <div class="product_price discount">${{$recent->selling_prize}}</div>
+                                            @else
+                                                <div class="product_price discount">${{$buyone->discount_price}}<span>${{$buyone->selling_prize}}</span></div>
+                                            @endif
                                         </div>
                                     </div>
                                     <ul class="trends_marks">
-                                        <li class="trends_mark trends_discount">-25%</li>
-                                        <li class="trends_mark trends_new">new</li>
+                                        @if($buyone->discount_price == NULL)
+                                            <li class="trends_mark trends_new">new</li>
+                                        @else
+                                            @php
+                                            $amound = (($buyone->selling_prize-$buyone->discount_price)/$buyone->selling_prize)*100;
+                                            @endphp
+                                            <li class="trends_mark trends_new">{{ intval($amound) }}%</li>
+                                        @endif
                                     </ul>
-                                    <div class="trends_fav"><i class="fas fa-heart"></i></div>
+                                    <button class="addwishlist"  style="border: 0" data-id="{{ $buyone->id }}"><div class="trends_fav"><i class="fas fa-heart"></i></div></button>
+                                    <a href="#" class="btn btn-danger">Add to Cart</a>
                                 </div>
                             </div>
-
-                            <!-- Trends Slider Item -->
-                            <div class="owl-item">
-                                <div class="trends_item">
-                                    <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset('frontend/images/trends_2.jpg') }}" alt=""></div>
-                                    <div class="trends_content">
-                                        <div class="trends_category"><a href="#">Smartphones</a></div>
-                                        <div class="trends_info clearfix">
-                                            <div class="trends_name"><a href="product.html">Samsung Charm...</a></div>
-                                            <div class="trends_price">$379</div>
-                                        </div>
-                                    </div>
-                                    <ul class="trends_marks">
-                                        <li class="trends_mark trends_discount">-25%</li>
-                                        <li class="trends_mark trends_new">new</li>
-                                    </ul>
-                                    <div class="trends_fav"><i class="fas fa-heart"></i></div>
-                                </div>
-                            </div>
-
-                            <!-- Trends Slider Item -->
-                            <div class="owl-item">
-                                <div class="trends_item is_new">
-                                    <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset('frontend/images/trends_3.jpg') }}" alt=""></div>
-                                    <div class="trends_content">
-                                        <div class="trends_category"><a href="#">Smartphones</a></div>
-                                        <div class="trends_info clearfix">
-                                            <div class="trends_name"><a href="product.html">DJI Phantom 3...</a></div>
-                                            <div class="trends_price">$379</div>
-                                        </div>
-                                    </div>
-                                    <ul class="trends_marks">
-                                        <li class="trends_mark trends_discount">-25%</li>
-                                        <li class="trends_mark trends_new">new</li>
-                                    </ul>
-                                    <div class="trends_fav"><i class="fas fa-heart"></i></div>
-                                </div>
-                            </div>
-
-                            <!-- Trends Slider Item -->
-                            <div class="owl-item">
-                                <div class="trends_item is_new">
-                                    <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset('frontend/images/trends_1.jpg') }}" alt=""></div>
-                                    <div class="trends_content">
-                                        <div class="trends_category"><a href="#">Smartphones</a></div>
-                                        <div class="trends_info clearfix">
-                                            <div class="trends_name"><a href="product.html">Jump White</a></div>
-                                            <div class="trends_price">$379</div>
-                                        </div>
-                                    </div>
-                                    <ul class="trends_marks">
-                                        <li class="trends_mark trends_discount">-25%</li>
-                                        <li class="trends_mark trends_new">new</li>
-                                    </ul>
-                                    <div class="trends_fav"><i class="fas fa-heart"></i></div>
-                                </div>
-                            </div>
-
-                            <!-- Trends Slider Item -->
-                            <div class="owl-item">
-                                <div class="trends_item">
-                                    <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset('frontend/images/trends_2.jpg') }}" alt=""></div>
-                                    <div class="trends_content">
-                                        <div class="trends_category"><a href="#">Smartphones</a></div>
-                                        <div class="trends_info clearfix">
-                                            <div class="trends_name"><a href="product.html">Jump White</a></div>
-                                            <div class="trends_price">$379</div>
-                                        </div>
-                                    </div>
-                                    <ul class="trends_marks">
-                                        <li class="trends_mark trends_discount">-25%</li>
-                                        <li class="trends_mark trends_new">new</li>
-                                    </ul>
-                                    <div class="trends_fav"><i class="fas fa-heart"></i></div>
-                                </div>
-                            </div>
-
-                            <!-- Trends Slider Item -->
-                            <div class="owl-item">
-                                <div class="trends_item is_new">
-                                    <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset('frontend/images/trends_3.jpg') }}" alt=""></div>
-                                    <div class="trends_content">
-                                        <div class="trends_category"><a href="#">Smartphones</a></div>
-                                        <div class="trends_info clearfix">
-                                            <div class="trends_name"><a href="product.html">Jump White</a></div>
-                                            <div class="trends_price">$379</div>
-                                        </div>
-                                    </div>
-                                    <ul class="trends_marks">
-                                        <li class="trends_mark trends_discount">-25%</li>
-                                        <li class="trends_mark trends_new">new</li>
-                                    </ul>
-                                    <div class="trends_fav"><i class="fas fa-heart"></i></div>
-                                </div>
-                            </div>
-
+                        @endforeach
                         </div>
                     </div>
                 </div>
