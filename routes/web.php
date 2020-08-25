@@ -127,3 +127,11 @@ Route::namespace('Frontend')->group(function (){
 
 // Add Wishlist
 Route::get('/add/wishlist/{id}', 'WishlistController@addWishlist')->name('add.wishlist');
+Route::get('/showwishlist', 'WishlistController@showWishlist')->name('show.wishlist');
+
+// Add to Cart
+Route::get('/addtocart/{id}', 'CartController@AddtoCart')->name('add.cart');
+// check at to cart
+Route::get('/checkcart', 'CartController@checkCart')->name('check.cart');
+// Count cart Menu
+Route::get('/cartcount', 'CartController@countCart')->name('count.cart');

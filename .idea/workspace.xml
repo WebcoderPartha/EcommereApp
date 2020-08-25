@@ -23,37 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2141fe9-b887-4321-b185-bf0f7b896b40" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675991984769193-watch-2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675991984868704-watch-2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675991984930844-watch-2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675992023269878-watch-2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675992023339534-watch-2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675992023403367-watch-2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675992102141595-watch-3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675992102215797-watch-3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675992102274213-watch-3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675992233630464-watch-34r3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675992233728723-watch-34r3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675992233811033-watch-34r3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675992299080209-watch-39298sfsf.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675992299142874-watch-39298sfsf.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675992299209216-watch-39298sfsf.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675992387993344-watch-024lls.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675992388112531-watch-024lls.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675992388175144-watch-024lls.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675995943571536-man-tshirt-222sdf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675995943642420-man-tshirt-222sdf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675995943704790-man-tshirt-222sdf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675996114425849-man-tshirt-444.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675996114504449-man-tshirt-444.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/products/1675996114552092-man-tshirt-444.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Product/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Product/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/NewsletterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/NewsletterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PublicController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PublicController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/frontend/styles/main_styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/styles/main_styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WishlistController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WishlistController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main-nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main-nav.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -215,7 +190,7 @@
       <workItem from="1598205815984" duration="17402000" />
       <workItem from="1598227187690" duration="610000" />
       <workItem from="1598267539985" duration="40852000" />
-      <workItem from="1598347776274" duration="8441000" />
+      <workItem from="1598347776274" duration="21420000" />
     </task>
     <servers />
   </component>
@@ -262,9 +237,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1598125416711" />
-    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup" timestamp="1598359880799">
+    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup" timestamp="1598384587470">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598359880799" />
+    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598384587470" />
   </component>
 </project>

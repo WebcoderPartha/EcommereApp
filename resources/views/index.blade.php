@@ -198,7 +198,7 @@
                                                         <input type="radio" name="product_color" style="background:#000000">
                                                         <input type="radio" name="product_color" style="background:#999999">
                                                     </div>
-                                                    <button class="product_cart_button">Add to Cart</button>
+                                                    <button class="product_cart_button addtoCard" data-id="{{ $recent->id }}">Add to Cart</button>
                                                 </div>
                                             </div>
                                             <button class="addwishlist" style="border: 0; cursor: pointer" data-id="{{$recent->id}}"><div class="product_fav"><i class="fas fa-heart"></i></div></button>
@@ -1480,6 +1480,43 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script type="text/javascript">
         $(document).ready(function (){
+            $('.addtoCard').on('click', function (){
+                var id = $(this).data('id');
+                if(id){
+                    $.ajax({
+                        type    : "GET",
+                        url     : "{{ url('/addtocart/') }}/"+id,
+                        dataType: "JSON",
+                        success : (data) => {
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 3000,
+                                timerProgressBar: false,
+                                onOpen: (toast) => {
+                                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                }
+                            });
+
+                            if ($.isEmptyObject(data.error)){
+                                Toast.fire({
+                                    icon: 'success',
+                                    title: data.success
+                                })
+                            }else{
+                                Toast.fire({
+                                    icon: 'success',
+                                    title: data.error
+                                })
+                            }
+                        }
+                    });
+                }
+            });
+
+            
            $('.addwishlist').on('click', function (){
               var id = $(this).data('id');
               if(id){

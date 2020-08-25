@@ -46,4 +46,16 @@ class WishlistController extends Controller
 
     }
 
+
+    public function showWishlist(){
+
+        $wishlistdata = Wishlist::where('user_id', Auth::id())->get();
+        $wishlist = count($wishlistdata);
+
+        return response()->json([
+            'wishlist' => $wishlist
+        ]);
+
+    }
+
 }

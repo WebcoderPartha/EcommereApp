@@ -17,7 +17,11 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/responsive.css') }}">
     @yield('css_link')
     @toastr_css
-
+    <style>
+        .featured .slick-track {
+            margin-bottom: 94px;
+        }
+    </style>
 </head>
 
 <body>
@@ -232,6 +236,50 @@
 <script src="{{ asset('frontend/plugins/easing/easing.js') }}"></script>
 <script src="{{ asset('frontend/js/custom.js') }}"></script>
 @yield('scripts')
+
+<script type="text/javascript">
+    $(document).ready(function (){
+        // Wishlist Icon
+        $('.addwishlist').on('click', function(){
+            $.ajax({
+                type    : 'GET',
+                url     : "{{ url('/showwishlist') }}",
+                dataType    : 'JSON',
+                success : (data) => {
+                    $('.wishlist_count').html(data.wishlist);
+                }
+            });
+        });
+        $.ajax({
+            type    : 'GET',
+            url     : "{{ url('/showwishlist') }}",
+            dataType    : 'JSON',
+            success : (data) => {
+                $('.wishlist_count').html(data.wishlist);
+            }
+        });
+        // Cart Icon
+        $('.addtoCard').on('click', function(){
+            $.ajax({
+                type    : "GET",
+                url     : "{{ url('/cartcount') }}",
+                dataType: "JSON",
+                success : (data) => {
+                    $('.cart_count span').html(data);
+                }
+            });
+        });
+        $.ajax({
+            type    : "GET",
+            url     : "{{ url('/cartcount') }}",
+            dataType: "JSON",
+            success : (data) => {
+                $('.cart_count span').html(data);
+            }
+        });
+    });
+
+</script>
 @toastr_js
 @toastr_render
 </body>
