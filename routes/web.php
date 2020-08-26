@@ -133,6 +133,7 @@ Route::get('/showwishlist', 'WishlistController@showWishlist')->name('show.wishl
 Route::get('/addtocart/{id}', 'CartController@AddtoCart')->name('add.cart');
 Route::get('/product/cart','CartController@showCart')->name('show.cart');
 Route::get('/product/remove/cart/{id}', 'CartController@removeCart')->name('remove.cart');
+Route::post('/product/update/cart/','CartController@UpdateCart')->name('update.cart');
 // Single Product page Add To cart
 Route::post('/addtocart/singleproduct/{id}', 'CartController@addCartSigleProductPage')->name('single.product.addcart');
 // check at to cart testing

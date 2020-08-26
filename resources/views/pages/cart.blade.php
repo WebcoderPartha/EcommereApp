@@ -42,7 +42,14 @@
                                         @endif
                                         <div class="cart_item_quantity cart_info_col">
                                             <div class="cart_item_title">Quantity</div>
-                                            <div class="cart_item_text">{{ $cart->qty }}</div>
+                                            <div class="cart_item_text">
+                                                <form action="{{ route('update.cart') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="productId" value="{{$cart->rowId}}">
+                                                    <input type="number" class="form-control" style="border-top-right-radius: 0; border-bottom-right-radius: 0;display: inline-block;width: 70px" value="{{ $cart->qty }}" min="1" name="qty" pattern="[0-9]"><button class="btn btn-outline-white" style="padding: 6px;border-top-left-radius: 0px;border-bottom-left-radius: 0px;
+}"><i class="fa fa-check text-danger"></i></button>
+                                                </form>
+                                            </div>
                                         </div>
                                         <div class="cart_item_price cart_info_col">
                                             <div class="cart_item_title">Price</div>

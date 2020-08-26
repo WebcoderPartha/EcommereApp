@@ -14,9 +14,9 @@
                         <h1 class="banner_text">{{$slider->product_name}}</h1>
                         <div class="banner_price">
                             @if( $slider->discount_price == NULL )
-                                ${{$slider->selling_prize}}
+                                BDT{{$slider->selling_prize}}
                             @else
-                                <span>${{$slider->selling_prize}}</span>${{$slider->discount_price}}
+                                <span>BDT{{$slider->selling_prize}}</span>BDT{{$slider->discount_price}}
                             @endif
                         </div>
                         <div class="banner_product_name">{{$slider->brand->brand_name}}</div>
@@ -40,7 +40,7 @@
                         <div class="char_icon"><img src="{{ asset('frontend/images/char_1.png') }}" alt=""></div>
                         <div class="char_content">
                             <div class="char_title">Free Delivery</div>
-                            <div class="char_subtitle">from $50</div>
+                            <div class="char_subtitle">from BDT50</div>
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                         <div class="char_icon"><img src="{{ asset('frontend/images/char_2.png') }}" alt=""></div>
                         <div class="char_content">
                             <div class="char_title">Free Delivery</div>
-                            <div class="char_subtitle">from $50</div>
+                            <div class="char_subtitle">from BDT50</div>
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                         <div class="char_icon"><img src="{{ asset('frontend/images/char_3.png') }}" alt=""></div>
                         <div class="char_content">
                             <div class="char_title">Free Delivery</div>
-                            <div class="char_subtitle">from $50</div>
+                            <div class="char_subtitle">from BDT50</div>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
                         <div class="char_icon"><img src="{{ asset('frontend/images/char_4.png') }}" alt=""></div>
                         <div class="char_content">
                             <div class="char_title">Free Delivery</div>
-                            <div class="char_subtitle">from $50</div>
+                            <div class="char_subtitle">from BDT50</div>
                         </div>
                     </div>
                 </div>
@@ -108,17 +108,17 @@
                                             <div class="deals_item_category"><a href="#">{{ $deal->brand->brand_name }}</a></div>
                                             @if($deal->discount_price == NULL)
                                             @else
-                                                <div class="deals_item_price_a ml-auto">${{$deal->selling_prize}}</div>
+                                                <div class="deals_item_price_a ml-auto">BDT{{$deal->selling_prize}}</div>
                                             @endif
                                         </div>
                                         <div class="deals_info_line d-flex flex-row justify-content-start">
                                             <div class="deals_item_name"><a style="font-size: 22px" href="{{ route('product.details',[$deal->id, $deal->product_name]) }}">{{ $deal->product_name}}</a></div>
                                             @if($deal->discount_price == NULL)
-                                                <div class="deals_item_price ml-auto">${{ $deal->selling_prize }}</div>
+                                                <div class="deals_item_price ml-auto">BDT{{ $deal->selling_prize }}</div>
                                             @else
                                             @endif
                                             @if($deal->discount_price !== NULL)
-                                                <div class="deals_item_price ml-auto">${{ $deal->discount_price }}</div>
+                                                <div class="deals_item_price ml-auto">BDT{{ $deal->discount_price }}</div>
                                             @else
                                             @endif
                                         </div>
@@ -186,9 +186,9 @@
                                             <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset($recent->image_one) }}" width="115" height="115" alt=""></div>
                                             <div class="product_content">
                                                 @if($recent->discount_price == NULL)
-                                                    <div class="product_price discount">${{$recent->selling_prize}}</div>
+                                                    <div class="product_price discount">BDT{{$recent->selling_prize}}</div>
                                                 @else
-                                                    <div class="product_price discount">${{$recent->discount_price}}<span>${{$recent->selling_prize}}</span></div>
+                                                    <div class="product_price discount">BDT{{$recent->discount_price}}<span>BDT{{$recent->selling_prize}}</span></div>
                                                 @endif
                                                 <div class="product_name"><div><a href="{{ route('product.details',[$recent->id, $recent->product_name]) }}">{{$recent->product_name}}</a></div></div>
                                                 <div class="product_extras">
@@ -288,10 +288,10 @@
                                         <div class="banner_2_category"><h4>{{ $mid_slider->category->category_name }}</h4></div>
                                         <a href="{{ route('product.details',[$deal->id, $deal->product_name]) }}"><div class="banner_2_title"><h3>{{ $mid_slider->product_name }}</h3></div></a>
                                         <div class="banner_2_text"><h4>{{ $mid_slider->brand->brand_name }}</h4> <br>
-                                           <h2>${{ $mid_slider->selling_prize }}</h2>
+                                           <h2>BDT{{ $mid_slider->selling_prize }}</h2>
                                         </div>
                                         <div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                        <div class="button banner_2_button"><a href="#">Explore</a></div>
+                                        <div class="button banner_2_button"><a href="">Explore</a></div>
                                     </div>
 
                                 </div>
@@ -340,18 +340,18 @@
                                                     <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset($product->image_one) }}" width="115" height="115" alt=""></div>
                                                     <div class="product_content">
                                                         @if($product->discount_price == NULL)
-                                                            <div class="product_price discount">${{$product->selling_prize}}</div>
+                                                            <div class="product_price discount">BDT{{$product->selling_prize}}</div>
                                                         @else
-                                                            <div class="product_price discount">${{$product->discount_price}}<span>${{$product->selling_prize}}</span></div>
+                                                            <div class="product_price discount">BDT{{$product->discount_price}}<span>BDT{{$product->selling_prize}}</span></div>
                                                         @endif
-                                                        <div class="product_name"><div><a href="#">{{$product->product_name}}</a></div></div>
+                                                        <div class="product_name"><div><a href="{{ route('product.details',[$product->id, $product->product_name]) }}">{{$product->product_name}}</a></div></div>
                                                         <div class="product_extras">
                                                             <div class="product_color">
                                                                 <input type="radio" checked name="product_color" style="background:#b19c83">
                                                                 <input type="radio" name="product_color" style="background:#000000">
                                                                 <input type="radio" name="product_color" style="background:#999999">
                                                             </div>
-                                                            <button class="product_cart_button">Add to Cart</button>
+                                                            <button data-id="{{ $product->id }}" class="product_cart_button addtoCard">Add to Cart</button>
                                                         </div>
                                                     </div>
                                                     <button class="addwishlist" style="border: 0; cursor: pointer" data-id="{{$product->id}}"><div class="product_fav"><i class="fas fa-heart"></i></div></button>
@@ -417,18 +417,18 @@
                                                     <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset($product->image_one) }}" width="115" height="115" alt=""></div>
                                                     <div class="product_content">
                                                         @if($product->discount_price == NULL)
-                                                            <div class="product_price discount">${{$product->selling_prize}}</div>
+                                                            <div class="product_price discount">BDT{{$product->selling_prize}}</div>
                                                         @else
-                                                            <div class="product_price discount">${{$product->discount_price}}<span>${{$product->selling_prize}}</span></div>
+                                                            <div class="product_price discount">BDT{{$product->discount_price}}<span>BDT{{$product->selling_prize}}</span></div>
                                                         @endif
-                                                        <div class="product_name"><div><a href="#">{{$product->product_name}}</a></div></div>
+                                                        <div class="product_name"><div><a href="{{ route('product.details',[$product->id, $product->product_name]) }}">{{$product->product_name}}</a></div></div>
                                                         <div class="product_extras">
                                                             <div class="product_color">
                                                                 <input type="radio" checked name="product_color" style="background:#b19c83">
                                                                 <input type="radio" name="product_color" style="background:#000000">
                                                                 <input type="radio" name="product_color" style="background:#999999">
                                                             </div>
-                                                            <button class="product_cart_button">Add to Cart</button>
+                                                            <button class="product_cart_button addtoCard" data-id="{{ $product->id }}">Add to Cart</button>
                                                         </div>
                                                     </div>
                                                     <button class="addwishlist" style="border: 0; cursor: pointer" data-id="{{$product->id}}"><div class="product_fav"><i class="fas fa-heart"></i></div></button>
@@ -1248,7 +1248,7 @@
                                     <div class="trends_content">
                                         <div class="trends_category"><a href="#">{{ $buyone->brand->brand_name }}</a></div>
                                         <div class="trends_info clearfix">
-                                            <div class="trends_name"><a href="product.html">{{ $buyone->product_name }}</a></div>
+                                            <div class="trends_name"><a href="{{ route('product.details', [$buyone->id, $buyone->product_name]) }}">{{ $buyone->product_name }}</a></div>
                                             @if($buyone->discount_price == NULL)
                                                 <div class="product_price discount">${{$recent->selling_prize}}</div>
                                             @else
@@ -1267,7 +1267,7 @@
                                         @endif
                                     </ul>
                                     <button class="addwishlist"  style="border: 0" data-id="{{ $buyone->id }}"><div class="trends_fav"><i class="fas fa-heart"></i></div></button>
-                                    <a href="#" class="btn btn-danger">Add to Cart</a>
+                                    <button class="btn btn-danger addtoCard" data-id="{{ $buyone->id }}">Add to Cart</button>
                                 </div>
                             </div>
                         @endforeach
@@ -1425,7 +1425,7 @@
                                         @else
                                             <div class="viewed_price">${{ $recent->discount_price }}<span>${{ $recent->selling_prize }}</span></div>
                                         @endif
-                                        <div class="viewed_name"><a href="#">Beoplay H7</a></div>
+                                        <div class="viewed_name"><a href="{{ route('product.details', [$recent->id, $recent->product_name]) }}">{{ $recent->product_name }}</a></div>
                                     </div>
                                     <ul class="item_marks">
                                         @if($recent->discount_price == NULL)

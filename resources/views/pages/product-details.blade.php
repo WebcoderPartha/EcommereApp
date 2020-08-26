@@ -42,7 +42,7 @@
                                            <label for="color">Color:</label>
                                            <select name="color" id="color" class="form-control" style="min-width: 120px !important; margin-left: 0px">
                                                @foreach($product_color as $color)
-                                               <option value="{{Str::lower($color)}}">{{$color}}</option>
+                                               <option value="{{$color}}">{{$color}}</option>
                                                @endforeach
                                            </select>
                                        </div>
@@ -55,7 +55,7 @@
                                            <label for="size">Size:</label>
                                            <select name="size" id="size" class="form-control" style="min-width: 120px !important; margin-left: 0px">
                                                @foreach($product_size as $size)
-                                               <option value="{{ Str::lower($size) }}">{{$size}}</option>
+                                               <option value="{{ $size }}">{{$size}}</option>
                                               @endforeach
                                            </select>
                                        </div>

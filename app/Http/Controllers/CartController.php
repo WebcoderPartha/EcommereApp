@@ -15,6 +15,14 @@ class CartController extends Controller
 
         $product = Product::where('id', $id)->first();
 
+        // Multiple size for One Size
+        $product_size = $product->product_size;
+        $size = explode(',', $product_size);
+
+        // Multiple color for One Size
+        $product_color = $product->product_color;
+        $color = explode(',', $product_color);
+
         if ($product->discount_price == NULL){
 
             Cart::add([
@@ -25,8 +33,8 @@ class CartController extends Controller
                 'weight'    =>1,
                 'options'   => [
                     'image' => $product->image_one,
-                    'color' => $product->product_color,
-                    'size'  => $product->product_size
+                    'color' => $color[0],
+                    'size'  => $size[0]
                 ]
             ]);
 
@@ -43,9 +51,9 @@ class CartController extends Controller
                 'price'     => $product->discount_price,
                 'weight'    =>1,
                 'options'   => [
-                    'image'         => $product->image_one,
-                    'color' => $product->product_color,
-                    'size'  => $product->product_size
+                    'image'  => $product->image_one,
+                    'color' => $color[0],
+                    'size'  => $size[0]
                 ]
             ]);
 
@@ -109,8 +117,20 @@ class CartController extends Controller
 
     public function showCart(){
         $carts = Cart::content();
+
         return view('pages.cart',  compact('carts'));
+
     }
+
+    public function UpdateCart(Request $request){
+        $rowId = $request->productId;
+        $qty = $request->qty;
+        Cart::update($rowId,$qty);
+
+        Toastr::success('Successfully updated quantity');
+        return redirect()->back();
+    }
+
 
     public function removeCart($id){
 
@@ -125,6 +145,12 @@ class CartController extends Controller
     /// checking for testing
     public function checkCart(){
         $check = Cart::content();
+//
+////        return $check;
+//        $product = Product::findOrFail(8);
+//        $product_size =$product->product_size;
+//
+//        $size = explode(',', $product_size);
 
         return $check;
 
