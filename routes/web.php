@@ -131,6 +131,8 @@ Route::get('/showwishlist', 'WishlistController@showWishlist')->name('show.wishl
 
 // Add to Cart
 Route::get('/addtocart/{id}', 'CartController@AddtoCart')->name('add.cart');
+// Single Product page Add To cart
+Route::post('/addtocart/singleproduct/{id}', 'CartController@addCartSigleProductPage')->name('single.product.addcart');
 // check at to cart testing
 Route::get('/checkcart', 'CartController@checkCart')->name('check.cart');
 // Count cart Menu

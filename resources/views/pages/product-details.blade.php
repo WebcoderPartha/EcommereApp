@@ -32,7 +32,8 @@
                         <div class="rating_r rating_r_4 product_rating"><i></i><i></i><i></i><i></i><i></i></div>
                         <div class="product_text"><p>{!! Str::limit($product->product_details, 600) !!}</p></div>
                         <div class="order_info d-flex flex-row">
-                            <form action="#">
+                            <form action="{{ route('single.product.addcart', $product->id) }}" method="POST">
+                                @csrf
                                <div class="row">
                                    @if($product->product_color == NULL)
                                        @else
@@ -76,7 +77,7 @@
                                     <div class="product_price"><del>{{ $product->selling_prize }}</del></div>
                                  @endif
                                 <div class="button_container">
-                                    <button type="button" class="button cart_button">Add to Cart</button>
+                                    <button type="submit" class="button cart_button">Add to Cart</button>
                                     <div class="product_fav"><i class="fas fa-heart"></i></div>
                                 </div>
 
