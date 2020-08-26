@@ -135,6 +135,8 @@ Route::get('/product/cart','CartController@showCart')->name('show.cart');
 Route::get('/product/remove/cart/{id}', 'CartController@removeCart')->name('remove.cart');
 Route::post('/product/update/cart/','CartController@UpdateCart')->name('update.cart');
 Route::get('/view/cart/product/{id}','CartController@ViewCartProduct')->name('view.cart.product');
+Route::post('/addtocart/product/insert', 'CartController@addCartInsertProduct')->name('add.cart.insert.product');
+Route::get('/checkout', 'CartController@checkOut')->name('user.checkout');
 // Single Product page Add To cart
 Route::post('/addtocart/singleproduct/{id}', 'CartController@addCartSigleProductPage')->name('single.product.addcart');
 // check at to cart testing

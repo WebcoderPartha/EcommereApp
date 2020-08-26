@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 use Yoeunes\Toastr\Facades\Toastr;
+use function GuzzleHttp\Promise\queue;
 use function Sodium\add;
 
 class CartController extends Controller
@@ -155,9 +157,60 @@ class CartController extends Controller
             'size'   => $product_size
         ]);
 
+    }
+
+    public function addCartInsertProduct(Request $request){
+        $id = $request->product_id;
+        $color = $request->color;
+        $size   = $request->size;
+        $product = Product::where('id', $id)->first();
+
+        if ($product->discount_price == NULL){
+            Cart::add([
+                'id'        => $request->product_id,
+                'name'      => $product->product_name,
+                'price'     => $product->selling_prize,
+                'qty'       => $request->qty,
+                'weight'    => 1,
+                'options'   => [
+                    'image' => $product->image_one,
+                    'color' => $request->color,
+                    'size'  => $request->size,
+                ]
+            ]);
+
+            Toastr::success('Successfully added on your Cart');
+            return redirect()->back();
+
+
+        }else{
+            Cart::add([
+                'id'        => $request->product_id,
+                'name'      => $product->product_name,
+                'price'     => $product->discount_price,
+                'qty'       => $request->qty,
+                'weight'    => 1,
+                'options'   => [
+                    'image' => $product->image_one,
+                    'color' => $request->color,
+                    'size'  => $request->size
+                ]
+            ]);
+            Toastr::success('Successfully added on your Cart');
+            return redirect()->back();
+        }
 
     }
 
+    public function checkOut(){
+        if (Auth::check()){
+            $carts = Cart::content();
+            return view('pages.checkout', compact('carts'));
+        }else{
+            Toastr::warning('Please at first login your account');
+            return redirect()->route('login');
+        }
+    }
 
     /// checking for testing
     public function checkCart(){

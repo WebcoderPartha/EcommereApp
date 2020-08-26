@@ -346,7 +346,7 @@
                                                                 <input type="radio" name="product_color" style="background:#000000">
                                                                 <input type="radio" name="product_color" style="background:#999999">
                                                             </div>
-                                                            <button data-id="{{ $product->id }}" class="product_cart_button addtoCard">Add to Cart</button>
+                                                            <button id="{{ $product->id }}" class="product_cart_button addtoCard" onclick="productView(this.id)" data-toggle="modal" data-target="#cartModel">Add to Cart</button>
                                                         </div>
                                                     </div>
                                                     <button class="addwishlist" style="border: 0; cursor: pointer" data-id="{{$product->id}}"><div class="product_fav"><i class="fas fa-heart"></i></div></button>
@@ -423,7 +423,7 @@
                                                                 <input type="radio" name="product_color" style="background:#000000">
                                                                 <input type="radio" name="product_color" style="background:#999999">
                                                             </div>
-                                                            <button class="product_cart_button addtoCard" data-id="{{ $product->id }}">Add to Cart</button>
+                                                            <button class="product_cart_button addtoCard" id="{{ $product->id }}" onclick="productView(this.id)" data-toggle="modal" data-target="#cartModel">Add to Cart</button>
                                                         </div>
                                                     </div>
                                                     <button class="addwishlist" style="border: 0; cursor: pointer" data-id="{{$product->id}}"><div class="product_fav"><i class="fas fa-heart"></i></div></button>
@@ -1475,11 +1475,14 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="titless">Product Details</h5>
+                    <h5 class="modal-title text-center" id="titless">Product Details</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+                <form method="POST" action="{{ route('add.cart.insert.product') }}">
+                    @csrf
+                    <input type="hidden" name="product_id" id="productID">
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-4">
@@ -1536,8 +1539,9 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add To Cart</button>
+                    <button type="submit" class="btn btn-primary">Add To Cart</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
@@ -1557,6 +1561,7 @@
                     $('#pCategory').text(data.product.category.category_name);
                     $('#pbrand').text(data.product.brand.brand_name);
                     $('#plogo').attr('src', data.product.brand.brand_logo);
+                    $('#productID').val(data.product.id);
 
                     let d = $("select[name='size']").empty();
                     if(!$.trim(data.size)){

@@ -21,6 +21,17 @@
         .featured .slick-track {
             margin-bottom: 94px;
         }
+        div#size select {
+            width: 134px !important;
+            margin: auto;
+        }
+        div#color select {
+            width: 134px !important;
+            margin: auto;
+        }
+        input#qty {
+            margin: 0 auto;
+        }
     </style>
 </head>
 
@@ -74,7 +85,7 @@
                                             <a href="{{ route('myaccount') }}"><div class="user_icon"><img src="{{ asset('frontend/images/user.svg') }}" alt=""></div> My Account<i class="fas fa-chevron-down"></i></a>
                                             <ul>
                                                 <li><a href="#">Wishlist</a></li>
-                                                <li><a href="#">Checkout</a></li>
+                                                <li><a href="{{ route('user.checkout') }}">Checkout</a></li>
                                                 <li><a href="#">Others</a></li>
                                                 <li><a href="{{ route('logout.user') }}">Sign Out</a></li>
                                             </ul>
