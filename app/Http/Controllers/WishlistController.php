@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use App\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -56,6 +57,29 @@ class WishlistController extends Controller
             'wishlist' => $wishlist
         ]);
 
+    }
+
+    public function wishListPage(){
+        if (Auth::check()){
+            $user_id = Auth::id();
+            $wishlists = Wishlist::with('product', 'user')->where('user_id', $user_id)->get();
+            return view('pages.wishlist', compact('wishlists'));
+        }else{
+            Toastr::warning('Sign in your account for see your wishlist!');
+            return redirect()->route('login');
+        }
+
+    }
+
+    public function removeWishlist($id){
+//        $user_id = Auth::id();
+//        Wishlist::where('user_id', $user_id)->where('product_id', $id)->delete();
+        if (Auth::check()){
+            $wishlist = Wishlist::findOrFail($id);
+            $wishlist->delete();
+            Toastr::success('Successfully removed from your wishlist');
+            Return redirect()->back();
+        }
     }
 
 }

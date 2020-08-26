@@ -128,6 +128,8 @@ Route::namespace('Frontend')->group(function (){
 // Add Wishlist
 Route::get('/add/wishlist/{id}', 'WishlistController@addWishlist')->name('add.wishlist');
 Route::get('/showwishlist', 'WishlistController@showWishlist')->name('show.wishlist');
+Route::get('/my-account/wishlist', 'WishlistController@wishListPage')->name('user.wishlist');
+Route::get('/my-account/wishlist/remove/{id}', 'WishlistController@removeWishlist')->name('user.remove.wishlist');
 
 // Add to Cart
 Route::get('/addtocart/{id}', 'CartController@AddtoCart')->name('add.cart');
