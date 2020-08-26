@@ -24,8 +24,8 @@ class CartController extends Controller
                 'weight'    =>1,
                 'options'   => [
                     'image' => $product->image_one,
-                    'product_color' => $product->product_color,
-                    'product_size'  => $product->product_size
+                    'color' => $product->product_color,
+                    'size'  => $product->product_size
                 ]
             ]);
 
@@ -43,8 +43,8 @@ class CartController extends Controller
                 'weight'    =>1,
                 'options'   => [
                     'image'         => $product->image_one,
-                    'product_color' => $product->product_color,
-                    'product_size'  => $product->product_size
+                    'color' => $product->product_color,
+                    'size'  => $product->product_size
                 ]
             ]);
 
@@ -63,6 +63,8 @@ class CartController extends Controller
 
     }
 
+
+    /// checking for testing
     public function checkCart(){
         $check = Cart::content();
 

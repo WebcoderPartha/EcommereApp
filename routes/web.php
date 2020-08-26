@@ -131,7 +131,10 @@ Route::get('/showwishlist', 'WishlistController@showWishlist')->name('show.wishl
 
 // Add to Cart
 Route::get('/addtocart/{id}', 'CartController@AddtoCart')->name('add.cart');
-// check at to cart
+// check at to cart testing
 Route::get('/checkcart', 'CartController@checkCart')->name('check.cart');
 // Count cart Menu
 Route::get('/cartcount', 'CartController@countCart')->name('count.cart');
+
+// Product Details Page
+Route::get('/product/details/{id}/{product_name}', 'ProductController@productDetail')->name('product.details');

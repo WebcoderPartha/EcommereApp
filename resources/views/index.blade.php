@@ -1,8 +1,7 @@
 @extends('layouts.app')
+@section('title', 'Home Page')
 @section('content')
     <!-- Header Main -->
-
-
 
     <!-- Banner -->
     <div class="banner">
@@ -113,7 +112,7 @@
                                             @endif
                                         </div>
                                         <div class="deals_info_line d-flex flex-row justify-content-start">
-                                            <div class="deals_item_name">{{ $deal->product_name}}</div>
+                                            <div class="deals_item_name"><a style="font-size: 22px" href="{{ route('product.details',[$deal->id, $deal->product_name]) }}">{{ $deal->product_name}}</a></div>
                                             @if($deal->discount_price == NULL)
                                                 <div class="deals_item_price ml-auto">${{ $deal->selling_prize }}</div>
                                             @else
@@ -191,7 +190,7 @@
                                                 @else
                                                     <div class="product_price discount">${{$recent->discount_price}}<span>${{$recent->selling_prize}}</span></div>
                                                 @endif
-                                                <div class="product_name"><div><a href="#">{{$recent->product_name}}</a></div></div>
+                                                <div class="product_name"><div><a href="{{ route('product.details',[$recent->id, $recent->product_name]) }}">{{$recent->product_name}}</a></div></div>
                                                 <div class="product_extras">
                                                     <div class="product_color">
                                                         <input type="radio" checked name="product_color" style="background:#b19c83">
@@ -287,7 +286,7 @@
                                 <div class="col-lg-4 col-md-6 fill_height">
                                     <div class="banner_2_content">
                                         <div class="banner_2_category"><h4>{{ $mid_slider->category->category_name }}</h4></div>
-                                        <div class="banner_2_title"><h3>{{ $mid_slider->product_name }}</h3></div>
+                                        <a href="{{ route('product.details',[$deal->id, $deal->product_name]) }}"><div class="banner_2_title"><h3>{{ $mid_slider->product_name }}</h3></div></a>
                                         <div class="banner_2_text"><h4>{{ $mid_slider->brand->brand_name }}</h4> <br>
                                            <h2>${{ $mid_slider->selling_prize }}</h2>
                                         </div>
@@ -1516,7 +1515,7 @@
                 }
             });
 
-            
+
            $('.addwishlist').on('click', function (){
               var id = $(this).data('id');
               if(id){
