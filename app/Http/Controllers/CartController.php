@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Yoeunes\Toastr\Facades\Toastr;
 use function Sodium\add;
 
@@ -138,6 +139,22 @@ class CartController extends Controller
 
         Toastr::success('Removed an item from your Cart');
         return redirect()->back();
+
+    }
+
+    public function ViewCartProduct($id){
+        $product = Product::with('category', 'subcategory', 'brand')->where('id', $id)->first();
+        $color = $product->product_color;
+        $product_color = explode(',', $color);
+        $size = $product->product_size;
+        $product_size = explode(',', $size);
+
+        return response::json([
+           'product' => $product,
+            'color'  => $product_color,
+            'size'   => $product_size
+        ]);
+
 
     }
 

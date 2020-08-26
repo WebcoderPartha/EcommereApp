@@ -192,12 +192,7 @@
                                                 @endif
                                                 <div class="product_name"><div><a href="{{ route('product.details',[$recent->id, $recent->product_name]) }}">{{$recent->product_name}}</a></div></div>
                                                 <div class="product_extras">
-                                                    <div class="product_color">
-                                                        <input type="radio" checked name="product_color" style="background:#b19c83">
-                                                        <input type="radio" name="product_color" style="background:#000000">
-                                                        <input type="radio" name="product_color" style="background:#999999">
-                                                    </div>
-                                                    <button class="product_cart_button addtoCard" data-id="{{ $recent->id }}">Add to Cart</button>
+                                                    <button class="product_cart_button addtoCard" id="{{ $recent->id }}" onclick="productView(this.id)" data-toggle="modal" data-target="#cartModel">Add to Cart</button>
                                                 </div>
                                             </div>
                                             <button class="addwishlist" style="border: 0; cursor: pointer" data-id="{{$recent->id}}"><div class="product_fav"><i class="fas fa-heart"></i></div></button>
@@ -1474,46 +1469,158 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="cartModel" tabindex="-1" role="dialog" aria-labelledby="titless" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titless">Product Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body p-1">
+                                    <img src="" id="pImage" width="222" height="auto" alt="">
+                                    <h5 class="pTitle text-center"></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body p-1">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">Product Code: <span id="code"></span></li>
+                                        <li class="list-group-item">Category: <span id="pCategory"></span></li>
+                                        <li class="list-group-item">Brand: <span id="pbrand"></span> <img src="" id="plogo" width="50" height="auto" alt=""></li>
+                                        <li class="list-group-item">Stock: <span class="badge badge-success text-white">Available</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-3" id="size">
+                                <div class="card-header p-1 text-center">
+                                    <label class="card-title" for="size">Size</label></div>
+                                <div class="card-body p-1">
+                                    <select style="width: 109px;" name="size" class="form-control">
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="card mb-3"  id="color">
+                                <div class="card-header p-1 text-center">
+                                    <label for="color" class="card-title">Color</label>
+                                </div>
+                                <div class="card-body p-1">
+                                    <select style="width: 109px;" name="color" class="form-control">
+                                        <option value="size">Red</option>
+                                        <option value="size">Blue</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header p-1 text-center">
+                                    <label for="qty" class="card-title">Quantity</label>
+                                </div>
+                                <div class="card-body p-1">
+                                    <input type="number" id="qty" style="width: 109px;" class="form-control" value="1" min="1" pattern="[1-9]" name="qty">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Add To Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script type="text/javascript">
-        $(document).ready(function (){
-            $('.addtoCard').on('click', function (){
-                var id = $(this).data('id');
-                if(id){
-                    $.ajax({
-                        type    : "GET",
-                        url     : "{{ url('/addtocart/') }}/"+id,
-                        dataType: "JSON",
-                        success : (data) => {
-                            const Toast = Swal.mixin({
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                                timer: 3000,
-                                timerProgressBar: false,
-                                onOpen: (toast) => {
-                                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                                }
-                            });
+        function productView(id){
+            $.ajax({
+                type    : "GET",
+                url     : "{{ url('/view/cart/product') }}/"+id,
+                dataType: "JSON",
+                success : (data) =>{
+                    $('.pTitle').text(data.product.product_name);
+                    $('#pImage').attr('src', data.product.image_one);
+                    $('#code').text(data.product.product_code);
+                    $('#pCategory').text(data.product.category.category_name);
+                    $('#pbrand').text(data.product.brand.brand_name);
+                    $('#plogo').attr('src', data.product.brand.brand_logo);
 
-                            if ($.isEmptyObject(data.error)){
-                                Toast.fire({
-                                    icon: 'success',
-                                    title: data.success
-                                })
-                            }else{
-                                Toast.fire({
-                                    icon: 'success',
-                                    title: data.error
-                                })
-                            }
-                        }
-                    });
+                    let d = $("select[name='size']").empty();
+                    if(!$.trim(data.size)){
+                        $("#size").hide();
+                    }else{
+
+                        $.each(data.size, (idx, value) => {
+                            let sizing = '<option value="'+value+'">'+value+'</option>';
+                            $("select[name='size']").append(sizing);
+                        })
+                        $("#size").show();
+                    }
+
+                    let e = $("select[name='color']").empty();
+                    if(!$.trim(data.color)){
+                        $("#color").hide();
+                    }else{
+                        $("#color").show();
+                        $.each(data.color, (idx, value) => {
+                            let coloring = '<option value="'+value+'">'+value+'</option>';
+                            $("select[name='color']").append(coloring);
+                        });
+                    }
                 }
             });
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function (){
+            {{--$('.addtoCard').on('click', function (){--}}
+            {{--    var id = $(this).data('id');--}}
+            {{--    if(id){--}}
+            {{--        $.ajax({--}}
+            {{--            type    : "GET",--}}
+            {{--            url     : "{{ url('/addtocart/') }}/"+id,--}}
+            {{--            dataType: "JSON",--}}
+            {{--            success : (data) => {--}}
+            {{--                const Toast = Swal.mixin({--}}
+            {{--                    toast: true,--}}
+            {{--                    position: 'top-end',--}}
+            {{--                    showConfirmButton: false,--}}
+            {{--                    timer: 3000,--}}
+            {{--                    timerProgressBar: false,--}}
+            {{--                    onOpen: (toast) => {--}}
+            {{--                        toast.addEventListener('mouseenter', Swal.stopTimer)--}}
+            {{--                        toast.addEventListener('mouseleave', Swal.resumeTimer)--}}
+            {{--                    }--}}
+            {{--                });--}}
+
+            {{--                if ($.isEmptyObject(data.error)){--}}
+            {{--                    Toast.fire({--}}
+            {{--                        icon: 'success',--}}
+            {{--                        title: data.success--}}
+            {{--                    })--}}
+            {{--                }else{--}}
+            {{--                    Toast.fire({--}}
+            {{--                        icon: 'success',--}}
+            {{--                        title: data.error--}}
+            {{--                    })--}}
+            {{--                }--}}
+            {{--            }--}}
+            {{--        });--}}
+            {{--    }--}}
+            {{--});--}}
 
 
            $('.addwishlist').on('click', function (){

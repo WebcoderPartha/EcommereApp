@@ -70,11 +70,11 @@
                                </div>
 
                                 @if($product->discount_price == NULL)
-                                    <div class="product_price">{{ $product->selling_prize }}</div>
+                                    <div class="product_price">BDT{{ $product->selling_prize }}</div>
 
                                 @else
-                                    <div class="product_price discount">{{ $product->discount_price }}</div>
-                                    <div class="product_price"><del>{{ $product->selling_prize }}</del></div>
+                                    <div class="product_price discount">BDT{{ $product->discount_price }}</div>
+                                    <div class="product_price"><del>BDT{{ $product->selling_prize }}</del></div>
                                  @endif
                                 <div class="button_container">
                                     <button type="submit" class="button cart_button">Add to Cart</button>

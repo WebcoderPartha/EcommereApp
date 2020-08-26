@@ -258,25 +258,26 @@
                 $('.wishlist_count').html(data.wishlist);
             }
         });
-        // Cart Icon
-        $('.addtoCard').on('click', function(){
-            $.ajax({
-                type    : "GET",
-                url     : "{{ url('/cartcount') }}",
-                dataType: "JSON",
-                success : (data) => {
-                    $('.cart_count span').html(data);
-                }
-            });
-        });
-        $.ajax({
-            type    : "GET",
-            url     : "{{ url('/cartcount') }}",
-            dataType: "JSON",
-            success : (data) => {
-                $('.cart_count span').html(data);
-            }
-        });
+        {{--// Cart Icon--}}
+        {{--$('.addtoCard').on('click', function(){--}}
+        {{--    $.ajax({--}}
+        {{--        type    : "GET",--}}
+        {{--        url     : "{{ url('/cartcount') }}",--}}
+        {{--        dataType: "JSON",--}}
+        {{--        success : (data) => {--}}
+        {{--            $('.cart_count span').html(data);--}}
+        {{--        }--}}
+        {{--    });--}}
+        {{--});--}}
+        {{--$.ajax({--}}
+        {{--    type    : "GET",--}}
+        {{--    url     : "{{ url('/cartcount') }}",--}}
+        {{--    dataType: "JSON",--}}
+        {{--    success : (data) => {--}}
+        {{--        $('.cart_count span').html(data);--}}
+        {{--    }--}}
+        {{--});--}}
+
     });
 
 </script>

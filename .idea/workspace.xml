@@ -25,8 +25,9 @@
     <list default="true" id="e2141fe9-b887-4321-b185-bf0f7b896b40" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/frontend/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/js/custom.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main-nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main-nav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/cart.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/product-details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/product-details.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
@@ -191,7 +192,7 @@
       <workItem from="1598205815984" duration="17402000" />
       <workItem from="1598227187690" duration="610000" />
       <workItem from="1598267539985" duration="40852000" />
-      <workItem from="1598347776274" duration="55272000" />
+      <workItem from="1598347776274" duration="70158000" />
     </task>
     <servers />
   </component>
@@ -238,9 +239,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1598389289891" />
-    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup" timestamp="1598421791695">
+    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup" timestamp="1598458881593">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598421791695" />
+    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598458881593" />
   </component>
 </project>
