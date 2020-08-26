@@ -27,7 +27,7 @@
                 <!-- Description -->
                 <div class="col-lg-5 order-3">
                     <div class="product_description">
-                        <div class="product_category">{{ $product->category->category_name }} > {{ $product->subcategory->subcategory_name }}</div>
+                        <div class="product_category">{{ $product->category->category_name }} > {{ $product->subcategory ? $product->subcategory->subcategory_name : '' }}</div>
                         <div class="product_name">{{ $product->product_name }}</div>
                         <div class="rating_r rating_r_4 product_rating"><i></i><i></i><i></i><i></i><i></i></div>
                         <div class="product_text"><p>{!! Str::limit($product->product_details, 600) !!}</p></div>

@@ -61,7 +61,7 @@
                                 <div class="cart_count"><span></span></div>
                             </div>
                             <div class="cart_content">
-                                <div class="cart_text"><a href="#">Cart</a></div>
+                                <div class="cart_text"><a href="{{ route('show.cart') }}">Cart</a></div>
                                 <div class="cart_price">${{ Cart::subtotal() }}</div>
                             </div>
                         </div>

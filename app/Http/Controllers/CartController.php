@@ -107,6 +107,20 @@ class CartController extends Controller
 
     }
 
+    public function showCart(){
+        $carts = Cart::content();
+        return view('pages.cart',  compact('carts'));
+    }
+
+    public function removeCart($id){
+
+        Cart::remove($id);
+
+        Toastr::success('Removed an item from your Cart');
+        return redirect()->back();
+
+    }
+
 
     /// checking for testing
     public function checkCart(){
