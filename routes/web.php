@@ -148,3 +148,8 @@ Route::get('/cartcount', 'CartController@countCart')->name('count.cart');
 
 // Product Details Page
 Route::get('/product/details/{id}/{product_name}', 'ProductController@productDetail')->name('product.details');
+
+
+// Coupon
+Route::post('/checkout/apply/coupon/','CouponController@appplyCouponCheckout')->name('checkout.apply.coupon');
+Route::get('/checkout/remove/coupon', 'CouponController@removeCoupon')->name('remove.coupon');

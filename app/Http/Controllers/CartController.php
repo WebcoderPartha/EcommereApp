@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Setting;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -204,8 +205,9 @@ class CartController extends Controller
 
     public function checkOut(){
         if (Auth::check()){
+            $charge = Setting::first();
             $carts = Cart::content();
-            return view('pages.checkout', compact('carts'));
+            return view('pages.checkout', compact('carts', 'charge'));
         }else{
             Toastr::warning('Please at first login your account');
             return redirect()->route('login');

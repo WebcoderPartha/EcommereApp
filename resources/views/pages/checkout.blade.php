@@ -43,11 +43,7 @@
                                             <div class="cart_item_quantity cart_info_col">
                                                 <div class="cart_item_title">Quantity</div>
                                                 <div class="cart_item_text">
-                                                    <form action="{{ route('update.cart') }}" method="POST">
-                                                        @csrf
-                                                        <input type="hidden" name="productId" value="{{$cart->rowId}}">
-                                                        <input type="number" class="form-control" style="border-top-right-radius: 0; border-bottom-right-radius: 0;display: inline-block;width: 70px" value="{{ $cart->qty }}" min="1" name="qty" pattern="[0-9]"><button class="btn btn-outline-white" style="padding: 6px;border-top-left-radius: 0px;border-bottom-left-radius: 0px;margin-top: -2px;"><i class="fa fa-check text-danger"></i></button>
-                                                    </form>
+                                                    {{ $cart->qty }}
                                                 </div>
                                             </div>
                                             <div class="cart_item_price cart_info_col">
@@ -58,10 +54,6 @@
                                                 <div class="cart_item_title">Total</div>
                                                 <div class="cart_item_text">${{ $cart->price*$cart->qty }}</div>
                                             </div>
-                                            <div class="cart_item_total cart_info_col">
-                                                <div class="cart_item_title">Action</div>
-                                                <div class="cart_item_text"><a class="p-3" href="{{ route('remove.cart', $cart->rowId) }}">X</a></div>
-                                            </div>
                                         </div>
                                     </li>
                                 @endforeach
@@ -70,24 +62,80 @@
 
                         <!-- Order Total -->
                         <div class="row">
+                            @if(Session::has('coupon'))
+                                <div class="col-md-4 p-4"></div>
+                            @else
                             <div class="col-md-4 p-4">
                                 <div class="card p-4">
-                                    <form action="">
+                                    <form action="{{ route('checkout.apply.coupon') }}" method="POST">
+                                        @csrf
                                         <div class="form-group">
                                             <label for="">Apply Coupon</label>
                                             <input type="text" placeholder="Enter coupon code" name="coupon" class="form-control" style="width: 214px">
                                         </div>
+                                        <button type="submit" style="cursor:pointer;" class="btn btn-primary">Apply</button>
                                     </form>
                                 </div>
                             </div>
+                            @endif
                             <div class="col-md-4 offset-4 p-4">
                                <div class="card">
                                    <ul class="list-group">
-                                       <li class="list-group-item">Subtotal: 345</li>
-                                       <li class="list-group-item">Coupon: 345</li>
-                                       <li class="list-group-item">Shipping Charge: 345</li>
-                                       <li class="list-group-item">Vat: 345</li>
-                                       <li class="list-group-item">Total: 345</li>
+                                       @if(Session::has('coupon'))
+                                           <li class="list-group-item">Subtotal:<span style="float: right">BDT {{ Session::get('coupon')['balance'] }}</span></li>
+                                           <li class="list-group-item">Coupon: <span>({{Session::get('coupon')['name']}}) <a
+                                                       href="{{ route('remove.coupon') }}" class="btn btn-danger btn-sm">X</a></span> <span style="float: right">BDT {{ Session::get('coupon')['discount'] }}</span></li>
+                                       @else
+                                           <li class="list-group-item">Subtotal:<span style="float: right">BDT {{ Cart::subtotal() }}</span></li>
+                                       @endif
+                                       @if($charge->shipping_charge == NULL)
+                                           @else
+                                               <li class="list-group-item">Shipping Charge: <span style="float: right">BDT {{ $charge->shipping_charge }}</span></li>
+                                           @endif
+
+                                           @if($charge->vat == NULL)
+                                           @else
+                                               <li class="list-group-item">Vat: <span style="float: right">BDT {{ $charge->vat }}</span></li>
+                                           @endif
+                                           @if(Session::has('coupon'))
+                                               @if(!$charge->vat == NULL &&  !$charge->shipping_charge == NULL)
+                                                   <li class="list-group-item">Total:
+                                                       <span style="float: right">BDT {{ Session::get('coupon')['balance'] + $charge->vat + $charge->shipping_charge}}</span>
+                                                   </li>
+                                               @elseif($charge->vat == NULL && !$charge->shipping_charge == NULL)
+                                                   <li class="list-group-item">Total:
+                                                       <span style="float: right">BDT {{ Session::get('coupon')['balance'] + $charge->shipping_charge}}</span>
+                                                   </li>
+                                               @elseif(!$charge->vat == NULL && $charge->shipping_charge == NULL)
+                                                   <li class="list-group-item">Total:
+                                                       <span style="float: right">BDT {{ Session::get('coupon')['balance'] + $charge->vat}}</span>
+                                                   </li>
+                                               @else
+                                                   <li class="list-group-item">Total:
+                                                       <span style="float: right">BDT {{ Session::get('coupon')['balance']}}</span>
+                                                   </li>
+                                               @endif
+                                           @else
+                                               @if(!$charge->vat == NULL && !$charge->shipping_charge == NULL)
+                                                   <li class="list-group-item">Total:
+                                                       <span style="float: right">BDT {{ Cart::subtotal() + $charge->vat + $charge->shipping_charge }}</span>
+                                                   </li>
+                                               @elseif($charge->vat == NULL && !$charge->shipping_charge == NULL)
+                                                   <li class="list-group-item">Total:
+                                                       <span style="float: right">BDT {{ Cart::subtotal() + $charge->shipping_charge }}</span>
+                                                   </li>
+                                               @elseif(!$charge->vat == NULL && $charge->shipping_charge == NULL)
+                                                   <li class="list-group-item">Total:
+                                                       <span style="float: right">BDT {{ Cart::subtotal() + $charge->vat }}</span>
+                                                   </li>
+                                               @else
+                                                   <li class="list-group-item">Total:
+                                                       <span style="float: right">BDT {{ Cart::subtotal() }}</span>
+                                                   </li>
+                                               @endif
+
+                                           @endif
+
                                    </ul>
                                </div>
                             </div>
