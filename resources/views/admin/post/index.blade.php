@@ -29,8 +29,8 @@
                         <tbody>
                         @foreach($posts as $post)
                             <tr>
-                                <td>{{ $post->post_title_en }}</td>
-                                <td>{{ $post->post_title_in }}</td>
+                                <td>{{ Str::limit($post->post_title_en, 40) }}</td>
+                                <td>{{ Str::limit($post->post_title_in, 40) }}</td>
                                 <td>{{ $post->category ? $post->category->category_name_en : 'Uncategorized' }}</td>
                                 <td><img src="{{ asset($post->post_image) }}" height="50" alt=""></td>
                                 <td>

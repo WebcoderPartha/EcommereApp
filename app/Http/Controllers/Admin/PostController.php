@@ -64,7 +64,7 @@ class PostController extends Controller
 
         if ($image){
 
-            $title = Str::of(Str::lower($request->post_title_en))->slug('-');
+            $title = Str::of(Str::lower(Str::limit($request->post_title_en, '20')))->slug('-');
 
             $image_name = $title.'.'.$image->getClientOriginalExtension();
 

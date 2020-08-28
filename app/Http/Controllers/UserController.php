@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Yoeunes\Toastr\Facades\Toastr;
 
 class UserController extends Controller
@@ -16,6 +17,8 @@ class UserController extends Controller
 
     public function LogOut(){
         Auth::logout();
+        // Destroy Coupon checkout
+        Session::forget('coupon');
         Toastr::success('Sign out Successfully');
         return redirect()->route('login');
     }

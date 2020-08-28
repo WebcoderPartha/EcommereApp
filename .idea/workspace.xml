@@ -23,11 +23,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2141fe9-b887-4321-b185-bf0f7b896b40" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/CouponController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/flag/bangladesh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/flag/india.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/flag/usa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/flag/usa1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/post/educational-institutions-are-facing-the-situation-of-71-an-indication-of-auto-promotion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/post/hsc-exam-may-be-canc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/post/if-you-commit-irregularities-you-will-not-be-able-to-protect-the-identity-of-the-party-quader.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/post/the-state-minister-for-public-administration-has-hinted-at-another-months-ban-in-corona.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/blog.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/single-post.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Setting.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Setting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/media/post/where-can-i-get-some.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/post/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/post/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main-nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main-nav.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/checkout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -152,7 +166,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/media/flag" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -165,6 +179,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Webcoder Partha\Desktop\ecommerce\public\media\flag" />
       <recent name="C:\Users\Webcoder Partha\Desktop\ecommerce\public\media\profile" />
       <recent name="C:\Users\Webcoder Partha\Desktop\ecommerce\public\frontend" />
       <recent name="C:\Users\Webcoder Partha\Desktop\ecommerce\public\backend" />
@@ -200,8 +215,16 @@
       <workItem from="1598267539985" duration="40852000" />
       <workItem from="1598347776274" duration="84807000" />
       <workItem from="1598535973380" duration="9186000" />
-      <workItem from="1598553350049" duration="2282000" />
+      <workItem from="1598553350049" duration="12134000" />
     </task>
+    <task id="LOCAL-00001" summary="checkout vat shipping charge done">
+      <created>1598559946347</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1598559946347</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,6 +244,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="checkout vat shipping charge done" />
+    <option name="LAST_COMMIT_MESSAGE" value="checkout vat shipping charge done" />
   </component>
   <component name="WindowStateProjectService">
     <state x="526" y="236" key="#Notifications" timestamp="1598553833593">
@@ -255,9 +280,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1598489005057" />
-    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup" timestamp="1598554018821">
+    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup" timestamp="1598567950892">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598554018821" />
+    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598567950892" />
   </component>
 </project>

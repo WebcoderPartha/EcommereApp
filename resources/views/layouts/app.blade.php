@@ -54,22 +54,15 @@
                         <div class="top_bar_content ml-auto">
                             <div class="top_bar_menu">
                                 <ul class="standard_dropdown top_bar_dropdown">
-                                    <li>
-                                        <a href="#">English<i class="fas fa-chevron-down"></i></a>
-                                        <ul>
-                                            <li><a href="#">Italian</a></li>
-                                            <li><a href="#">Spanish</a></li>
-                                            <li><a href="#">Japanese</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">$ US dollar<i class="fas fa-chevron-down"></i></a>
-                                        <ul>
-                                            <li><a href="#">EUR Euro</a></li>
-                                            <li><a href="#">GBP British Pound</a></li>
-                                            <li><a href="#">JPY Japanese Yen</a></li>
-                                        </ul>
-                                    </li>
+                                    @if(Session::get('language') == 'hindi')
+                                        <li>
+                                            <a href="{{ route('language.english') }}"><img src="{{ asset('media/flag/usa1.png') }}" width="35" height="35" alt=""></a>
+                                        </li>
+                                    @else
+                                        <li>
+                                            <a href="{{ route('language.hindi') }}"><img src="{{ asset('media/flag/bangladesh.png') }}" width="35" height="35" alt=""></a>
+                                        </li>
+                                    @endif
                                 </ul>
                             </div>
                             <div class="top_bar_user">

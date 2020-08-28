@@ -153,3 +153,12 @@ Route::get('/product/details/{id}/{product_name}', 'ProductController@productDet
 // Coupon
 Route::post('/checkout/apply/coupon/','CouponController@appplyCouponCheckout')->name('checkout.apply.coupon');
 Route::get('/checkout/remove/coupon', 'CouponController@removeCoupon')->name('remove.coupon');
+
+// Multi-Language Routes
+Route::get('/language/english', 'LanguageController@englishLanguge')->name('language.english');
+Route::get('/language/hindi', 'LanguageController@hindiLanguage')->name('language.hindi');
+
+// Frontend Blog Post Routes
+Route::get('blog','PostController@index')->name('blog.post');
+Route::get('blog/{id}/post','PostController@show')->name('single.post');
+

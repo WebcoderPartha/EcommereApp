@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/cart_styles.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/cart_responsive.css')}}">
 @endsection
-@section('title', 'Shopping Cart')
+@section('title', 'Checkout Page')
 @section('content')
 
     <!-- Cart -->
