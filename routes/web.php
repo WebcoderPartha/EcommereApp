@@ -116,6 +116,12 @@ Route::middleware('auth:admin')->namespace('Admin')->group(function (){
 
 });
 
+// Backend Order Routes
+Route::middleware('auth:admin')->namespace('Admin\Order')->group(function (){
+    Route::get('admin/pending/order', 'OrderController@pendingOrder')->name('pending.order');
+    Route::get('admin/view/order/{id}', 'OrderController@viewOrder')->name('view.order');
+});
+
 
 // ALL FRONTEND ROUTES
 Route::namespace('Frontend')->group(function (){
@@ -139,12 +145,18 @@ Route::post('/product/update/cart/','CartController@UpdateCart')->name('update.c
 Route::get('/view/cart/product/{id}','CartController@ViewCartProduct')->name('view.cart.product');
 Route::post('/addtocart/product/insert', 'CartController@addCartInsertProduct')->name('add.cart.insert.product');
 Route::get('/checkout', 'CartController@checkOut')->name('user.checkout');
+// Payment Route
+Route::get('/checkout/payment', 'CartController@paymentMethod')->name('payment.method');
 // Single Product page Add To cart
 Route::post('/addtocart/singleproduct/{id}', 'CartController@addCartSigleProductPage')->name('single.product.addcart');
 // check at to cart testing
 Route::get('/checkcart', 'CartController@checkCart')->name('check.cart');
 // Count cart Menu
 Route::get('/cartcount', 'CartController@countCart')->name('count.cart');
+
+// Payment Process Route
+Route::post('/payment/proccess', 'PaymentController@paymentProccess')->name('payment.success');
+Route::post('/payment/stripe/success', 'PaymentController@stripePayment')->name('stripe.payment');
 
 // Product Details Page
 Route::get('/product/details/{id}/{product_name}', 'ProductController@productDetail')->name('product.details');
@@ -161,4 +173,9 @@ Route::get('/language/hindi', 'LanguageController@hindiLanguage')->name('languag
 // Frontend Blog Post Routes
 Route::get('blog','PostController@index')->name('blog.post');
 Route::get('blog/{id}/post','PostController@show')->name('single.post');
+
+// Category wise products page
+Route::get('/category/{id}/product/all','CategorywiseproductController@CategoryProducts')->name('category.products');
+// Subcategory wise products Page
+Route::get('/subcategory/{id}/product/all', 'SubcategorywiseproductController@SubcategoryProducts')->name('subcategory.products');
 

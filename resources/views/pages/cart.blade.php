@@ -52,11 +52,11 @@
                                         </div>
                                         <div class="cart_item_price cart_info_col">
                                             <div class="cart_item_title">Price</div>
-                                            <div class="cart_item_text">{{ $cart->price }}</div>
+                                            <div class="cart_item_text">BDT {{ $cart->price }}</div>
                                         </div>
                                         <div class="cart_item_total cart_info_col">
                                             <div class="cart_item_title">Total</div>
-                                            <div class="cart_item_text">${{ $cart->price*$cart->qty }}</div>
+                                            <div class="cart_item_text">BDT {{ $cart->price*$cart->qty }}</div>
                                         </div>
                                         <div class="cart_item_total cart_info_col">
                                             <div class="cart_item_title">Action</div>
@@ -72,7 +72,7 @@
                         <div class="order_total">
                             <div class="order_total_content text-md-right">
                                 <div class="order_total_title">Order Total:</div>
-                                <div class="order_total_amount">${{ Cart::total() }}</div>
+                                <div class="order_total_amount">BDT {{ Cart::subtotal() }}</div>
                             </div>
                         </div>
 

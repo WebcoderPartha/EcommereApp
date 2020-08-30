@@ -143,7 +143,7 @@
                         </div>
                         <div class="cart_buttons">
 {{--                            <button type="button" class="button cart_button_clear">Remove All</button>--}}
-                            <a href="{{ route('user.checkout') }}" class="button cart_button_checkout">Process</a>
+                            <a href="{{ route('payment.method') }}" class="button cart_button_checkout">Process</a>
                         </div>
                     </div>
                 </div>

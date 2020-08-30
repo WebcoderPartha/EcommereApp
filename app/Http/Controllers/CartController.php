@@ -214,6 +214,18 @@ class CartController extends Controller
         }
     }
 
+    public function paymentMethod(){
+        if (Auth::check()){
+            $charge = Setting::first();
+            $carts = Cart::content();
+
+            return view('pages.payment', compact('carts', 'charge'));
+        }else{
+            return redirect()->route('login');
+        }
+    }
+
+
     /// checking for testing
     public function checkCart(){
         $check = Cart::content();

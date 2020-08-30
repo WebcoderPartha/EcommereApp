@@ -1547,7 +1547,6 @@
     </div>
 @endsection
 @section('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script type="text/javascript">
         function productView(id){
             $.ajax({
@@ -1628,42 +1627,42 @@
             {{--});--}}
 
 
-           $('.addwishlist').on('click', function (){
-              var id = $(this).data('id');
-              if(id){
-                  $.ajax({
-                      type    :'GET',
-                      url     : "{{ url('add/wishlist/') }}/"+id,
-                      dataType: 'json',
-                      success : function (data){
-                          const Toast = Swal.mixin({
-                              toast: true,
-                              position: 'top-end',
-                              showConfirmButton: false,
-                              timer: 3000,
-                              timerProgressBar: false,
-                              onOpen: (toast) => {
-                                  toast.addEventListener('mouseenter', Swal.stopTimer)
-                                  toast.addEventListener('mouseleave', Swal.resumeTimer)
-                              }
-                          });
+           {{--$('.addwishlist').on('click', function (){--}}
+           {{--   var id = $(this).data('id');--}}
+           {{--   if(id){--}}
+           {{--       $.ajax({--}}
+           {{--           type    :'GET',--}}
+           {{--           url     : "{{ url('add/wishlist/') }}/"+id,--}}
+           {{--           dataType: 'json',--}}
+           {{--           success : function (data){--}}
+           {{--               const Toast = Swal.mixin({--}}
+           {{--                   toast: true,--}}
+           {{--                   position: 'top-end',--}}
+           {{--                   showConfirmButton: false,--}}
+           {{--                   timer: 3000,--}}
+           {{--                   timerProgressBar: false,--}}
+           {{--                   onOpen: (toast) => {--}}
+           {{--                       toast.addEventListener('mouseenter', Swal.stopTimer)--}}
+           {{--                       toast.addEventListener('mouseleave', Swal.resumeTimer)--}}
+           {{--                   }--}}
+           {{--               });--}}
 
-                          if($.isEmptyObject(data.error)){
-                              Toast.fire({
-                                  icon: 'success',
-                                  title: data.success
-                              })
-                          }else{
-                              Toast.fire({
-                                  icon: 'warning',
-                                  title: data.error
-                              })
-                          }
-                      }
+           {{--               if($.isEmptyObject(data.error)){--}}
+           {{--                   Toast.fire({--}}
+           {{--                       icon: 'success',--}}
+           {{--                       title: data.success--}}
+           {{--                   })--}}
+           {{--               }else{--}}
+           {{--                   Toast.fire({--}}
+           {{--                       icon: 'warning',--}}
+           {{--                       title: data.error--}}
+           {{--                   })--}}
+           {{--               }--}}
+           {{--           }--}}
 
-                  });
-              }
-           });
+           {{--       });--}}
+           {{--   }--}}
+           {{--});--}}
         });
     </script>
 @stop

@@ -23,8 +23,8 @@
                             <th>Product Name</th>
                             <th>Image</th>
                             <th>Category</th>
-                            <th class="wd-15p">Subcategory</th>
-                            <th class="wd-15p">Brand</th>
+                            <th>Subcategory</th>
+                            <th>Brand</th>
                             <th>Quantity</th>
                             <th>Status</th>
                             <th>Action</th>

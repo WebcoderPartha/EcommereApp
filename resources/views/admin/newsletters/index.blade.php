@@ -19,10 +19,10 @@
                     <table id="datatable1" class="table display responsive nowrap">
                         <thead>
                         <tr>
-                            <th class="wd-15p">SL</th>
-                            <th class="wd-15p">Email Address</th>
-                            <th class="wd-15p">Subscribing Time</th>
-                            <th class="wd-20p">Action</th>
+                            <th>SL</th>
+                            <th>Email Address</th>
+                            <th>Subscribing Time</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>

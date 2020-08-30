@@ -19,10 +19,10 @@
                     <table id="datatable1" class="table display responsive nowrap">
                         <thead>
                         <tr>
-                            <th class="wd-15p">SL</th>
-                            <th class="wd-15p">Coupon Code</th>
-                            <th class="wd-15p">Coupon Percentage</th>
-                            <th class="wd-20p">Action</th>
+                            <th>SL</th>
+                            <th>Coupon Code</th>
+                            <th>Coupon Percentage</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>

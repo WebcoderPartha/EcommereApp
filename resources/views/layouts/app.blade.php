@@ -238,11 +238,48 @@
 <script src="{{ asset('frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
 <script src="{{ asset('frontend/plugins/slick-1.8.0/slick.js') }}"></script>
 <script src="{{ asset('frontend/plugins/easing/easing.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="{{ asset('frontend/js/custom.js') }}"></script>
 @yield('scripts')
 
 <script type="text/javascript">
     $(document).ready(function (){
+        $('.addwishlist').on('click', function (){
+            var id = $(this).data('id');
+            if(id){
+                $.ajax({
+                    type    :'GET',
+                    url     : "{{ url('add/wishlist/') }}/"+id,
+                    dataType: 'json',
+                    success : function (data){
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: false,
+                            onOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            }
+                        });
+
+                        if($.isEmptyObject(data.error)){
+                            Toast.fire({
+                                icon: 'success',
+                                title: data.success
+                            })
+                        }else{
+                            Toast.fire({
+                                icon: 'warning',
+                                title: data.error
+                            })
+                        }
+                    }
+
+                });
+            }
+        });
         // Wishlist Icon
         $('.addwishlist').on('click', function(){
             $.ajax({

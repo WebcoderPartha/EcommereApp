@@ -19,11 +19,11 @@
                     <table id="post_table" class="table display responsive nowrap">
                         <thead>
                         <tr>
-                            <th class="wd-15p">Title English</th>
-                            <th class="wd-15p">Title Hindi</th>
-                            <th class="wd-15p">Category English</th>
-                            <th class="wd-15p">Image</th>
-                            <th class="wd-20p">Action</th>
+                            <th>Title English</th>
+                            <th>Title Hindi</th>
+                            <th>Category English</th>
+                            <th>Image</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
