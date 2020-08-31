@@ -25,6 +25,7 @@ Route::post('/my-account/update/password', 'UserController@updatePassword')->nam
 Route::get('/', 'PublicController@index')->name('frontent.home');
 
 Route::get('/my-account', 'HomeController@index')->name('myaccount');
+Route::get('/my-account/order/{order_id}/view', 'HomeController@orderView')->name('user.order.view');
 
 // Admin Routes
 Route::get('/admin/dashboard', 'Admin\AdminController@index')->name('admin.dashboard');
@@ -118,8 +119,16 @@ Route::middleware('auth:admin')->namespace('Admin')->group(function (){
 
 // Backend Order Routes
 Route::middleware('auth:admin')->namespace('Admin\Order')->group(function (){
-    Route::get('admin/pending/order', 'OrderController@pendingOrder')->name('pending.order');
-    Route::get('admin/view/order/{id}', 'OrderController@viewOrder')->name('view.order');
+    Route::get('admin/pending/order/all', 'OrderController@pendingOrder')->name('pending.order');
+    Route::get('admin/order/{id}/view', 'OrderController@viewOrder')->name('view.order');
+    Route::get('admin/payment/{id}/accept', 'OrderController@PaymentAccept')->name('order.accept');
+    Route::get('admin/payment/{id}/cancel', 'OrderController@PaymentCancel')->name('order.cancel');
+    Route::get('admin/order/payment/accept/all', 'OrderController@acceptedOrder')->name('payment.accept');
+    Route::get('admin/order/processing/all', 'OrderController@processDelivery')->name('process.delivery');
+    Route::get('admin/cancel/order/all', 'OrderController@cancelOrder')->name('cancel.order');
+    Route::get('admin/order/delivered/all', 'OrderController@deliveredOrder')->name('delivered.order');
+    Route::get('admin/order/{id}/process/delivery', 'OrderController@orderProcessDelivery')->name('order.process.delivery');
+    Route::get('admin/order/{id}/delivery/success', 'OrderController@orderDeliverySuccess')->name('order.delivery.success');
 });
 
 

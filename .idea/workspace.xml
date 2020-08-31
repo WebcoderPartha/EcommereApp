@@ -23,45 +23,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2141fe9-b887-4321-b185-bf0f7b896b40" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.rnd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Order/OrderController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/CategorywiseproductController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SubcategorywiseproductController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Orderdetail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Shipping.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_29_221514_create_orders_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_29_221555_create_orderdetails_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_29_221618_create_shippings_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/payment/mastercard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/payment/mollie.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/payment/paypal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/pending-order.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/view-order.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/category-products.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/payment.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/payment/stripe.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/subcategory-products.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ecommerce.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ecommerce.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/accepted-order.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/cancel-order.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/delivered-order.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/process-delivery.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/user-right-navbar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/user-order-view.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Order/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Order/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/admin-master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/admin-master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/coupon/coupon.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/coupon/coupon.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/newsletters/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/newsletters/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/post/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/post/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/order/view-order.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/order/view-order.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/change-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/change-password.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main-nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main-nav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/checkout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -254,7 +229,7 @@
       <workItem from="1598553350049" duration="12475000" />
       <workItem from="1598575690226" duration="2207000" />
       <workItem from="1598623817385" duration="14103000" />
-      <workItem from="1598727176974" duration="31461000" />
+      <workItem from="1598727176974" duration="45232000" />
     </task>
     <task id="LOCAL-00001" summary="checkout vat shipping charge done">
       <created>1598559946347</created>
@@ -299,10 +274,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="526" y="236" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1598553833593" />
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598745032838">
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598822330495">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1598745032838" />
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1598822330495" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1598553525229">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -331,9 +306,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1598805829792" />
-    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup" timestamp="1598811251294">
+    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup" timestamp="1598834911296">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598811251294" />
+    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598834911296" />
   </component>
 </project>

@@ -102,7 +102,10 @@
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
             <li class="nav-item"><a href="{{ route('pending.order') }}" class="nav-link">New Order</a></li>
-            <li class="nav-item"><a href="" class="nav-link">Others</a></li>
+            <li class="nav-item"><a href="{{ route('payment.accept') }}" class="nav-link">Payment Accept</a></li>
+            <li class="nav-item"><a href="{{ route('process.delivery') }}" class="nav-link">Process Delivery</a></li>
+            <li class="nav-item"><a href="{{ route('delivered.order') }}" class="nav-link">Delivered Order</a></li>
+            <li class="nav-item"><a href="{{ route('cancel.order') }}" class="nav-link">Cancel Order</a></li>
         </ul>
         <a href="#" class="sl-menu-link">
             <div class="sl-menu-item">

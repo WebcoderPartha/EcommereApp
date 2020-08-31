@@ -168,11 +168,33 @@
                                 </tbody>
                             </table>
                         </div>
+                        <div class="row mb-4">
+                            <div class="col-3"></div>
+                            <div class="col-md-3">
+                                @if($orders->status == 3 || $orders->status == 4 || $orders->status == 2 || $orders->status == 1)
+                                @else
+                                    <a href="{{ route('order.cancel', $orders->id) }}" class="btn btn-danger btn-block">Order Cancel</a>
+                                @endif
+                            </div>
+                            <div class="col-md-3">
+                            @if($orders->status == 0)
+                                <a href="{{ route('order.accept', $orders->id) }}" class="btn btn-primary btn-block">Payment Accept</a>
+                            @elseif($orders->status == 1)
+                               <a href="{{ route('order.process.delivery', $orders->id) }}" class="btn btn-primary btn-block">Process Delivery</a>
+                            @elseif($orders->status == 2)
+                                <a href="{{ route('order.delivery.success', $orders->id) }}" class="btn btn-primary btn-block">Delivery Success</a>
+                            @else
+                                <div class="alert alert-success">
+                                    <span>This Order delivered successfully.</span>
+                                </div>
+                            @endif
+                            </div>
+                            <div class="col-3"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div><!-- sl-pagebody -->
-
     </div><!-- sl-mainpanel -->
 
 @endsection
