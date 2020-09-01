@@ -63,7 +63,7 @@ class PaymentController extends Controller
             'currency' => 'usd',
             'description' => 'Ecommerce',
             'source' => $token,
-            'metadata' => ['order_id' => hexdec(uniqid())],
+            'metadata' => ['order_id' => mt_rand(10000000,99999999)],
             'billing_details' => [
                 'name' => $request->customername
             ]

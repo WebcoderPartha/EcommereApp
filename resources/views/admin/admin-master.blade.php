@@ -122,15 +122,81 @@
         <a href="#" class="sl-menu-link">
             <div class="sl-menu-item">
                 <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
+                <span class="menu-item-label">Reports</span>
+                <i class="menu-item-arrow fa fa-angle-down"></i>
+            </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <ul class="sl-menu-sub nav flex-column">
+            <li class="nav-item"><a href="{{ route('today.report') }}" class="nav-link">Today Order</a></li>
+            <li class="nav-item"><a href="{{ route('today.delivery') }}" class="nav-link">Today Delivery</a></li>
+            <li class="nav-item"><a href="{{ route('this.month') }}" class="nav-link">This Month</a></li>
+            <li class="nav-item"><a href="{{ route('search.report') }}" class="nav-link">Search Report</a></li>
+        </ul>
+        <a href="#" class="sl-menu-link">
+            <div class="sl-menu-item">
+                <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
+                <span class="menu-item-label">Users</span>
+                <i class="menu-item-arrow fa fa-angle-down"></i>
+            </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <ul class="sl-menu-sub nav flex-column">
+            <li class="nav-item"><a href="{{ route('admin.create.user') }}" class="nav-link">Create User</a></li>
+            <li class="nav-item"><a href="{{ route('admin.all.users') }}" class="nav-link">All User</a></li>
+        </ul>
+        <a href="#" class="sl-menu-link">
+            <div class="sl-menu-item">
+                <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
+                <span class="menu-item-label">Return Order</span>
+                <i class="menu-item-arrow fa fa-angle-down"></i>
+            </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <ul class="sl-menu-sub nav flex-column">
+            <li class="nav-item"><a href="{{ route('admin.return.orders') }}" class="nav-link">Return Request</a></li>
+            <li class="nav-item"><a href="{{ route('admin.all.order.return') }}" class="nav-link">All Request</a></li>
+        </ul>
+        <a href="#" class="sl-menu-link">
+            <div class="sl-menu-item">
+                <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
+                <span class="menu-item-label">Contact Message</span>
+                <i class="menu-item-arrow fa fa-angle-down"></i>
+            </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <ul class="sl-menu-sub nav flex-column">
+            <li class="nav-item"><a href="{{ route('admin.newsletter') }}" class="nav-link">New Message</a></li>
+            <li class="nav-item"><a href="{{ route('seo.admin') }}" class="nav-link">All Message</a></li>
+        </ul>
+        <a href="#" class="sl-menu-link">
+            <div class="sl-menu-item">
+                <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
+                <span class="menu-item-label">Product Comments</span>
+                <i class="menu-item-arrow fa fa-angle-down"></i>
+            </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <ul class="sl-menu-sub nav flex-column">
+            <li class="nav-item"><a href="{{ route('admin.newsletter') }}" class="nav-link">New Comment</a></li>
+            <li class="nav-item"><a href="{{ route('seo.admin') }}" class="nav-link">All Comment</a></li>
+        </ul>
+        <a href="#" class="sl-menu-link">
+            <div class="sl-menu-item">
+                <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
+                <span class="menu-item-label">Site Setting</span>
+                <i class="menu-item-arrow fa fa-angle-down"></i>
+            </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <ul class="sl-menu-sub nav flex-column">
+            <li class="nav-item"><a href="{{ route('admin.site.setting') }}" class="nav-link">Site Setting</a></li>
+        </ul>
+        <a href="#" class="sl-menu-link">
+            <div class="sl-menu-item">
+                <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
                 <span class="menu-item-label">Others</span>
                 <i class="menu-item-arrow fa fa-angle-down"></i>
             </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
             <li class="nav-item"><a href="{{ route('admin.newsletter') }}" class="nav-link">Newsletters</a></li>
+            <li class="nav-item"><a href="{{ route('seo.admin') }}" class="nav-link">SEO Setting</a></li>
         </ul>
-
-
     </div><!-- sl-sideleft-menu -->
 
     <br>

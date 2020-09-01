@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,13 +43,15 @@
     <header class="header">
 
         <!-- Top Bar -->
-
+    @php
+        $site_setting = \App\Sitesetting::first();
+    @endphp
         <div class="top_bar">
             <div class="container">
                 <div class="row">
                     <div class="col d-flex flex-row">
-                        <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{ asset('frontend/images/phone.png') }}" alt=""></div>+38 068 005 3570</div>
-                        <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{ asset('frontend/images/mail.png') }}" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
+                        <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{ asset('frontend/images/phone.png') }}" alt=""></div>{{ $site_setting->phone_one }}</div>
+                        <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{ asset('frontend/images/mail.png') }}" alt=""></div><a href="mailto:fastsales@gmail.com">{{ $site_setting->email }}</a></div>
                         <div class="top_bar_content ml-auto">
                             <div class="top_bar_menu">
                                 <ul class="standard_dropdown top_bar_dropdown">
@@ -63,6 +64,13 @@
                                             <a href="{{ route('language.hindi') }}"><img src="{{ asset('media/flag/bangladesh.png') }}" width="35" height="35" alt=""></a>
                                         </li>
                                     @endif
+                                </ul>
+                            </div>
+                            <div class="top_bar_menu">
+                                <ul class="standard_dropdown top_bar_dropdown">
+                                    <li>
+                                        <a href="#" data-toggle="modal" data-target="#OrderTracking">Track My Order</a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="top_bar_user">
@@ -132,21 +140,19 @@
                 <div class="col-lg-3 footer_col">
                     <div class="footer_column footer_contact">
                         <div class="logo_container">
-                            <div class="logo"><a href="#">Web Shop</a></div>
+                            <div class="logo"><a href="#">{{ $site_setting->company_name }}</a></div>
                         </div>
                         <div class="footer_title">Got Question? Call Us 24/7</div>
-                        <div class="footer_phone">+38 068 005 3570</div>
+                        <div class="footer_phone">{{ $site_setting->phone_two }}</div>
                         <div class="footer_contact_text">
-                            <p>17 Princess Road, London</p>
-                            <p>Grester London NW18JR, UK</p>
+                            <p>{{ $site_setting->company_address }}</p>
                         </div>
                         <div class="footer_social">
                             <ul>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google"></i></a></li>
-                                <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                                <li><a href="{{ $site_setting->facebook }}"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="{{ $site_setting->twitter }}"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="{{ $site_setting->youtube }}"><i class="fab fa-youtube"></i></a></li>
+                                <li><a href="{{ $site_setting->instagram }}"><i class="fab fa-instagram"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -223,6 +229,33 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Tracking Order Model -->
+<div class="modal fade" id="OrderTracking" tabindex="-1" role="dialog" aria-labelledby="ordertack" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center" id="ordertack">Track My Order</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('order.tracking') }}" method="POST">
+                @csrf
+            <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" name="order_id" class="form-control" placeholder="Enter your Order ID">
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Order Track</button>
+            </div>
+            </form>
         </div>
     </div>
 </div>

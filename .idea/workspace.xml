@@ -23,20 +23,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2141fe9-b887-4321-b185-bf0f7b896b40" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/accepted-order.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/cancel-order.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/delivered-order.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/process-delivery.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/user-right-navbar.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/user-order-view.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminRoleController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ReportController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ReturnOrderController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SitesettingController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ReturnOrderController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SeoController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Seo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Sitesetting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_31_122546_create_seos_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_01_144420_add_roles_colums_to_admins_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_01_173141_create_sitesettings_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_01_202638_add_return_order_column_to_orders_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/search-by-date.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/search-by-month.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/search-report.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/this-month.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/today-delivery.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/today-order.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/year-by-search.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/return/return-all-order.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/return/return_order.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/role/all-users.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/role/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/role/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/seo.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/site-setting.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/return-order.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/tracking-order.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Order/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Order/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/NewletterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/NewletterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PublicController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PublicController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/admin-master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/admin-master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/order/view-order.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/order/view-order.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/change-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/change-password.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/newsletters/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/newsletters/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/user-right-navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/user-right-navbar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/product-details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/product-details.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,6 +81,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="composer.json" />
         <option value="blade" />
       </list>
     </option>
@@ -229,7 +256,10 @@
       <workItem from="1598553350049" duration="12475000" />
       <workItem from="1598575690226" duration="2207000" />
       <workItem from="1598623817385" duration="14103000" />
-      <workItem from="1598727176974" duration="45232000" />
+      <workItem from="1598727176974" duration="45824000" />
+      <workItem from="1598876525706" duration="6851000" />
+      <workItem from="1598893274927" duration="12448000" />
+      <workItem from="1598960088099" duration="20895000" />
     </task>
     <task id="LOCAL-00001" summary="checkout vat shipping charge done">
       <created>1598559946347</created>
@@ -274,6 +304,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="526" y="236" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1598553833593" />
+    <state x="396" y="179" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1598983470219">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="396" y="179" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.0.1536.824@0.0.1536.824" timestamp="1598983470219" />
     <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598822330495">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -302,13 +336,13 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="478" y="11" width="579" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1598624384731" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1598805829792">
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1598992128930">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1598805829792" />
-    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup" timestamp="1598834911296">
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1598992128930" />
+    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup" timestamp="1598998006203">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598834911296" />
+    <state x="431" y="167" width="672" height="656" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598998006203" />
   </component>
 </project>

@@ -12,9 +12,8 @@
             <div class="sl-page-title">
                 <h5>Newsletters Table</h5>
             </div><!-- sl-page-title -->
-
             <div class="card pd-20 pd-sm-40">
-                <h5>Newsletter List <a href="#" class="btn btn-sm btn-warning pull-right">Delete All</a></h5>
+                <h5>Newsletter List <a href="{{ route('newslatter.delete') }}" class="btn btn-sm btn-warning pull-right">Delete All</a></h5>
                 <div class="table-wrapper">
                     <table id="datatable1" class="table display responsive nowrap">
                         <thead>
@@ -28,7 +27,7 @@
                         <tbody>
                         @foreach($newsletters as $key => $newsletter)
                             <tr>
-                                <td><input type="checkbox"> {{ $key + 1 }}</td>
+                                <td><input type="checkbox" name="id" value="{{ $newsletter->id }}"> {{ $key + 1 }}</td>
                                 <td>{{ $newsletter->email }}</td>
                                 <td>{{ $newsletter->created_at->diffForHumans() }}</td>
                                 <td>

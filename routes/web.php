@@ -115,6 +115,32 @@ Route::middleware('auth:admin')->namespace('Admin')->group(function (){
     Route::put('/admin/blog/category/edit/{id}', 'PostCategoryController@update')->name('admin.blog.category.update');
     Route::get('/admin/blog/category/delete/{id}', 'PostCategoryController@destroy')->name('admin.blog.category.destroy');
 
+    // Order Report Routes
+    Route::get('/admin/today/order', 'ReportController@todayReport')->name('today.report');
+    Route::get('/admin/today/delivery', 'ReportController@todayDelivery')->name('today.delivery');
+    Route::get('/admin/report/this-month', 'ReportController@thisMonth')->name('this.month');
+    Route::get('/admin/report/search', 'ReportController@searchReport')->name('search.report');
+    Route::post('/admin/report/search/year', 'ReportController@searchByYear')->name('search.by.year');
+    Route::post('/admin/report/search/month', 'ReportController@searchByMonth')->name('search.by.month');
+    Route::post('/admin/report/search/date', 'ReportController@searchByDate')->name('date.by.search');
+
+    // Admin All Users Routes
+    Route::get('admin/users/all', 'AdminRoleController@adminAllUsers')->name('admin.all.users');
+    Route::get('admin/create/user', 'AdminRoleController@adminCreateUser')->name('admin.create.user');
+    Route::post('admin/create/user/store', 'AdminRoleController@adminUserStore')->name('admin.create.stored');
+    Route::get('admin/create/user/edit/{id}', 'AdminRoleController@adminUserEdit')->name('admin.user.edit');
+    Route::put('admin/create/user/edit/{id}/update', 'AdminRoleController@adminUserUpdate')->name('admin.user.updates');
+    Route::get('admin/create/user/{id}/destroy', 'AdminRoleController@adminUserDestroy')->name('admin.users.destroy');
+
+    // Site Setting
+    Route::get('admin/site/setting', 'SitesettingController@siteSetting')->name('admin.site.setting');
+    Route::put('admin/site/setting/update', 'SitesettingController@siteSettingUpdate')->name('sitesetting.update');
+
+    // Return Order Routes
+    Route::get('admin/order/return/request', 'ReturnOrderController@orderReturnRequests')->name('admin.return.orders');
+    Route::get('admin/order/{id}/return/request/approve', 'ReturnOrderController@approveReturnOrder')->name('approve.return.order');
+    Route::get('admin/order/return/all', 'ReturnOrderController@returnOrderAll')->name('admin.all.order.return');
+
 });
 
 // Backend Order Routes
@@ -130,6 +156,10 @@ Route::middleware('auth:admin')->namespace('Admin\Order')->group(function (){
     Route::get('admin/order/{id}/process/delivery', 'OrderController@orderProcessDelivery')->name('order.process.delivery');
     Route::get('admin/order/{id}/delivery/success', 'OrderController@orderDeliverySuccess')->name('order.delivery.success');
 });
+
+// SEO Setting for Admin Panel
+Route::get('admin/seo', 'SeoController@seoSetting')->name('seo.admin');
+Route::put('admin/update/seo', 'SeoController@seoUpdate')->name('update.seo');
 
 
 // ALL FRONTEND ROUTES
@@ -187,4 +217,11 @@ Route::get('blog/{id}/post','PostController@show')->name('single.post');
 Route::get('/category/{id}/product/all','CategorywiseproductController@CategoryProducts')->name('category.products');
 // Subcategory wise products Page
 Route::get('/subcategory/{id}/product/all', 'SubcategorywiseproductController@SubcategoryProducts')->name('subcategory.products');
+
+// Tracking Order
+Route::post('/order/tracking', 'PublicController@orderTracking')->name('order.tracking');
+
+// Customer Return Order Routes
+Route::get('/my-account/return/orders', 'ReturnOrderController@viewReturnOrder')->name('customer.return.order');
+Route::get('/my-account/return/order/{id}/request', 'ReturnOrderController@returnOrderRequest')->name('return.order.request');
 

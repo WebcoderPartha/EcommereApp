@@ -7,6 +7,7 @@
                 <li class="list-group-item"><a href="{{ route('user.change.password') }}">Change Password</a></li>
                 <li class="list-group-item">Profile</li>
                 <li class="list-group-item"><a href="{{ route('myaccount') }}">Orders</a></li>
+                <li class="list-group-item"><a href="{{ route('customer.return.order') }}">Return Order</a></li>
             </ul>
         </div>
         <div class="card-body">

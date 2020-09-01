@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Category;
+use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
+use Yoeunes\Toastr\Facades\Toastr;
 
 class PublicController extends Controller
 {
@@ -43,4 +45,21 @@ class PublicController extends Controller
         return view('index', compact('slider', 'featured','recently', 'trends', 'bestRated', 'hotNew', 'product_cat','midSliders','brands', 'watch_products', 'watch_category', 'man_category', 'man_products', 'buyone_getone'));
 
     }
+
+    public function orderTracking(Request $request){
+        $order_id = $request->order_id;
+
+        $track_order = Order::where('order_id', $order_id)->first();
+
+        if ($track_order){
+            return view('pages.tracking-order', compact('track_order'));
+        }else{
+
+            Toastr::warning('Invalid Order ID');
+            return redirect()->back();
+
+        }
+
+    }
+
 }

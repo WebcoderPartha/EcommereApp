@@ -91,4 +91,7 @@ class NewletterController extends Controller
         Toastr::success($newsletter->email. ' data deleted successfully');
         return redirect()->back();
     }
+
+
+
 }

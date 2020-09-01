@@ -77,8 +77,9 @@
                                     <div class="product_price"><del>BDT{{ $product->selling_prize }}</del></div>
                                  @endif
                                 <div class="button_container">
-                                    <button type="submit" class="button cart_button">Add to Cart</button>
+                                    <button type="submit" class="button cart_button mb-lg-5">Add to Cart</button>
                                     <div class="product_fav"><i class="fas fa-heart"></i></div>
+                                    <!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_share_toolbox_k85c"></div>
                                 </div>
 
                             </form>
@@ -111,7 +112,9 @@
                                 <iframe width="600" height="400" src="{{ $product->video_link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             @endif
                         </div>
-                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                            <div class="fb-comments" data-href="{{ Request::URL() }}" data-numposts="5" data-width=""></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -186,8 +189,11 @@
             </div>
         </div>
     </div>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0" nonce="nkXON8W2"></script>
 @stop
 
 @section('scripts')
     <script src="{{ asset('frontend/js/product_custom.js')}}"></script>
+    <!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f4ec478d8b07adb"></script>
 @stop
