@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Admin;
+use App\Brand;
 use App\Http\Controllers\Controller;
+use App\Order;
+use App\Product;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -16,7 +20,19 @@ class AdminController extends Controller
 
     public function index(){
 
-        return view('admin.dashboard');
+        $today            = date('d-m-y');
+        $today_sales      = Order::where('date', $today)->sum('total');
+        $month            = date('F');
+        $this_month_sales = Order::where('status', 3)->where('month', $month)->sum('total');
+        $year             = date('Y');
+        $this_year_sales  = Order::where('status', 3)->where('year', $year)->sum('total');
+        $today_delivery   = Order::where('status', 3)->where('date', $today)->sum('total');
+        $return_order     = Order::where('return_order', 2)->sum('total');
+        $totalProduct     = Product::count();
+        $totalBrand       = Brand::count();
+        $totalCustomer    = User::count();
+
+        return view('admin.dashboard', compact('today_sales', 'this_month_sales', 'this_year_sales', 'today_delivery', 'return_order', 'totalProduct', 'totalBrand', 'totalCustomer'));
 
     }
 

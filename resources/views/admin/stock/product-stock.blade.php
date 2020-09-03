@@ -27,7 +27,6 @@
                             <th>Brand</th>
                             <th>Quantity</th>
                             <th>Status</th>
-                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -41,21 +40,11 @@
                                 <td>{{ $product->brand->brand_name }}</td>
                                 <td>{{$product->product_quantity}}</td>
                                 <td>
-                                @if($product->status == 1)
-                                    <span class="badge badge-success">Active</span>
-                                @else
-                                    <span class="badge badge-danger">Inactive</span>
-                                @endif
-                                </td>
-                                <td class="action">
-                                    <a href="{{ route('admin.product.edit', $product->id) }}" class="btn btn-info" title="Edit"><i class="fa fa-edit"></i></a>
-                                    <a href="{{ route('admin.product.destroy', $product->id) }}" class="btn btn-danger" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
-                                    <a href="{{ route('admin.product.show', $product->id) }}" class="btn btn-warning" title="Show" title="Show"><i class="fa fa-eye"></i></a>
-                                @if($product->status == 1)
-                                    <a href="{{ route('product.inactive', $product->id) }}" class="btn btn-danger" title="Inactive"><i class="fa fa-thumbs-down"></i></a>
-                                @else
-                                    <a href="{{ route('product.active', $product->id) }}" class="btn btn-info" title="Active"><i class="fa fa-thumbs-up"></i></a>
-                                @endif
+                                    @if($product->status == 1)
+                                        <span class="badge badge-success">Active</span>
+                                    @else
+                                        <span class="badge badge-danger">Inactive</span>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\InvoiceMail;
 use App\Order;
 use App\Orderdetail;
 use App\Setting;
@@ -9,6 +10,7 @@ use App\Shipping;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Stripe\Charge;
 use Yoeunes\Toastr\Facades\Toastr;
@@ -34,18 +36,78 @@ class PaymentController extends Controller
             return view('pages.payment.stripe', compact('data', 'carts', 'charge'));
 
         }elseif($request->payment == 'Paypal'){
+            #
+            return 'paypal';
 
-            return 'Paypal';
 
         }else{
 
-            return 'Cash on delivery';
+            $auth_email = Auth::user()->email;
+
+            $carts = Cart::content();
+
+
+            // Insert Order
+            $order = new Order;
+            $order->user_id = Auth::id();
+            $order->payment_type = $request->payment;
+            $order->order_id = mt_rand(10000000,99999999);
+            $order->discount = $request->discount;
+            $order->shipping_charge = $request->shipping_charge;
+            $order->vat = $request->vat;
+            $order->subtotal = $request->subtotal;
+            $order->total = $request->total;
+            $order->status = 0;
+            $order->date = date('d-m-y');
+            $order->month = date('F');
+            $order->year = date('Y');
+            $order->save();
+
+
+
+            // Insert Shipping Details
+            $shipping_details = new Shipping;
+            $shipping_details->order_id = $order->id;
+            $shipping_details->ship_name = $request->name;
+            $shipping_details->ship_phone = $request->phone;
+            $shipping_details->ship_email = $request->email;
+            $shipping_details->ship_address = $request->address;
+            $shipping_details->ship_city = $request->city;
+            $shipping_details->ship_zipecode = $request->postcode;
+            $shipping_details->ship_country = $request->country;
+            $shipping_details->save();
+
+            //Insert Order Details
+            foreach ($carts as $cart) {
+
+                $order_details = new Orderdetail;
+                $order_details->order_id = $order->id;
+                $order_details->product_id = $cart->id;
+                $order_details->product_name = $cart->name;
+                $order_details->color = $cart->options->color;
+                $order_details->size = $cart->options->size;
+                $order_details->qty = $cart->qty;
+                $order_details->single_price = $cart->price;
+                $order_details->total_price = $cart->price*$cart->qty;
+                $order_details->save();
+
+            }
+
+            // Invoice Send
+            Mail::to($auth_email)->send(new InvoiceMail($order, $carts, $shipping_details));
+
+            Cart::destroy();
+            Session::forget('coupon');
+            Toastr::success(' Order has been placed successfully');
+            return redirect()->route('frontent.home');
 
         }
 
     }
 
     public function stripePayment(Request $request){
+
+        $auth_email = Auth::user()->email;
 
         $carts = Cart::content();
         $total = $request->total;
@@ -88,6 +150,8 @@ class PaymentController extends Controller
         $order->year = date('Y');
         $order->save();
 
+
+
         // Insert Shipping Details
         $shipping_details = new Shipping;
         $shipping_details->order_id = $order->id;
@@ -116,6 +180,8 @@ class PaymentController extends Controller
 
         }
 
+        // Invoice Send
+        Mail::to($auth_email)->send(new InvoiceMail($order, $carts, $shipping_details));
 
         Cart::destroy();
         Session::forget('coupon');
@@ -124,5 +190,8 @@ class PaymentController extends Controller
 
 
     }
+
+
+
 
 }

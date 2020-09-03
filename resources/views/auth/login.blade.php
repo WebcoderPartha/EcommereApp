@@ -38,8 +38,8 @@
                         </form>
                         <br>
                         <a href="{{ route('password.request') }}">I forgot my password</a>
-                        <button type="submit" class="btn btn-primary btn-block mt-3"><i class="fab fa-facebook-square"></i> Login with Facebook</button>
-                        <button type="submit" class="btn btn-danger btn-block"><i class="fab fa-google"></i> Login with Google</button>
+                        <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-primary btn-block mt-3"><i class="fab fa-facebook-square"></i> Login with Facebook</a>
+                        <a href="{{ url('/auth/redirect/google') }}" class="btn btn-danger btn-block"><i class="fab fa-google"></i> Login with Google</a>
                     </div>
                 </div>
                 <div class="col-lg-5 offset-lg-1" style="border: 1px solid grey; padding: 20px; border-radius: 25px">

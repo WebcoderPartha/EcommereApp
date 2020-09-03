@@ -15,84 +15,94 @@
                         </div><!-- card-header -->
                         <div class="d-flex align-items-center justify-content-between">
                             <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
-                            <h3 class="mg-b-0 tx-white tx-lato tx-bold">$850</h3>
+                            <h3 class="mg-b-0 tx-white tx-lato tx-bold">{{ $today_sales }} BDT</h3>
                         </div><!-- card-body -->
-                        <div class="d-flex align-items-center justify-content-between mg-t-15 bd-t bd-white-2 pd-t-10">
-                            <div>
-                                <span class="tx-11 tx-white-6">Gross Sales</span>
-                                <h6 class="tx-white mg-b-0">$2,210</h6>
-                            </div>
-                            <div>
-                                <span class="tx-11 tx-white-6">Tax Return</span>
-                                <h6 class="tx-white mg-b-0">$320</h6>
-                            </div>
-                        </div><!-- -->
                     </div><!-- card -->
                 </div><!-- col-3 -->
                 <div class="col-sm-6 col-xl-3 mg-t-20 mg-sm-t-0">
                     <div class="card pd-20 bg-info">
-                        <div class="d-flex justify-content-between align-items-center mg-b-10">
-                            <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">This Week's Sales</h6>
-                            <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
-                        </div><!-- card-header -->
-                        <div class="d-flex align-items-center justify-content-between">
-                            <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
-                            <h3 class="mg-b-0 tx-white tx-lato tx-bold">$4,625</h3>
-                        </div><!-- card-body -->
-                        <div class="d-flex align-items-center justify-content-between mg-t-15 bd-t bd-white-2 pd-t-10">
-                            <div>
-                                <span class="tx-11 tx-white-6">Gross Sales</span>
-                                <h6 class="tx-white mg-b-0">$2,210</h6>
-                            </div>
-                            <div>
-                                <span class="tx-11 tx-white-6">Tax Return</span>
-                                <h6 class="tx-white mg-b-0">$320</h6>
-                            </div>
-                        </div><!-- -->
-                    </div><!-- card -->
-                </div><!-- col-3 -->
-                <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
-                    <div class="card pd-20 bg-purple">
                         <div class="d-flex justify-content-between align-items-center mg-b-10">
                             <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">This Month's Sales</h6>
                             <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
                         </div><!-- card-header -->
                         <div class="d-flex align-items-center justify-content-between">
                             <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
-                            <h3 class="mg-b-0 tx-white tx-lato tx-bold">$11,908</h3>
+                            <h3 class="mg-b-0 tx-white tx-lato tx-bold">{{ $this_month_sales }}</h3>
                         </div><!-- card-body -->
-                        <div class="d-flex align-items-center justify-content-between mg-t-15 bd-t bd-white-2 pd-t-10">
-                            <div>
-                                <span class="tx-11 tx-white-6">Gross Sales</span>
-                                <h6 class="tx-white mg-b-0">$2,210</h6>
-                            </div>
-                            <div>
-                                <span class="tx-11 tx-white-6">Tax Return</span>
-                                <h6 class="tx-white mg-b-0">$320</h6>
-                            </div>
-                        </div><!-- -->
                     </div><!-- card -->
                 </div><!-- col-3 -->
                 <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
-                    <div class="card pd-20 bg-sl-primary">
+                    <div class="card pd-20 bg-orange">
                         <div class="d-flex justify-content-between align-items-center mg-b-10">
                             <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">This Year's Sales</h6>
                             <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
                         </div><!-- card-header -->
                         <div class="d-flex align-items-center justify-content-between">
                             <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
-                            <h3 class="mg-b-0 tx-white tx-lato tx-bold">$91,239</h3>
+                            <h3 class="mg-b-0 tx-white tx-lato tx-bold">{{ $this_year_sales }} BDT</h3>
                         </div><!-- card-body -->
-                        <div class="d-flex align-items-center justify-content-between mg-t-15 bd-t bd-white-2 pd-t-10">
-                            <div>
-                                <span class="tx-11 tx-white-6">Gross Sales</span>
-                                <h6 class="tx-white mg-b-0">$2,210</h6>
-                            </div>
-                            <div>
-                                <span class="tx-11 tx-white-6">Tax Return</span>
-                                <h6 class="tx-white mg-b-0">$320</h6>
-                            </div>
-                        </div><!-- -->
+                    </div><!-- card -->
+                </div><!-- col-3 -->
+                <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+                    <div class="card pd-20 bg-warning">
+                        <div class="d-flex justify-content-between align-items-center mg-b-10">
+                            <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">Today Delivery</h6>
+                            <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
+                        </div><!-- card-header -->
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
+                            <h3 class="mg-b-0 tx-white tx-lato tx-bold">{{ $today_delivery }} BDT</h3>
+                        </div><!-- card-body -->
+                    </div><!-- card -->
+                </div><!-- col-3 -->
+            </div><!-- row -->
+            <div class="row row-sm mt-4">
+                <div class="col-sm-6 col-xl-3">
+                    <div class="card pd-20 bg-danger">
+                        <div class="d-flex justify-content-between align-items-center mg-b-10">
+                            <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">Total Return Revenue</h6>
+                            <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
+                        </div><!-- card-header -->
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
+                            <h3 class="mg-b-0 tx-white tx-lato tx-bold">{{ $return_order }} BDT</h3>
+                        </div><!-- card-body -->
+                    </div><!-- card -->
+                </div><!-- col-3 -->
+                <div class="col-sm-6 col-xl-3 mg-t-20 mg-sm-t-0">
+                    <div class="card pd-20 bg-info">
+                        <div class="d-flex justify-content-between align-items-center mg-b-10">
+                            <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">Total Product</h6>
+                            <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
+                        </div><!-- card-header -->
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
+                            <h3 class="mg-b-0 tx-white tx-lato tx-bold">{{ $totalProduct }}</h3>
+                        </div><!-- card-body -->
+                    </div><!-- card -->
+                </div><!-- col-3 -->
+                <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+                    <div class="card pd-20 bg-purple">
+                        <div class="d-flex justify-content-between align-items-center mg-b-10">
+                            <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">Total Brand</h6>
+                            <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
+                        </div><!-- card-header -->
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
+                            <h3 class="mg-b-0 tx-white tx-lato tx-bold">{{ $totalBrand }}</h3>
+                        </div><!-- card-body -->
+                    </div><!-- card -->
+                </div><!-- col-3 -->
+                <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+                    <div class="card pd-20 bg-success">
+                        <div class="d-flex justify-content-between align-items-center mg-b-10">
+                            <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">Total Customer</h6>
+                            <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
+                        </div><!-- card-header -->
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
+                            <h3 class="mg-b-0 tx-white tx-lato tx-bold">{{ $totalCustomer }}</h3>
+                        </div><!-- card-body -->
                     </div><!-- card -->
                 </div><!-- col-3 -->
             </div><!-- row -->

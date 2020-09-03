@@ -1,5 +1,6 @@
 <?php
 
+use App\Mail\Bal;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,11 +16,21 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['verify' => true]);
 
+// Test mail
+Route::get('test', function (){
+   return new \App\Mail\Test();
+});
+
 // User Auth
 Route::get('/logout','UserController@LogOut')->name('logout.user');
 Route::post('/user/login', 'Auth\LoginController@user_login')->name('user.login');
 Route::get('/my-account/change/password', 'UserController@changePassword')->name('user.change.password');
 Route::post('/my-account/update/password', 'UserController@updatePassword')->name('update.password');
+
+// Socialite Route
+Route::get('/auth/redirect/{provider}', 'SocialiteController@redirect');
+Route::get('/callback/{provider}', 'SocialiteController@callback');
+
 
 //Frontend
 Route::get('/', 'PublicController@index')->name('frontent.home');
@@ -79,7 +90,7 @@ Route::middleware('auth:admin')->namespace('Admin')->group(function (){
 
 // Backend All Products Routes
 Route::middleware('auth:admin')->namespace('Admin\Product')->group(function (){
-
+    // Admin Product Route
     Route::get('/admin/product/all', 'ProductController@index')->name('admin.product.all');
     Route::get('/admin/product/new', 'ProductController@create')->name('admin.create.product');
     Route::post('/admin/product/store', 'ProductController@store')->name('admin.product.store');
@@ -95,6 +106,8 @@ Route::middleware('auth:admin')->namespace('Admin\Product')->group(function (){
     // Get Subcategory AJAX
     Route::get('/admin/get/subcategory/{category_id}', 'ProductController@getSubcategory')->name('get.subcategories');
 
+    // Product Stock Route
+    Route::get('admin/product/stock', 'ProductStockController@productStockShow')->name('product.stock.show');
 });
 
 // Backend Post & Post Category
@@ -140,6 +153,9 @@ Route::middleware('auth:admin')->namespace('Admin')->group(function (){
     Route::get('admin/order/return/request', 'ReturnOrderController@orderReturnRequests')->name('admin.return.orders');
     Route::get('admin/order/{id}/return/request/approve', 'ReturnOrderController@approveReturnOrder')->name('approve.return.order');
     Route::get('admin/order/return/all', 'ReturnOrderController@returnOrderAll')->name('admin.all.order.return');
+
+    // Contact
+    Route::get('/admin/contact/messages', 'ContactController@AllMessages')->name('admin.message.all');
 
 });
 
@@ -224,4 +240,11 @@ Route::post('/order/tracking', 'PublicController@orderTracking')->name('order.tr
 // Customer Return Order Routes
 Route::get('/my-account/return/orders', 'ReturnOrderController@viewReturnOrder')->name('customer.return.order');
 Route::get('/my-account/return/order/{id}/request', 'ReturnOrderController@returnOrderRequest')->name('return.order.request');
+
+// Contact Page Route
+Route::get('/contact', 'ContactController@contactPage')->name('contact.page');
+Route::post('/contact/sent', 'ContactController@sendMessage')->name('send.message');
+
+// Search Product
+Route::post('product/search', 'PublicController@searchProduct')->name('search.for.product');
 

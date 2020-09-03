@@ -20,8 +20,9 @@
                 <div class="header_search">
                     <div class="header_search_content">
                         <div class="header_search_form_container">
-                            <form action="#" class="header_search_form clearfix">
-                                <input type="search" required="required" class="header_search_input" placeholder="Search for products...">
+                            <form action="{{ route('search.for.product') }}"  method="POST" class="header_search_form clearfix">
+                                @csrf
+                                <input type="search" required="required"  name="search_product" class="header_search_input" placeholder="Search for products...">
                                 <div class="custom_dropdown">
                                     <div class="custom_dropdown_list">
                                         <span class="custom_dropdown_placeholder clc">All Categories</span>
@@ -116,7 +117,7 @@
                         <ul class="standard_dropdown main_nav_dropdown">
                             <li><a href="#">Home<i class="fas fa-chevron-down"></i></a></li>
                             <li><a href="{{ route('blog.post') }}">Blog<i class="fas fa-chevron-down"></i></a></li>
-                            <li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
+                            <li><a href="{{ route('contact.page') }}">Contact<i class="fas fa-chevron-down"></i></a></li>
                         </ul>
                     </div>
 
@@ -209,8 +210,8 @@
                                 <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
                             </ul>
                         </li>
-                        <li class="page_menu_item"><a href="{{ route('blog.post') }}">blog<i class="fa fa-angle-down"></i></a></li>
-                        <li class="page_menu_item"><a href="contact.html">contact<i class="fa fa-angle-down"></i></a></li>
+                        <li class="page_menu_item"><a href="{{ route('blog.post') }}">Blog<i class="fa fa-angle-down"></i></a></li>
+                        <li class="page_menu_item"><a href="{{ route('contact.page') }}">Contact<i class="fa fa-angle-down"></i></a></li>
                     </ul>
 
                     <div class="menu_contact">

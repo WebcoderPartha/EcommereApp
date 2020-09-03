@@ -3,10 +3,16 @@
 namespace App\Http\Controllers\Admin\Order;
 
 use App\Http\Controllers\Controller;
+use App\Mail\AcceptPayment;
 use App\Order;
 use App\Orderdetail;
+use App\Product;
 use App\Shipping;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Yoeunes\Toastr\Facades\Toastr;
 
 class OrderController extends Controller
@@ -33,19 +39,12 @@ class OrderController extends Controller
         $accept_payment = Order::findOrFail($id);
         $accept_payment->status = 1;
         $accept_payment->save();
+        $user_email = User::where('id', $accept_payment->user_id)->first();
+        $orderdetails = Orderdetail::where('order_id', $id)->get();
+
+        Mail::to($user_email)->send(new AcceptPayment($orderdetails));
 
         Toastr::success('Order has been accepted');
-        return redirect()->route('pending.order');
-
-    }
-
-    public function PaymentCancel($id){
-
-        $canel_payment = Order::findOrFail($id);
-        $canel_payment->status = 4;
-        $canel_payment->save();
-
-        Toastr::success('Order has been cancelled');
         return redirect()->route('pending.order');
 
     }
@@ -57,17 +56,24 @@ class OrderController extends Controller
 
     }
 
-    public function cancelOrder(){
 
-        $cancel_order = Order::where('status', 4)->get();
-        return view('admin.order.cancel-order', compact('cancel_order'));
 
-    }
+    public function orderDeliverySuccess($id){
 
-    public function processDelivery(){
+        // Product Quantity Reduce From Product Table
+        $products = Orderdetail::where('order_id',$id)->get();
+        foreach ($products as $product){
+            Product::where('id', $product->product_id)->update([
+                'product_quantity' => DB::raw('product_quantity-'.$product->qty)
+            ]);
+        }
 
-        $process_delivery = Order::where('status', 2)->get();
-        return view('admin.order.process-delivery', compact('process_delivery'));
+        $deliverySuccess = Order::findOrFail($id);
+        $deliverySuccess->status = 3;
+        $deliverySuccess->save();
+
+        Toastr::success('Order delivery done');
+        return redirect()->route('delivered.order');
 
     }
 
@@ -89,15 +95,32 @@ class OrderController extends Controller
 
     }
 
-    public function orderDeliverySuccess($id){
+    public function processDelivery(){
 
-        $deliverySuccess = Order::findOrFail($id);
-        $deliverySuccess->status = 3;
-        $deliverySuccess->save();
-
-        Toastr::success('Order delivery done');
-        return redirect()->route('delivered.order');
+        $process_delivery = Order::where('status', 2)->get();
+        return view('admin.order.process-delivery', compact('process_delivery'));
 
     }
+
+
+    public function PaymentCancel($id){
+
+        $canel_payment = Order::findOrFail($id);
+        $canel_payment->status = 4;
+        $canel_payment->save();
+
+        Toastr::success('Order has been cancelled');
+        return redirect()->route('pending.order');
+
+    }
+
+
+    public function cancelOrder(){
+
+        $cancel_order = Order::where('status', 4)->get();
+        return view('admin.order.cancel-order', compact('cancel_order'));
+
+    }
+
 
 }

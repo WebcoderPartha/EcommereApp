@@ -62,4 +62,17 @@ class PublicController extends Controller
 
     }
 
+    public function searchProduct(Request $request){
+        $categories = Category::all();
+        $brands = Brand::all();
+
+        $search = $request->search_product;
+
+        $search_product = Product::where('product_name', 'LIKE', "%$search%")
+            ->orWhere('product_color', 'LIKE', "%$search%")->paginate(20);
+
+        return view('pages.search-product', compact('search_product', 'search', 'categories', 'brands'));
+
+    }
+
 }

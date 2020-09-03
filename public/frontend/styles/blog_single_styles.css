@@ -105,11 +105,11 @@ p a:hover::after
 }
 ::selection
 {
-	
+
 }
 p::selection
 {
-	
+
 }
 h1{font-size: 48px;}
 h2{font-size: 36px;}
@@ -124,14 +124,14 @@ h1, h2, h3, h4, h5, h6
 	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
-h1::selection, 
-h2::selection, 
-h3::selection, 
-h4::selection, 
-h5::selection, 
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
 h6::selection
 {
-	
+
 }
 .form-control
 {
@@ -597,21 +597,21 @@ section
 	line-height: 50px;
 	color: #a3a3a3 !important;
 }
-.header_search_input::-moz-placeholder /* Firefox 19+ */ 
+.header_search_input::-moz-placeholder /* Firefox 19+ */
 {
 	font-size: 16px !important;
 	font-weight: 300;
 	line-height: 50px;
 	color: #a3a3a3 !important;
-} 
+}
 .header_search_input:-ms-input-placeholder
-{ 
+{
 	font-size: 16px !important;
 	font-weight: 300;
 	line-height: 50px;
 	color: #a3a3a3 !important;
 }
-.header_search_input::input-placeholder
+.header_search_input
 {
 	font-size: 16px !important;
 	font-weight: 300;
@@ -664,7 +664,7 @@ section
 }
 .custom_dropdown_placeholder i
 {
-	
+
 }
 .custom_list
 {
@@ -1265,7 +1265,7 @@ select option
 }
 .quote_image
 {
-	
+
 }
 .quote_text
 {
@@ -1453,13 +1453,13 @@ select option
 {
 	font-size: 16px;
 	color: rgba(0,0,0,0.3);
-} 
+}
 .newsletter_input:-ms-input-placeholder
-{ 
+{
 	font-size: 16px;
 	color: rgba(0,0,0,0.3);
 }
-.newsletter_input::input-placeholder
+.newsletter_input
 {
 	font-size: 16px;
 	color: rgba(0,0,0,0.3);
@@ -1520,15 +1520,7 @@ select option
 	margin-bottom: 18px;
 	margin-top: -10px;
 }
-.footer .logo
-{
-	top: auto;
-	-webkit-transform: transform: none;
-    -moz-transform: transform: none;
-    -ms-transform: transform: none;
-    -o-transform: transform: none;
-    transform: none;
-}
+
 .footer .logo a
 {
 	color: #000000;
@@ -1618,7 +1610,7 @@ select option
 }
 .footer_list_2
 {
-	margin-top: 42px !important; 
+	margin-top: 42px !important;
 }
 
 .copyright
@@ -1642,7 +1634,7 @@ select option
 }
 .logos
 {
-	
+
 }
 .logos_list li
 {

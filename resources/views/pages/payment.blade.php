@@ -134,6 +134,38 @@
                         <div class="cart_items mb-3">
                             <form method="POST" action="{{ route('payment.success') }}">
                                 @csrf
+                                <input type="hidden" name="shipping_charge" value="{{ $charge->shipping_charge }}">
+                                <input type="hidden" name="vat" value="{{ $charge->vat }}">
+                                @if(Session::has('coupon'))
+                                    <input type="hidden" name="subtotal" value="{{ Session::get('coupon')['balance'] }}">
+                                @else
+                                    <input type="hidden" name="subtotal" value="{{ Cart::subtotal() }}">
+                                @endif
+                                @if(Session::has('coupon'))
+                                    <input type="hidden" name="discount" value="{{ Session::get('coupon')['discount'] }}">
+                                @endif
+                                @if(Session::has('coupon'))
+                                    @if(!$charge->vat == NULL &&  !$charge->shipping_charge == NULL)
+                                        <input type="hidden" name="total" value="{{ Session::get('coupon')['balance'] + $charge->vat + $charge->shipping_charge}}">
+                                    @elseif($charge->vat == NULL && !$charge->shipping_charge == NULL)
+                                        <input type="hidden" name="total" value="{{ Session::get('coupon')['balance'] + $charge->shipping_charge}}">
+                                    @elseif(!$charge->vat == NULL && $charge->shipping_charge == NULL)
+                                        <input type="hidden" name="total" value="{{ Session::get('coupon')['balance'] + $charge->vat}}">
+                                    @else
+                                        <input type="hidden" name="total" value="{{ Session::get('coupon')['balance']}}">
+                                    @endif
+                                @else
+                                    @if(!$charge->vat == NULL && !$charge->shipping_charge == NULL)
+                                        <input type="hidden" name="total" value="{{ Cart::subtotal() + $charge->vat + $charge->shipping_charge }}">
+                                    @elseif($charge->vat == NULL && !$charge->shipping_charge == NULL)
+                                        <input type="hidden" name="total" value="{{ Cart::subtotal() + $charge->shipping_charge }}">
+                                    @elseif(!$charge->vat == NULL && $charge->shipping_charge == NULL)
+                                        <input type="hidden" name="total" value="{{ Cart::subtotal() + $charge->vat }}">
+                                    @else
+                                        <input type="hidden" name="total" value="{{ Cart::subtotal() }}">
+                                    @endif
+                                @endif
+
                                 <div class="form-group">
                                     <label for="name">Full Name</label>
                                     <input type="text" class="form-control" name="name" placeholder="Enter full name">
@@ -173,7 +205,7 @@
                                     <ul class="logos_list border">
                                         <li><input type="radio" name="payment" value="Stripe"><img src="{{ asset('media/payment/mastercard.png') }}" alt="" width="80" height="60"></li>
                                         <li><input type="radio" name="payment" value="Paypal"><img src="{{ asset('media/payment/paypal.png') }}" alt="" width="80" height="60"></li>
-                                        <li><input type="radio" name="payment" value="Cash"><img src="{{ asset('media/payment/mollie.png') }}" alt="" width="80" height="60"></li>
+                                        <li><input type="radio" name="payment" value="Cash On Delivery"><img src="{{ asset('media/payment/mollie.png') }}" alt="" width="80" height="60"></li>
                                     </ul>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Pay Now</button>
@@ -190,4 +222,15 @@
 
 @section('scripts')
     <script src="{{ asset('frontend/js/cart_custom.js')}}"></script>
+    <script>
+        (function (window, document) {
+            var loader = function () {
+                var script = document.createElement("script"), tag = document.getElementsByTagName("script")[0];
+                script.src = "https://sandbox.sslcommerz.com/embed.min.js?" + Math.random().toString(36).substring(7);
+                tag.parentNode.insertBefore(script, tag);
+            };
+
+            window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
+        })(window, document);
+    </script>
 @stop
